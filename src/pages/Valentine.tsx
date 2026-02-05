@@ -16,7 +16,7 @@ const Valentine = () => {
       <Navigation />
       
       {/* Valentine Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20">
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32">
         {/* Diamond Pattern Background */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
@@ -42,13 +42,17 @@ const Valentine = () => {
             </span>
           </div>
 
-          {/* Red Spade Logo */}
+          {/* Red Spade Logo - no background, just the spade with glow */}
           <div className="flex justify-center mb-6">
             <img 
               src={redSpadeLogo} 
               alt="Ace Wardrobe" 
-              className="w-28 h-32 md:w-36 md:h-40 object-contain glow-pulse"
-              style={{ filter: 'drop-shadow(0 0 30px hsl(348, 76%, 44%, 0.6))' }}
+              className="w-28 h-32 md:w-36 md:h-40 glow-pulse"
+              style={{ 
+                filter: 'drop-shadow(0 0 30px hsl(348, 76%, 44%, 0.6))',
+                background: 'transparent',
+                mixBlendMode: 'normal'
+              }}
             />
           </div>
 

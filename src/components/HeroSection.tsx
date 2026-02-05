@@ -32,7 +32,7 @@ export const HeroSection: FC = () => {
       {/* Tribal Pattern Overlay */}
       <div className="tribal-overlay" />
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10 text-center py-32">
+      <div className="container mx-auto px-4 md:px-8 relative z-10 text-center pt-40 pb-32">
         {/* Valentine Badge with Link to Valentine page */}
         <div className="opacity-0 animate-fade-in-up animation-delay-100">
           <Link to="/valentine" className="inline-block">
@@ -45,13 +45,17 @@ export const HeroSection: FC = () => {
           </Link>
         </div>
 
-        {/* Red Spade Logo */}
+        {/* Red Spade Logo - no background, just the spade with glow */}
         <div className="opacity-0 animate-fade-in-up animation-delay-200 mb-6">
           <img 
             src={redSpadeLogo} 
             alt="Ace Wardrobe" 
-            className="mx-auto w-28 h-32 md:w-36 md:h-40 object-contain glow-pulse"
-            style={{ filter: 'drop-shadow(0 0 30px hsl(348, 76%, 44%, 0.6))' }}
+            className="mx-auto w-28 h-32 md:w-36 md:h-40 glow-pulse"
+            style={{ 
+              filter: 'drop-shadow(0 0 30px hsl(348, 76%, 44%, 0.6))',
+              background: 'transparent',
+              mixBlendMode: 'normal'
+            }}
           />
         </div>
 
