@@ -1,8 +1,8 @@
 import { FC, useState, useEffect, useRef } from "react";
 import { ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
-import { SpadeIcon } from "./icons/SpadeIcon";
 import { Button } from "./ui/button";
+import aceLogo from "@/assets/ace-logo.jpg";
 
 const AnimatedNavLink = ({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) => {
   const isExternal = href.startsWith('http');
@@ -79,12 +79,13 @@ export const Navigation: FC = () => {
   ];
 
   const logoElement = (
-    <Link to="/" className="flex items-center gap-2 group">
-      <SpadeIcon 
-        size={32} 
-        className="transition-all duration-300 group-hover:scale-110 glow-pulse" 
+    <Link to="/" className="flex items-center gap-3 group">
+      <img 
+        src={aceLogo} 
+        alt="Ace Wardrobe Logo" 
+        className="w-8 h-8 object-contain transition-all duration-300 group-hover:scale-110" 
       />
-      <span className="hidden md:block font-display text-lg font-semibold tracking-wide text-foreground">
+      <span className="hidden md:block font-display text-base font-semibold tracking-wide text-foreground whitespace-nowrap">
         Ace Wardrobe
       </span>
     </Link>
@@ -94,21 +95,21 @@ export const Navigation: FC = () => {
     <header 
       className={`fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 z-50
                  flex flex-col items-center
-                 px-4 md:px-6 py-2.5 md:py-3 backdrop-blur-sm
+                 px-5 md:px-8 py-2.5 md:py-3 backdrop-blur-sm
                  ${headerShapeClass}
                  border border-border/50 bg-background/60
-                 w-[calc(100%-1.5rem)] md:w-auto
+                 w-[calc(100%-1.5rem)] md:w-auto md:min-w-[700px] lg:min-w-[850px]
                  transition-[border-radius,background] duration-300 ease-in-out
                  ${isScrolled ? 'bg-background/80' : ''}`}
     >
-      <div className="flex items-center justify-between w-full gap-x-4 md:gap-x-8">
+      <div className="flex items-center justify-between w-full gap-x-6 md:gap-x-10">
         {/* Logo */}
-        <div className="flex items-center">
+        <div className="flex items-center flex-shrink-0">
           {logoElement}
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-4 md:space-x-6">
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           {navLinks.map((link) => (
             <AnimatedNavLink key={link.href} href={link.href}>
               {link.label}
@@ -117,7 +118,7 @@ export const Navigation: FC = () => {
         </nav>
 
         {/* Right Side Actions */}
-        <div className="hidden lg:flex items-center gap-2 md:gap-3">
+        <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
           <a href="#" className="p-2 text-muted-foreground hover:text-foreground transition-colors">
             <ShoppingBag size={20} />
           </a>
@@ -130,6 +131,7 @@ export const Navigation: FC = () => {
               href="https://wa.me/2347039178489"
               target="_blank"
               rel="noopener noreferrer"
+              className="whitespace-nowrap"
             >
               Book Appointment
             </a>
