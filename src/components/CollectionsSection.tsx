@@ -68,7 +68,7 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection, index, isLarge })
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-2xl cursor-pointer ${isLarge ? 'aspect-[3/4] md:aspect-[4/5]' : 'aspect-[4/5]'}`}
+      className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[3/4]"
       style={{ animationDelay: `${index * 0.1}s` }}
       onClick={handleClick}
     >
@@ -153,14 +153,14 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection, index, isLarge })
 
 export const CollectionsSection: FC = () => {
   return (
-    <section id="collections" className="py-20 md:py-32 bg-card relative overflow-hidden">
+    <section id="collections" className="py-20 md:py-28 bg-card relative overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute top-0 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
+      <div className="max-w-[1200px] mx-auto px-5 md:px-10 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-12 md:mb-14">
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/50" />
             <span className="text-primary text-2xl">♠</span>
@@ -175,21 +175,11 @@ export const CollectionsSection: FC = () => {
           </p>
         </div>
 
-        {/* Masonry-style Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {/* First two cards - taller */}
-          <div className="lg:col-span-2 lg:row-span-1">
-            <CollectionCard collection={collections[0]} index={0} isLarge />
-          </div>
-          
-          {/* Regular cards */}
-          <CollectionCard collection={collections[1]} index={1} />
-          <CollectionCard collection={collections[2]} index={2} />
-          
-          {/* Couple's Edit - spans full width on mobile, 2 cols on desktop */}
-          <div className="md:col-span-2 lg:col-span-2">
-            <CollectionCard collection={collections[3]} index={3} isLarge />
-          </div>
+        {/* Clean 2x2 Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {collections.map((collection, index) => (
+            <CollectionCard key={collection.title} collection={collection} index={index} />
+          ))}
         </div>
       </div>
 
