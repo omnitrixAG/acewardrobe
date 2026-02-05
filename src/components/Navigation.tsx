@@ -8,11 +8,13 @@ const AnimatedNavLink = ({ href, children, onClick }: { href: string; children: 
   const isExternal = href.startsWith('http');
   const isRouterLink = href.startsWith('/');
   
-  const linkClasses = "group relative inline-block overflow-hidden h-5 flex items-center text-sm";
+  const linkClasses = "group relative overflow-hidden text-sm whitespace-nowrap";
   const innerContent = (
-    <div className="flex flex-col transition-transform duration-300 ease-out transform group-hover:-translate-y-1/2">
-      <span className="text-muted-foreground">{children}</span>
-      <span className="text-foreground">{children}</span>
+    <div className="relative h-5 overflow-hidden">
+      <div className="flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-1/2">
+        <span className="h-5 flex items-center text-muted-foreground">{children}</span>
+        <span className="h-5 flex items-center text-foreground">{children}</span>
+      </div>
     </div>
   );
 
