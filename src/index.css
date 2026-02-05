@@ -383,6 +383,32 @@
     content: '♠';
     @apply mr-2 text-primary;
   }
+
+  /* Fashion Tech Card */
+  .fashion-tech-card {
+    background: linear-gradient(
+      145deg,
+      hsla(0, 0%, 8%, 0.95) 0%,
+      hsla(0, 0%, 5%, 0.98) 100%
+    );
+    border: 1px solid hsla(0, 0%, 20%, 0.5);
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+  }
+
+  .fashion-tech-card:hover {
+    border-color: hsla(348, 76%, 44%, 0.3);
+    box-shadow: 0 0 30px hsla(348, 76%, 44%, 0.1);
+  }
+
+  /* Hide scrollbar for color swatches */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer utilities {
