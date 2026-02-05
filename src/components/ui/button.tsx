@@ -41,6 +41,21 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, neon = true, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
+    
+    // When using asChild, we can't add extra children - just pass through
+    if (asChild) {
+      return (
+        <Comp
+          className={cn(buttonVariants({ variant, size }), className)}
+          ref={ref}
+          {...props}
+        >
+          {children}
+        </Comp>
+      );
+    }
+    
+    // Regular button with neon effects
     return (
       <Comp
         className={cn(buttonVariants({ variant, size }), className)}
@@ -48,20 +63,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {/* Top neon glow line */}
-        <span
-          className={cn(
-            "absolute h-px opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out inset-x-0 inset-y-0 bg-gradient-to-r w-3/4 mx-auto from-transparent via-primary to-transparent hidden",
-            neon && "block"
-          )}
-        />
+        {neon && (
+          <span className="absolute h-px opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out inset-x-0 inset-y-0 bg-gradient-to-r w-3/4 mx-auto from-transparent via-primary to-transparent" />
+        )}
         {children}
         {/* Bottom neon glow line */}
-        <span
-          className={cn(
-            "absolute group-hover:opacity-30 transition-all duration-500 ease-in-out inset-x-0 h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-primary to-transparent hidden",
-            neon && "block"
-          )}
-        />
+        {neon && (
+          <span className="absolute group-hover:opacity-30 transition-all duration-500 ease-in-out inset-x-0 h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-primary to-transparent" />
+        )}
       </Comp>
     );
   }
