@@ -1,0 +1,68 @@
+import { FC, useEffect, useState } from "react";
+
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
+export const CountdownTimer: FC = () => {
+  const targetDate = new Date("2026-02-16T10:00:00").getTime();
+  
+  const calculateTimeLeft = (): TimeLeft => {
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
+
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+      seconds: Math.floor((difference % (1000 * 60)) / 1000),
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  const [flip, setFlip] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+      setFlip(true);
+      setTimeout(() => setFlip(false), 300);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const TimeUnit: FC<{ value: number; label: string }> = ({ value, label }) => (
+    <div className="countdown-card min-w-[70px] md:min-w-[90px]">
+      <span 
+        className={`text-3xl md:text-5xl font-display font-bold text-foreground transition-transform ${
+          flip && label === "Seconds" ? "animate-flip" : ""
+        }`}
+      >
+        {String(value).padStart(2, "0")}
+      </span>
+      <span className="text-xs md:text-sm font-body text-muted-foreground tracking-widest uppercase mt-1">
+        {label}
+      </span>
+    </div>
+  );
+
+  return (
+    <div className="flex gap-3 md:gap-4 justify-center">
+      <TimeUnit value={timeLeft.days} label="Days" />
+      <div className="flex items-center text-2xl md:text-4xl text-muted-foreground font-light">:</div>
+      <TimeUnit value={timeLeft.hours} label="Hours" />
+      <div className="flex items-center text-2xl md:text-4xl text-muted-foreground font-light">:</div>
+      <TimeUnit value={timeLeft.minutes} label="Minutes" />
+      <div className="flex items-center text-2xl md:text-4xl text-muted-foreground font-light">:</div>
+      <TimeUnit value={timeLeft.seconds} label="Seconds" />
+    </div>
+  );
+};
