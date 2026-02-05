@@ -43,8 +43,8 @@ export const CountdownTimer: FC = () => {
   const TimeUnit: FC<{ value: number; label: string }> = ({ value, label }) => (
     <div className="countdown-card-enhanced min-w-[70px] md:min-w-[100px]">
       <span 
-        className={`text-3xl md:text-5xl font-display font-bold text-foreground transition-transform ${
-          flip && label === "Seconds" ? "animate-flip" : ""
+        className={`text-3xl md:text-5xl font-display font-bold text-foreground transition-all duration-300 ${
+          flip ? "animate-number-flip" : ""
         }`}
       >
         {String(value).padStart(2, "0")}

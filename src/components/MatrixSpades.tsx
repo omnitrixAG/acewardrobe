@@ -38,7 +38,7 @@ export const MatrixSpades: FC = () => {
             width: `${spade.size}px`,
             height: `${spade.size}px`,
             opacity: spade.opacity,
-            animation: `matrix-fall ${spade.duration}s linear infinite`,
+            animation: `matrix-fall ${spade.duration}s linear infinite, slow-spin ${spade.duration * 0.5}s linear infinite`,
             animationDelay: `${spade.delay}s`,
           }}
         >

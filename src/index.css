@@ -456,7 +456,7 @@
 /* Matrix-style falling spades */
 @keyframes matrix-fall {
   0% {
-    transform: translateY(-100%) rotate(0deg);
+    transform: translateY(-100%);
     opacity: 0;
   }
   10% {
@@ -466,9 +466,37 @@
     opacity: 1;
   }
   100% {
-    transform: translateY(100vh) rotate(360deg);
+    transform: translateY(100vh);
     opacity: 0;
   }
+}
+
+/* Slow rotation for floating spades */
+@keyframes slow-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Number flip animation for countdown */
+@keyframes number-flip {
+  0% {
+    transform: perspective(400px) rotateX(0deg);
+  }
+  50% {
+    transform: perspective(400px) rotateX(-90deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: perspective(400px) rotateX(0deg);
+  }
+}
+
+.animate-number-flip {
+  animation: number-flip 0.4s ease-out;
 }
 
 .animate-fade-in-up {
