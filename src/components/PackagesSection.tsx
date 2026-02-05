@@ -1,12 +1,4 @@
 import { FC, useState } from "react";
-import { PackageCard } from "./PackageCard";
-import {
-  DressSilhouette,
-  LingerieSilhouette,
-  SuitSilhouette,
-  ShirtSilhouette,
-  BoxersSilhouette,
-} from "./icons/SilhouetteIcons";
 import { Button } from "./ui/button";
 
 const forHerPackages = [
@@ -19,7 +11,6 @@ const forHerPackages = [
       "One Pyjama Pant Set",
       "Chocolate & Card",
     ],
-    silhouette: <DressSilhouette size={100} />,
   },
   {
     title: "LOVER'S EDIT",
@@ -30,7 +21,6 @@ const forHerPackages = [
       "One Pyjama Pant Set",
       "Chocolate & Card",
     ],
-    silhouette: <DressSilhouette size={80} />,
   },
   {
     title: "SWEETHEART EDIT",
@@ -40,7 +30,6 @@ const forHerPackages = [
       "One Pyjama Pant Set",
       "Chocolate & Flowers",
     ],
-    silhouette: <LingerieSilhouette size={80} />,
   },
 ];
 
@@ -54,7 +43,6 @@ const forHimPackages = [
       "Shirt or T-Shirt",
       "Shorts",
     ],
-    silhouette: <SuitSilhouette size={100} />,
   },
   {
     title: "KING EDIT",
@@ -65,7 +53,6 @@ const forHimPackages = [
       "Pants or Jeans",
       "Card",
     ],
-    silhouette: <SuitSilhouette size={90} />,
   },
   {
     title: "BAE EDIT",
@@ -76,7 +63,6 @@ const forHimPackages = [
       "Miniature Spirits",
       "Card",
     ],
-    silhouette: <ShirtSilhouette size={80} />,
   },
   {
     title: "CRUSH EDIT",
@@ -86,25 +72,64 @@ const forHimPackages = [
       "Miniature Spirits",
       "Card",
     ],
-    silhouette: <BoxersSilhouette size={70} />,
   },
 ];
 
-export const PackagesSection: FC = () => {
-  const [activeTab, setActiveTab] = useState<"her" | "him">("her");
+interface PackageCardProps {
+  title: string;
+  price: string;
+  items: string[];
+}
 
-  const handleSelectPackage = (packageName: string) => {
+const PackageCard: FC<PackageCardProps> = ({ title, price, items }) => {
+  const handleSelect = () => {
     const message = encodeURIComponent(
-      `Hello! I'm interested in the ${packageName} package from your Valentine collection.`
+      `Hello! I'm interested in the ${title} package from your Valentine collection.`
     );
     window.open(`https://wa.me/2347039178489?text=${message}`, "_blank");
   };
 
-  const currentPackages = activeTab === "her" ? forHerPackages : forHimPackages;
-
   return (
-    <section id="packages" className="py-16 md:py-24 lg:py-32 bg-background">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+    <div className="package-card group relative overflow-hidden rounded-lg p-6 transition-all duration-300 hover:border-primary">
+      {/* Red corner accent */}
+      <div className="absolute top-0 right-0 w-2 h-2 bg-primary opacity-60" />
+      
+      <h4 className="font-display text-lg text-primary font-semibold mb-2 tracking-wide">
+        {title}
+      </h4>
+      <p className="font-display text-2xl font-bold text-foreground mb-4">
+        {price}
+      </p>
+
+      <ul className="space-y-2 mb-6">
+        {items.map((item, index) => (
+          <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+            <span className="text-primary mt-0.5">♠</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      <Button
+        onClick={handleSelect}
+        variant="solid"
+        size="default"
+        className="w-full"
+      >
+        Select Package
+      </Button>
+    </div>
+  );
+};
+
+export const PackagesSection: FC = () => {
+  return (
+    <section id="packages" className="py-16 md:py-24 relative">
+      {/* Diamond Pattern Background */}
+      <div className="absolute inset-0 bg-[url('/assets/diamond-pattern-bg.png')] bg-cover bg-center opacity-30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+      
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
@@ -118,49 +143,61 @@ export const PackagesSection: FC = () => {
           </p>
         </div>
 
-        {/* Tab Navigation */}
-        <div className="flex justify-center gap-3 md:gap-4 mb-8 md:mb-12">
-          <Button
-            onClick={() => setActiveTab("her")}
-            variant={activeTab === "her" ? "solid" : "outline"}
-            size="lg"
-            neon={activeTab === "her"}
-            className="min-w-[120px] md:min-w-[140px]"
-          >
-            For Her
-          </Button>
-          <Button
-            onClick={() => setActiveTab("him")}
-            variant={activeTab === "him" ? "solid" : "outline"}
-            size="lg"
-            neon={activeTab === "him"}
-            className="min-w-[120px] md:min-w-[140px]"
-          >
-            For Him
-          </Button>
-        </div>
-
-        {/* Packages Grid - Responsive */}
-        <div className={`grid gap-4 md:gap-6 lg:gap-8 ${
-          currentPackages.length === 3 
-            ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' 
-            : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
-        }`}>
-          {currentPackages.map((pkg, index) => (
-            <div
-              key={pkg.title}
-              className="opacity-0 animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s`, animationFillMode: "forwards" }}
-            >
-              <PackageCard
-                title={pkg.title}
-                price={pkg.price}
-                items={pkg.items}
-                silhouette={pkg.silhouette}
-                onSelect={() => handleSelectPackage(pkg.title)}
-              />
+        {/* Two-Column Layout: For Her | For Him */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* FOR HER Column */}
+          <div>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/50" />
+              <h3 className="font-display text-xl md:text-2xl font-bold tracking-[0.2em] text-foreground">
+                FOR HER
+              </h3>
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/50" />
             </div>
-          ))}
+            
+            <div className="space-y-4">
+              {forHerPackages.map((pkg, index) => (
+                <div
+                  key={pkg.title}
+                  className="opacity-0 animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s`, animationFillMode: "forwards" }}
+                >
+                  <PackageCard
+                    title={pkg.title}
+                    price={pkg.price}
+                    items={pkg.items}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* FOR HIM Column */}
+          <div>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/50" />
+              <h3 className="font-display text-xl md:text-2xl font-bold tracking-[0.2em] text-foreground">
+                FOR HIM
+              </h3>
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/50" />
+            </div>
+            
+            <div className="space-y-4">
+              {forHimPackages.map((pkg, index) => (
+                <div
+                  key={pkg.title}
+                  className="opacity-0 animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s`, animationFillMode: "forwards" }}
+                >
+                  <PackageCard
+                    title={pkg.title}
+                    price={pkg.price}
+                    items={pkg.items}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -5,9 +5,10 @@ import { ActivitiesSection } from "@/components/ActivitiesSection";
 import { RSVPSection } from "@/components/RSVPSection";
 import { Footer } from "@/components/Footer";
 import { MatrixSpades } from "@/components/MatrixSpades";
-import { SpadeIcon } from "@/components/icons/SpadeIcon";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, MapPin } from "lucide-react";
+import redSpadeLogo from "@/assets/red-spade-logo.png";
+import diamondPatternBg from "@/assets/diamond-pattern-bg.png";
 
 const Valentine = () => {
   return (
@@ -16,8 +17,18 @@ const Valentine = () => {
       
       {/* Valentine Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-card/50 to-background" />
+        {/* Diamond Pattern Background */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ 
+            backgroundImage: `url(${diamondPatternBg})`,
+            opacity: 0.5
+          }}
+        />
+        
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        
         <MatrixSpades />
         <div className="tribal-overlay" />
         
@@ -31,9 +42,14 @@ const Valentine = () => {
             </span>
           </div>
 
-          {/* Animated Spade */}
+          {/* Red Spade Logo */}
           <div className="flex justify-center mb-6">
-            <SpadeIcon size={80} className="glow-crimson glow-pulse" />
+            <img 
+              src={redSpadeLogo} 
+              alt="Ace Wardrobe" 
+              className="w-28 h-32 md:w-36 md:h-40 object-contain glow-pulse"
+              style={{ filter: 'drop-shadow(0 0 30px hsl(348, 76%, 44%, 0.6))' }}
+            />
           </div>
 
           {/* Main Headline */}
