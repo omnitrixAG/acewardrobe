@@ -13,9 +13,8 @@ import redSpadeLogo from "@/assets/red-spade-logo.png";
 import diamondPatternBg from "@/assets/diamond-pattern-bg.png";
 
 const ValentineEventHero: FC = () => {
-  const scrollToRSVP = () => {
-    document.getElementById("rsvp")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const whatsappLink = "https://wa.me/2347039178489?text=Hi%20Ace%20Wardrobe!%20I'm%20interested%20in%20the%20Valentine's%20event";
+
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -108,10 +107,12 @@ const ValentineEventHero: FC = () => {
           </div>
         </div>
 
-        {/* RSVP Button */}
+        {/* Join Waitlist Button */}
         <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
-          <Button variant="solid" size="lg" onClick={scrollToRSVP}>
-            RSVP Now
+          <Button variant="solid" size="lg" asChild>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              Join Waitlist
+            </a>
           </Button>
         </div>
       </div>
