@@ -1,10 +1,11 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { Button } from "./ui/button";
 
 const forHerPackages = [
   {
     title: "SOULMATE EDIT",
     price: "₦350,000",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20SOULMATE%20EDIT%20package%20(₦350,000)",
     items: [
       "One Long Dress",
       "One Lingerie",
@@ -15,6 +16,7 @@ const forHerPackages = [
   {
     title: "LOVER'S EDIT",
     price: "₦250,000",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20LOVER'S%20EDIT%20package%20(₦250,000)",
     items: [
       "One Short Dress",
       "One Lingerie",
@@ -25,6 +27,7 @@ const forHerPackages = [
   {
     title: "SWEETHEART EDIT",
     price: "₦150,000",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20SWEETHEART%20EDIT%20package%20(₦150,000)",
     items: [
       "One Lingerie",
       "One Pyjama Pant Set",
@@ -37,6 +40,7 @@ const forHimPackages = [
   {
     title: "ULTIMATE LOVER EDIT",
     price: "₦750,000",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20ULTIMATE%20LOVER%20EDIT%20package%20(₦750,000)",
     items: [
       "Two-Piece Set / Jacket",
       "Boxers & Singlet",
@@ -47,6 +51,7 @@ const forHimPackages = [
   {
     title: "KING EDIT",
     price: "₦550,000",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20KING%20EDIT%20package%20(₦550,000)",
     items: [
       "Boxers & Singlet",
       "Shirt or T-Shirt",
@@ -57,6 +62,7 @@ const forHimPackages = [
   {
     title: "BAE EDIT",
     price: "₦350,000",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20BAE%20EDIT%20package%20(₦350,000)",
     items: [
       "Singlet & Boxers",
       "Shirt or Pants",
@@ -67,6 +73,7 @@ const forHimPackages = [
   {
     title: "CRUSH EDIT",
     price: "₦200,000",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20CRUSH%20EDIT%20package%20(₦200,000)",
     items: [
       "Boxers & Singlet",
       "Miniature Spirits",
@@ -79,15 +86,11 @@ interface PackageCardProps {
   title: string;
   price: string;
   items: string[];
+  whatsappMessage: string;
 }
 
-const PackageCard: FC<PackageCardProps> = ({ title, price, items }) => {
-  const handleSelect = () => {
-    const message = encodeURIComponent(
-      `Hello! I'm interested in the ${title} package from your Valentine collection.`
-    );
-    window.open(`https://wa.me/2347039178489?text=${message}`, "_blank");
-  };
+const PackageCard: FC<PackageCardProps> = ({ title, price, items, whatsappMessage }) => {
+  const whatsappUrl = `https://wa.me/2347039178489?text=${whatsappMessage}`;
 
   return (
     <div className="package-card group relative overflow-hidden rounded-lg p-6 transition-all duration-300 hover:border-primary hover:-translate-y-2 hover:shadow-[0_0_30px_hsl(348,76%,44%,0.25)]">
@@ -111,12 +114,18 @@ const PackageCard: FC<PackageCardProps> = ({ title, price, items }) => {
       </ul>
 
       <Button
-        onClick={handleSelect}
         variant="solid"
         size="default"
         className="w-full"
+        asChild
       >
-        Select Package
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Select Package
+        </a>
       </Button>
     </div>
   );
@@ -166,6 +175,7 @@ export const PackagesSection: FC = () => {
                     title={pkg.title}
                     price={pkg.price}
                     items={pkg.items}
+                    whatsappMessage={pkg.whatsappMessage}
                   />
                 </div>
               ))}
@@ -193,6 +203,7 @@ export const PackagesSection: FC = () => {
                     title={pkg.title}
                     price={pkg.price}
                     items={pkg.items}
+                    whatsappMessage={pkg.whatsappMessage}
                   />
                 </div>
               ))}
