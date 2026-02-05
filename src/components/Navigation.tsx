@@ -75,7 +75,7 @@ export const Navigation: FC = () => {
   const navLinks = [
     { label: "Shop", href: "#shop" },
     { label: "Collections", href: "#collections" },
-    { label: "Valentine Event", href: "/valentine" },
+    { label: "Valentine Event", href: "/valentine-event" },
     { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
   ];

@@ -33,9 +33,9 @@ export const HeroSection: FC = () => {
       <div className="tribal-overlay" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10 text-center pt-40 pb-32">
-        {/* Valentine Badge with Link to Valentine page */}
+        {/* Valentine Badge with Link to Valentine Event page */}
         <div className="opacity-0 animate-fade-in-up animation-delay-100">
-          <Link to="/valentine" className="inline-block">
+          <Link to="/valentine-event" className="inline-block">
             <span className="hero-badge inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold tracking-[0.15em] uppercase text-primary mb-8 cursor-pointer hover:bg-primary/20 transition-colors">
               ♠ Valentine's Season 2026 ♠
               <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
