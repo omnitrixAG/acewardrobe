@@ -42,11 +42,9 @@ const ValentineEventHero: FC = () => {
           <img 
             src={redSpadeLogo} 
             alt="Ace Wardrobe" 
-            className="mx-auto w-36 h-40 md:w-48 md:h-52 glow-pulse"
+            className="mx-auto h-40 md:h-52 w-auto object-contain glow-pulse"
             style={{ 
-              filter: 'drop-shadow(0 0 40px hsl(348, 76%, 44%, 0.7))',
-              background: 'transparent',
-              mixBlendMode: 'normal'
+              filter: 'drop-shadow(0 0 40px hsl(348, 76%, 44%, 0.7))'
             }}
           />
         </div>
