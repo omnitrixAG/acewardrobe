@@ -8,7 +8,8 @@ interface TimeLeft {
 }
 
 export const CountdownTimer: FC = () => {
-  const targetDate = new Date("2026-02-16T10:00:00").getTime();
+  // Valentine's Day - February 14, 2026 at 10:00 AM
+  const targetDate = new Date("2026-02-14T10:00:00").getTime();
   
   const calculateTimeLeft = (): TimeLeft => {
     const now = new Date().getTime();
@@ -40,7 +41,7 @@ export const CountdownTimer: FC = () => {
   }, []);
 
   const TimeUnit: FC<{ value: number; label: string }> = ({ value, label }) => (
-    <div className="countdown-card min-w-[70px] md:min-w-[90px]">
+    <div className="countdown-card-enhanced min-w-[70px] md:min-w-[100px]">
       <span 
         className={`text-3xl md:text-5xl font-display font-bold text-foreground transition-transform ${
           flip && label === "Seconds" ? "animate-flip" : ""
@@ -48,7 +49,7 @@ export const CountdownTimer: FC = () => {
       >
         {String(value).padStart(2, "0")}
       </span>
-      <span className="text-xs md:text-sm font-body text-muted-foreground tracking-widest uppercase mt-1">
+      <span className="text-[0.65rem] md:text-xs font-body text-chrome font-semibold tracking-[0.2em] uppercase mt-2">
         {label}
       </span>
     </div>

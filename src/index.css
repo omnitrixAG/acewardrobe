@@ -95,6 +95,16 @@
     border: 1px solid hsla(0, 0%, 20%, 0.5);
   }
 
+  /* Tribal Pattern Overlay - like the reference */
+  .tribal-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L45 15L30 30L15 15z M0 30L15 45L0 60z M60 30L45 45L60 60z' fill='%23c0c0c0' fill-opacity='1'/%3E%3C/svg%3E");
+    z-index: 1;
+    pointer-events: none;
+  }
+
   .text-gradient-crimson {
     background: linear-gradient(135deg, hsl(348, 76%, 50%) 0%, hsl(348, 76%, 35%) 100%);
     -webkit-background-clip: text;
@@ -102,20 +112,38 @@
     background-clip: text;
   }
 
+  .text-chrome-gradient {
+    background: linear-gradient(135deg, hsl(0, 0%, 75%) 0%, hsl(0, 0%, 96%) 50%, hsl(0, 0%, 75%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .text-shimmer {
     background: linear-gradient(
-      90deg,
+      135deg,
       hsl(348, 76%, 44%) 0%,
-      hsl(348, 100%, 65%) 25%,
-      hsl(348, 76%, 44%) 50%,
-      hsl(348, 100%, 65%) 75%,
+      hsl(348, 83%, 55%) 30%,
+      hsl(348, 76%, 27%) 70%,
       hsl(348, 76%, 44%) 100%
     );
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: shimmer 3s linear infinite;
+    animation: shimmer 3s infinite;
+  }
+
+  /* Hero Badge with Pulse */
+  .hero-badge {
+    background: hsla(348, 76%, 44%, 0.1);
+    border: 1px solid hsla(348, 76%, 44%, 0.3);
+    animation: pulse-badge 2s infinite;
+  }
+
+  @keyframes pulse-badge {
+    0%, 100% { box-shadow: 0 0 0 0 hsla(348, 76%, 44%, 0.4); }
+    50% { box-shadow: 0 0 20px 5px hsla(348, 76%, 44%, 0.2); }
   }
 
   .glow-crimson {
@@ -138,6 +166,50 @@
     transform: translateY(-4px);
   }
 
+  /* Enhanced Primary Button - matching reference exactly */
+  .btn-primary-enhanced {
+    @apply relative overflow-hidden px-10 py-4 font-semibold text-sm tracking-[0.1em] uppercase text-white;
+    background: linear-gradient(135deg, hsl(348, 76%, 44%), hsl(348, 76%, 27%));
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.2), transparent);
+    transition: 0.5s;
+  }
+
+  .btn-primary-enhanced:hover::before {
+    left: 100%;
+  }
+
+  .btn-primary-enhanced:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px hsla(348, 76%, 44%, 0.4);
+  }
+
+  /* Enhanced Outline Button */
+  .btn-outline-enhanced {
+    @apply relative px-10 py-4 font-semibold text-sm tracking-[0.1em] uppercase;
+    border: 1px solid hsla(0, 0%, 75%, 0.3);
+    color: hsl(var(--chrome));
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-enhanced:hover {
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+    box-shadow: 0 0 20px hsla(348, 76%, 44%, 0.2);
+  }
+
+  /* Legacy button styles */
   .btn-primary {
     @apply relative overflow-hidden px-8 py-3 font-semibold text-sm tracking-wider uppercase;
     background: var(--gradient-crimson);
@@ -177,11 +249,52 @@
     box-shadow: 0 0 20px hsl(348, 76%, 44%, 0.2);
   }
 
+  /* Enhanced Countdown Card with scan line */
+  .countdown-card-enhanced {
+    @apply flex flex-col items-center justify-center px-6 py-4 md:px-8 md:py-5 rounded-xl;
+    background: linear-gradient(145deg, hsla(0, 0%, 8%, 0.9), hsla(0, 0%, 4%, 0.9));
+    border: 1px solid hsla(348, 76%, 44%, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .countdown-card-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(348, 76%, 44%), transparent);
+    animation: scan-line 3s infinite;
+  }
+
+  @keyframes scan-line {
+    to { left: 100%; }
+  }
+
   .countdown-card {
     @apply flex flex-col items-center justify-center px-4 py-3 md:px-6 md:py-4 rounded-lg;
     background: hsla(0, 0%, 10%, 0.8);
     border: 1px solid hsla(0, 0%, 20%, 0.5);
     backdrop-filter: blur(10px);
+  }
+
+  /* Event Strip Styles */
+  .event-strip {
+    border-top: 1px solid hsla(0, 0%, 75%, 0.1);
+    border-bottom: 1px solid hsla(0, 0%, 75%, 0.1);
+  }
+
+  .event-detail-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid hsl(var(--primary));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--primary));
   }
 
   .nav-link {
@@ -243,7 +356,7 @@
 
 /* Keyframes */
 @keyframes shimmer {
-  0% { background-position: -200% center; }
+  0% { background-position: -100% center; }
   100% { background-position: 200% center; }
 }
 
@@ -273,8 +386,20 @@
 }
 
 @keyframes particle-float {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+    opacity: 0.1; 
+  }
+  50% { 
+    transform: translateY(-100vh) rotate(360deg); 
+    opacity: 0.5; 
+  }
+}
+
+/* Matrix-style falling spades */
+@keyframes matrix-fall {
   0% {
-    transform: translateY(100vh) scale(0);
+    transform: translateY(-100%) rotate(0deg);
     opacity: 0;
   }
   10% {
@@ -284,7 +409,7 @@
     opacity: 1;
   }
   100% {
-    transform: translateY(-100vh) scale(1);
+    transform: translateY(100vh) rotate(360deg);
     opacity: 0;
   }
 }
