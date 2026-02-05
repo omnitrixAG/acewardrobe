@@ -36,7 +36,7 @@ export const HeroSection: FC = () => {
         {/* Valentine Badge with Link to Valentine Event page */}
         <div className="opacity-0 animate-fade-in-up animation-delay-100">
           <Link to="/valentine-event" className="inline-block">
-            <span className="hero-badge inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold tracking-[0.15em] uppercase text-primary mb-8 cursor-pointer hover:bg-primary/20 transition-colors">
+            <span className="hero-badge inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold tracking-[0.15em] uppercase text-primary mb-8 cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-primary/20 hover:shadow-[0_0_20px_hsl(348,76%,44%,0.4)]">
               ♠ Valentine's Season 2026 ♠
               <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
