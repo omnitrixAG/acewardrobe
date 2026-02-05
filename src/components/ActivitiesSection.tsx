@@ -30,8 +30,18 @@ const activities = [
 
 export const ActivitiesSection: FC = () => {
   return (
-    <section className="py-20 md:py-32 bg-card">
-      <div className="container mx-auto px-4 md:px-8">
+    <section className="py-20 md:py-32 relative overflow-hidden">
+      {/* Diamond Pattern Background */}
+      <div 
+        className="absolute inset-0 opacity-30"
+        style={{ 
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L45 15L30 30L15 15z M0 30L15 45L0 60z M60 30L45 45L60 60z' fill='%23c41e3a' fill-opacity='0.03'/%3E%3C/svg%3E")`,
+        }}
+      />
+      {/* Dark Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-card via-card/95 to-card" />
+      
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">

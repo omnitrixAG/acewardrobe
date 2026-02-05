@@ -10,7 +10,7 @@ import { WaitlistSignup } from "@/components/WaitlistSignup";
 import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
-import redSpadeLogo from "@/assets/red-spade-logo.png";
+import redSpadeLogo from "@/assets/red-spade-nobg.png";
 import diamondPatternBg from "@/assets/diamond-pattern-bg.png";
 
 const ValentineEventHero: FC = () => {
@@ -43,7 +43,7 @@ const ValentineEventHero: FC = () => {
           <img 
             src={redSpadeLogo} 
             alt="Ace Wardrobe" 
-            className="mx-auto h-40 md:h-52 w-auto object-contain glow-pulse mix-blend-lighten"
+            className="mx-auto h-40 md:h-52 w-auto object-contain glow-pulse"
             style={{ 
               filter: 'drop-shadow(0 0 40px hsl(348, 76%, 44%, 0.7))'
             }}
