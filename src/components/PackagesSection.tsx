@@ -110,9 +110,9 @@ const PackageCard: FC<PackageCardProps> = ({
     : "bg-gradient-to-r from-amber-600 to-amber-800";
 
   return (
-    <div className="group relative overflow-hidden rounded-xl bg-card/80 border border-border/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
-      {/* Image Container */}
-      <div className="relative h-44 overflow-hidden">
+    <div className="group relative flex flex-col h-full overflow-hidden rounded-xl bg-card/80 border border-border/30 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
+      {/* Image Container - Fixed Height */}
+      <div className="relative h-[180px] flex-shrink-0 overflow-hidden">
         {!imageLoaded && (
           <div className="absolute inset-0 bg-muted animate-pulse" />
         )}
@@ -127,54 +127,57 @@ const PackageCard: FC<PackageCardProps> = ({
         {/* Wishlist Button */}
         <button 
           onClick={(e) => { e.preventDefault(); setIsWishlisted(!isWishlisted); }}
-          className="absolute top-3 right-3 p-2 rounded-full bg-black/40 backdrop-blur-sm transition-all duration-300 hover:bg-black/60 hover:scale-110"
+          className="absolute top-3 right-3 p-2 rounded-full bg-black/40 backdrop-blur-sm transition-all duration-300 hover:bg-black/60 hover:scale-110 z-10"
         >
           <Heart 
-            size={16} 
+            size={14} 
             className={`transition-all duration-300 ${isWishlisted ? 'fill-rose-500 text-rose-500' : 'text-white'}`} 
           />
         </button>
 
         {/* Bestseller Badge */}
         {isBestseller && (
-          <div className="absolute top-3 left-3 px-2 py-1 rounded text-[10px] font-bold tracking-wider bg-primary text-primary-foreground flex items-center gap-1">
+          <div className="absolute top-3 left-3 px-2 py-1 rounded text-[10px] font-bold tracking-wider bg-primary text-primary-foreground flex items-center gap-1 z-10">
             <Crown size={10} />
             BESTSELLER
           </div>
         )}
 
         {/* Package Title Badge - Overlapping Image */}
-        <div className="absolute -bottom-3 left-4 right-4">
-          <div className={`inline-flex items-center px-4 py-2 rounded-full ${badgeGradient} shadow-lg animate-shimmer-badge`}>
-            <span className="text-xs font-bold tracking-widest text-white">{title}</span>
+        <div className="absolute bottom-0 left-0 right-0 translate-y-1/2 px-3 z-10">
+          <div className={`inline-flex items-center px-3 py-1.5 rounded-full ${badgeGradient} shadow-lg animate-shimmer-badge`}>
+            <span className="text-[10px] font-bold tracking-widest text-white uppercase">{title}</span>
           </div>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="p-4 pt-6">
+      {/* Content - Flex grow to fill space */}
+      <div className="flex flex-col flex-grow p-4 pt-5">
         {/* Price */}
-        <div className="flex items-baseline gap-2 mb-2">
-          <span className="text-xl font-bold text-foreground">{price}</span>
-          <span className="text-xs text-muted-foreground line-through">{originalPrice}</span>
-          <span className="text-[10px] font-semibold text-green-500 bg-green-500/10 px-1.5 py-0.5 rounded">SAVE {savings}</span>
+        <div className="flex flex-wrap items-baseline gap-1.5 mb-2">
+          <span className="text-lg font-bold text-foreground">{price}</span>
+          <span className="text-[10px] text-muted-foreground line-through">{originalPrice}</span>
+          <span className="text-[9px] font-semibold text-green-500 bg-green-500/10 px-1 py-0.5 rounded">SAVE {savings}</span>
         </div>
 
         {/* Items - Compact */}
-        <p className="text-xs text-muted-foreground mb-4 line-clamp-2">
-          {items.map((item, i) => (
-            <span key={i}>
-              <Check size={10} className="inline mr-1 text-primary" />
-              {item}{i < items.length - 1 ? ' • ' : ''}
-            </span>
-          ))}
-        </p>
+        <div className="flex-grow mb-3">
+          <p className="text-[11px] text-muted-foreground leading-relaxed">
+            {items.map((item, i) => (
+              <span key={i} className="inline-flex items-center">
+                <Check size={10} className="inline mr-0.5 text-primary flex-shrink-0" />
+                <span>{item}</span>
+                {i < items.length - 1 && <span className="mx-1">•</span>}
+              </span>
+            ))}
+          </p>
+        </div>
 
-        {/* CTA Button */}
+        {/* CTA Button - Always at bottom */}
         <Button
           variant="solid"
           size="sm"
-          className="w-full group/btn text-xs"
+          className="w-full group/btn text-xs mt-auto"
           asChild
         >
           <a
@@ -204,7 +207,8 @@ export const PackagesSection: FC = () => {
         }}
       />
       
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+      {/* Container with max-width */}
+      <div className="max-w-[1200px] mx-auto px-5 md:px-10 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -224,14 +228,19 @@ export const PackagesSection: FC = () => {
         </div>
 
         {/* FOR HER Section */}
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-6">
-            <Heart className="w-4 h-4 text-rose-400" />
-            <h3 className="font-display text-lg font-bold tracking-widest text-rose-100">FOR HER</h3>
-            <div className="h-px flex-1 bg-gradient-to-r from-rose-500/30 to-transparent" />
+        <div className="mb-14">
+          {/* Section Header with lines on both sides */}
+          <div className="flex items-center gap-4 mb-6">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-rose-500/40" />
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-rose-500/30 bg-rose-500/5">
+              <Heart className="w-4 h-4 text-rose-400" />
+              <h3 className="font-display text-sm font-bold tracking-[0.2em] text-rose-100 uppercase">For Her</h3>
+            </div>
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-rose-500/40" />
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* 3-column grid for HER */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
             {forHerPackages.map((pkg) => (
               <PackageCard
                 key={pkg.title}
@@ -244,13 +253,18 @@ export const PackagesSection: FC = () => {
 
         {/* FOR HIM Section */}
         <div>
-          <div className="flex items-center gap-3 mb-6">
-            <Crown className="w-4 h-4 text-amber-400" />
-            <h3 className="font-display text-lg font-bold tracking-widest text-amber-100">FOR HIM</h3>
-            <div className="h-px flex-1 bg-gradient-to-r from-amber-500/30 to-transparent" />
+          {/* Section Header with lines on both sides */}
+          <div className="flex items-center gap-4 mb-6">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-amber-500/40" />
+            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/5">
+              <Crown className="w-4 h-4 text-amber-400" />
+              <h3 className="font-display text-sm font-bold tracking-[0.2em] text-amber-100 uppercase">For Him</h3>
+            </div>
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-amber-500/40" />
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* 4-column grid for HIM */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
             {forHimPackages.map((pkg) => (
               <PackageCard
                 key={pkg.title}
