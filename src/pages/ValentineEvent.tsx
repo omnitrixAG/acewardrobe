@@ -107,10 +107,12 @@ const ValentineEventHero: FC = () => {
 
         {/* Join Waitlist Button */}
         <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
-          <Button variant="solid" size="lg" asChild>
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-              Join Waitlist
-            </a>
+          <Button 
+            variant="solid" 
+            size="lg" 
+            onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Join Waitlist
           </Button>
         </div>
       </div>
