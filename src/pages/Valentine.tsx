@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { CountdownTimer } from "@/components/CountdownTimer";
+import { WaitlistSignup } from "@/components/WaitlistSignup";
 import { PackagesSection } from "@/components/PackagesSection";
 import { ActivitiesSection } from "@/components/ActivitiesSection";
 import { RSVPSection } from "@/components/RSVPSection";
@@ -74,6 +75,11 @@ const Valentine = () => {
           {/* Countdown */}
           <div className="mb-10 md:mb-14">
             <CountdownTimer />
+          </div>
+
+          {/* Waitlist Signup */}
+          <div className="mb-10 md:mb-14">
+            <WaitlistSignup />
           </div>
 
           {/* Event Details Strip */}
