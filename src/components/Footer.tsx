@@ -282,7 +282,7 @@ export const Footer: FC = () => {
           <div className="max-w-[1200px] mx-auto px-5 md:px-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-xs text-muted-foreground flex items-center gap-1">
-                © 2026 <span className="text-foreground font-medium">Ace Wardrobe</span>. All rights reserved. Made with <Heart size={12} className="text-primary fill-primary" /> in Abuja
+                © 2026 <span className="text-foreground font-medium">Ace Wardrobe</span>. All rights reserved. Made with <Heart size={12} className="text-primary fill-primary" /> by <a href="https://www.instagram.com/mista_ace/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">@Mista_ace</a>
               </p>
               <div className="flex items-center gap-6">
                 <a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
