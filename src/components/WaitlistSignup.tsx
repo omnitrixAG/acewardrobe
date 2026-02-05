@@ -51,7 +51,7 @@ export const WaitlistSignup = () => {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="waitlist-input h-12 text-base"
+                  className="waitlist-input h-12 text-base focus:border-b-2 focus:border-b-primary focus:rounded-b-none transition-all duration-300"
                 />
                 {error && (
                   <p className="text-xs text-primary mt-1.5">{error}</p>

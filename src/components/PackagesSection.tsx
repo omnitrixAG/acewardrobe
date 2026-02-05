@@ -90,7 +90,7 @@ const PackageCard: FC<PackageCardProps> = ({ title, price, items }) => {
   };
 
   return (
-    <div className="package-card group relative overflow-hidden rounded-lg p-6 transition-all duration-300 hover:border-primary">
+    <div className="package-card group relative overflow-hidden rounded-lg p-6 transition-all duration-300 hover:border-primary hover:-translate-y-2 hover:shadow-[0_0_30px_hsl(348,76%,44%,0.25)]">
       {/* Red corner accent */}
       <div className="absolute top-0 right-0 w-2 h-2 bg-primary opacity-60" />
       
