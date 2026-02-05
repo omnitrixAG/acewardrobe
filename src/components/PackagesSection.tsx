@@ -7,6 +7,7 @@ import {
   ShirtSilhouette,
   BoxersSilhouette,
 } from "./icons/SilhouetteIcons";
+import { Button } from "./ui/button";
 
 const forHerPackages = [
   {
@@ -99,65 +100,67 @@ export const PackagesSection: FC = () => {
     window.open(`https://wa.me/2347039178489?text=${message}`, "_blank");
   };
 
+  const currentPackages = activeTab === "her" ? forHerPackages : forHimPackages;
+
   return (
-    <section id="packages" className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4 md:px-8">
+    <section id="packages" className="py-16 md:py-24 lg:py-32 bg-background">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
             The Valentine Essentials
           </h2>
-          <p className="font-body text-lg text-muted-foreground mb-2">
+          <p className="font-body text-base md:text-lg text-muted-foreground mb-2">
             Curated Packages by Ace Wardrobe × Peaches by Ema
           </p>
-          <p className="font-display italic text-chrome text-lg">
+          <p className="font-display italic text-chrome text-base md:text-lg">
             "Thoughtfully styled gifts for every kind of love"
           </p>
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex justify-center gap-4 mb-12">
-          <button
+        <div className="flex justify-center gap-3 md:gap-4 mb-8 md:mb-12">
+          <Button
             onClick={() => setActiveTab("her")}
-            className={`px-8 py-3 rounded-full font-body text-sm tracking-wider uppercase transition-all ${
-              activeTab === "her"
-                ? "bg-primary text-primary-foreground"
-                : "border border-border text-muted-foreground hover:border-primary hover:text-primary"
-            }`}
+            variant={activeTab === "her" ? "solid" : "outline"}
+            size="lg"
+            neon={activeTab === "her"}
+            className="min-w-[120px] md:min-w-[140px]"
           >
             For Her
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => setActiveTab("him")}
-            className={`px-8 py-3 rounded-full font-body text-sm tracking-wider uppercase transition-all ${
-              activeTab === "him"
-                ? "bg-primary text-primary-foreground"
-                : "border border-border text-muted-foreground hover:border-primary hover:text-primary"
-            }`}
+            variant={activeTab === "him" ? "solid" : "outline"}
+            size="lg"
+            neon={activeTab === "him"}
+            className="min-w-[120px] md:min-w-[140px]"
           >
             For Him
-          </button>
+          </Button>
         </div>
 
-        {/* Packages Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-          {(activeTab === "her" ? forHerPackages : forHimPackages).map(
-            (pkg, index) => (
-              <div
-                key={pkg.title}
-                className="opacity-0 animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s`, animationFillMode: "forwards" }}
-              >
-                <PackageCard
-                  title={pkg.title}
-                  price={pkg.price}
-                  items={pkg.items}
-                  silhouette={pkg.silhouette}
-                  onSelect={() => handleSelectPackage(pkg.title)}
-                />
-              </div>
-            )
-          )}
+        {/* Packages Grid - Responsive */}
+        <div className={`grid gap-4 md:gap-6 lg:gap-8 ${
+          currentPackages.length === 3 
+            ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' 
+            : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
+        }`}>
+          {currentPackages.map((pkg, index) => (
+            <div
+              key={pkg.title}
+              className="opacity-0 animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s`, animationFillMode: "forwards" }}
+            >
+              <PackageCard
+                title={pkg.title}
+                price={pkg.price}
+                items={pkg.items}
+                silhouette={pkg.silhouette}
+                onSelect={() => handleSelectPackage(pkg.title)}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

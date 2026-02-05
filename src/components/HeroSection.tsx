@@ -1,9 +1,11 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 import { MapPin, Calendar, Clock } from "lucide-react";
 import { SpadeIcon } from "./icons/SpadeIcon";
 import { CountdownTimer } from "./CountdownTimer";
 import { FloatingParticles } from "./FloatingParticles";
 import { MatrixSpades } from "./MatrixSpades";
+import { Button } from "./ui/button";
 
 export const HeroSection: FC = () => {
   return (
@@ -24,11 +26,16 @@ export const HeroSection: FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background opacity-60" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10 text-center py-32">
-        {/* Valentine Badge with Pulse Animation */}
+        {/* Valentine Badge with Link to Valentine page */}
         <div className="opacity-0 animate-fade-in-up animation-delay-100">
-          <span className="hero-badge inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold tracking-[0.15em] uppercase text-primary mb-8">
-            ♠ Valentine's Season 2026 ♠
-          </span>
+          <Link to="/valentine" className="inline-block">
+            <span className="hero-badge inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold tracking-[0.15em] uppercase text-primary mb-8 cursor-pointer hover:bg-primary/20 transition-colors">
+              ♠ Valentine's Season 2026 ♠
+              <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </Link>
         </div>
 
         {/* Animated Spade Logo */}
@@ -98,17 +105,18 @@ export const HeroSection: FC = () => {
 
         {/* CTA Buttons */}
         <div className="opacity-0 animate-fade-in-up flex flex-col sm:flex-row items-center justify-center gap-4" style={{ animationDelay: "0.8s" }}>
-          <a
-            href="https://wa.me/2347039178489?text=Hi%20Ace%20Wardrobe!%20I'm%20interested%20in%20the%20Valentine's%20event"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary-enhanced rounded-lg w-full sm:w-auto"
-          >
-            Join Waitlist
-          </a>
-          <a href="#packages" className="btn-outline-enhanced rounded-lg w-full sm:w-auto">
-            View Packages
-          </a>
+          <Button variant="solid" size="lg" asChild>
+            <a
+              href="https://wa.me/2347039178489?text=Hi%20Ace%20Wardrobe!%20I'm%20interested%20in%20the%20Valentine's%20event"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join Waitlist
+            </a>
+          </Button>
+          <Button variant="outline" size="lg" asChild>
+            <a href="#packages">View Packages</a>
+          </Button>
         </div>
       </div>
 
