@@ -5,6 +5,7 @@ import { FloatingParticles } from "@/components/FloatingParticles";
 import { MatrixSpades } from "@/components/MatrixSpades";
 import { ActivitiesSection } from "@/components/ActivitiesSection";
 import { PackagesSection } from "@/components/PackagesSection";
+import { FashionTechSection } from "@/components/FashionTechSection";
 import { WaitlistSignup } from "@/components/WaitlistSignup";
 import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
@@ -158,6 +159,7 @@ const ValentineEvent: FC = () => {
       <ValentineEventHero />
       <ActivitiesSection />
       <PackagesSection />
+      <FashionTechSection />
       <RSVPSection />
       <Footer />
     </div>
