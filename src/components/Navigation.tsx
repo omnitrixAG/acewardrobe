@@ -1,14 +1,34 @@
 import { FC, useState, useEffect, useRef } from "react";
 import { ShoppingBag } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import aceLogo from "@/assets/ace-logo.jpg";
 
-const AnimatedNavLink = ({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) => {
+const scrollToSection = (sectionId: string, offset: number = 80) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+};
+
+const AnimatedNavLink = ({ 
+  href, 
+  children, 
+  onClick 
+}: { 
+  href: string; 
+  children: React.ReactNode; 
+  onClick?: () => void;
+}) => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const isExternal = href.startsWith('http');
   const isRouterLink = href.startsWith('/');
+  const isAnchor = href.startsWith('#');
   
-  const linkClasses = "group relative overflow-hidden text-sm whitespace-nowrap";
+  const linkClasses = "group relative overflow-hidden text-sm whitespace-nowrap cursor-pointer";
   const innerContent = (
     <div className="relative h-5 overflow-hidden">
       <div className="flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-1/2">
@@ -17,6 +37,39 @@ const AnimatedNavLink = ({ href, children, onClick }: { href: string; children: 
       </div>
     </div>
   );
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (isAnchor) {
+      e.preventDefault();
+      const sectionId = href.replace('#', '');
+      
+      // If we're not on homepage, navigate there first
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation then scroll
+        setTimeout(() => scrollToSection(sectionId), 100);
+      } else {
+        scrollToSection(sectionId);
+      }
+      onClick?.();
+    } else if (onClick) {
+      onClick();
+    }
+  };
+
+  if (isExternal) {
+    return (
+      <a 
+        href={href} 
+        className={linkClasses}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onClick}
+      >
+        {innerContent}
+      </a>
+    );
+  }
 
   if (isRouterLink) {
     return (
@@ -27,14 +80,9 @@ const AnimatedNavLink = ({ href, children, onClick }: { href: string; children: 
   }
 
   return (
-    <a 
-      href={href} 
-      className={linkClasses}
-      onClick={onClick}
-      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-    >
+    <button className={linkClasses} onClick={handleClick}>
       {innerContent}
-    </a>
+    </button>
   );
 };
 
@@ -43,6 +91,8 @@ export const Navigation: FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [headerShapeClass, setHeaderShapeClass] = useState('rounded-full');
   const shapeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,16 +122,26 @@ export const Navigation: FC = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
+    setIsOpen(false);
+  };
+
   const navLinks = [
-    { label: "Shop", href: "#shop" },
+    { label: "Shop", href: "#collections" },
     { label: "Collections", href: "#collections" },
     { label: "Valentine Event", href: "/valentine-event" },
     { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Contact", href: "https://wa.me/2347039178489?text=Hi%20Ace%20Wardrobe!%20I'd%20like%20to%20inquire%20about%20your%20services" },
   ];
 
   const logoElement = (
-    <Link to="/" className="flex items-center gap-3 group">
+    <a href="/" onClick={handleLogoClick} className="flex items-center gap-3 group">
       <img 
         src={aceLogo} 
         alt="Ace Wardrobe Logo" 
@@ -90,7 +150,7 @@ export const Navigation: FC = () => {
       <span className="hidden md:block font-display text-base font-semibold tracking-wide text-foreground whitespace-nowrap">
         Ace Wardrobe
       </span>
-    </Link>
+    </a>
   );
 
   return (
@@ -113,7 +173,7 @@ export const Navigation: FC = () => {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           {navLinks.map((link) => (
-            <AnimatedNavLink key={link.href} href={link.href}>
+            <AnimatedNavLink key={link.label} href={link.href}>
               {link.label}
             </AnimatedNavLink>
           ))}
@@ -121,16 +181,28 @@ export const Navigation: FC = () => {
 
         {/* Right Side Actions */}
         <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-          <a href="#" className="p-2 text-muted-foreground hover:text-foreground transition-colors">
-            <ShoppingBag size={20} />
-          </a>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a 
+                href="https://wa.me/2347039178489?text=Hi%20Ace%20Wardrobe!%20I'd%20like%20to%20place%20an%20order" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <ShoppingBag size={20} />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Order via WhatsApp</p>
+            </TooltipContent>
+          </Tooltip>
           <Button 
             variant="solid" 
             size="sm"
             asChild
           >
             <a
-              href="https://wa.me/2347039178489"
+              href="https://wa.me/2347039178489?text=Hi!%20I'd%20like%20to%20book%20a%20private%20shopping%20appointment%20at%20Ace%20Wardrobe"
               target="_blank"
               rel="noopener noreferrer"
               className="whitespace-nowrap"
@@ -164,7 +236,7 @@ export const Navigation: FC = () => {
         <nav className="flex flex-col items-center space-y-4 text-base w-full">
           {navLinks.map((link) => (
             <AnimatedNavLink 
-              key={link.href} 
+              key={link.label} 
               href={link.href}
               onClick={() => setIsOpen(false)}
             >
@@ -173,9 +245,15 @@ export const Navigation: FC = () => {
           ))}
         </nav>
         <div className="flex flex-col items-center space-y-3 mt-4 w-full">
-          <Button variant="outline" size="sm" className="w-full">
-            <ShoppingBag size={16} />
-            Cart
+          <Button variant="outline" size="sm" className="w-full" asChild>
+            <a
+              href="https://wa.me/2347039178489?text=Hi%20Ace%20Wardrobe!%20I'd%20like%20to%20place%20an%20order"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ShoppingBag size={16} />
+              Order via WhatsApp
+            </a>
           </Button>
           <Button 
             variant="solid" 
@@ -184,7 +262,7 @@ export const Navigation: FC = () => {
             asChild
           >
             <a
-              href="https://wa.me/2347039178489"
+              href="https://wa.me/2347039178489?text=Hi!%20I'd%20like%20to%20book%20a%20private%20shopping%20appointment%20at%20Ace%20Wardrobe"
               target="_blank"
               rel="noopener noreferrer"
             >

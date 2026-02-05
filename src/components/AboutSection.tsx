@@ -66,7 +66,7 @@ export const AboutSection: FC = () => {
             <p className="font-body text-sm text-muted-foreground">
               Curated by{" "}
               <a
-                href="https://www.instagram.com/mista_ace"
+                href="https://www.instagram.com/mista_ace/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"

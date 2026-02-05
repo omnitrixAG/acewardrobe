@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
 import { MapPin, Calendar, Clock } from "lucide-react";
 import { CountdownTimer } from "./CountdownTimer";
 import { FloatingParticles } from "./FloatingParticles";
@@ -7,6 +6,14 @@ import { MatrixSpades } from "./MatrixSpades";
 import { Button } from "./ui/button";
 import redSpadeLogo from "@/assets/red-spade-logo.png";
 import diamondPatternBg from "@/assets/diamond-pattern-bg.png";
+
+const scrollToSection = (sectionId: string, offset: number = 80) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+};
 
 export const HeroSection: FC = () => {
   return (
@@ -33,16 +40,19 @@ export const HeroSection: FC = () => {
       <div className="tribal-overlay" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10 text-center pt-40 pb-32">
-        {/* Valentine Badge with Link to Valentine Event page */}
+        {/* Valentine Badge - scrolls to packages section */}
         <div className="opacity-0 animate-fade-in-up animation-delay-100">
-          <Link to="/valentine-event" className="inline-block">
+          <button 
+            onClick={() => scrollToSection('packages')}
+            className="inline-block"
+          >
             <span className="hero-badge inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold tracking-[0.15em] uppercase text-primary mb-8 cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-primary/20 hover:shadow-[0_0_20px_hsl(348,76%,44%,0.4)]">
               ♠ Valentine's Season 2026 ♠
               <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </span>
-          </Link>
+          </button>
         </div>
 
         {/* Red Spade Logo - no background, just the spade with glow */}
@@ -117,17 +127,19 @@ export const HeroSection: FC = () => {
 
         {/* CTA Buttons */}
         <div className="opacity-0 animate-fade-in-up flex flex-col sm:flex-row items-center justify-center gap-4" style={{ animationDelay: "0.8s" }}>
-          <Button variant="solid" size="lg" asChild>
-            <a
-              href="https://wa.me/2347039178489?text=Hi%20Ace%20Wardrobe!%20I'm%20interested%20in%20the%20Valentine's%20event"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Join Waitlist
-            </a>
+          <Button 
+            variant="solid" 
+            size="lg" 
+            onClick={() => scrollToSection('rsvp')}
+          >
+            Join Waitlist
           </Button>
-          <Button variant="outline" size="lg" asChild>
-            <a href="#packages">View Packages</a>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            onClick={() => scrollToSection('packages')}
+          >
+            View Packages
           </Button>
         </div>
       </div>
