@@ -30,7 +30,7 @@ export const RSVPSection: FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-background relative overflow-hidden">
+    <section id="rsvp" className="py-20 md:py-32 bg-background relative overflow-hidden">
       {/* Background Accent */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary blur-[200px]" />
