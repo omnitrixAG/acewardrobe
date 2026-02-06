@@ -25,42 +25,31 @@ const FooterLink: FC<{ href: string; children: React.ReactNode; external?: boole
     href={href}
     target={external ? "_blank" : undefined}
     rel={external ? "noopener noreferrer" : undefined}
-    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
   >
-    <span className="w-0 h-px bg-primary transition-all duration-300 group-hover:w-3" />
+    <span className="w-0 h-px bg-foreground transition-all duration-300 group-hover:w-3" />
     {children}
   </a>
 );
 
 export const Footer: FC = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80;
-      const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  };
-
   return (
     <footer className="relative overflow-hidden">
       {/* CTA Section */}
       <div className="relative py-20 bg-gradient-to-b from-background to-card">
-        {/* Background Pattern */}
+        {/* Subtle grid */}
         <div 
-          className="absolute inset-0 opacity-10"
-          style={{ 
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L45 15L30 30L15 15z M0 30L15 45L0 60z M60 30L45 45L60 60z' fill='%23c41e3a' fill-opacity='0.1'/%3E%3C/svg%3E")`,
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
           }}
         />
         
-        {/* Ambient Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-3xl" />
-        
         <div className="max-w-[1200px] mx-auto px-5 md:px-10 text-center relative z-10">
           {/* Icon */}
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 border border-primary/30 mb-6 animate-pulse">
-            <SpadeIcon size={32} className="text-primary" />
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary border border-border mb-6">
+            <SpadeIcon size={32} className="text-foreground" />
           </div>
           
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -71,9 +60,9 @@ export const Footer: FC = () => {
           </p>
           
           <Button
-            variant="solid"
+            variant="outline"
             size="lg"
-            className="group/btn"
+            className="group/btn border-foreground hover:bg-foreground hover:text-background"
             asChild
           >
             <a
@@ -90,13 +79,13 @@ export const Footer: FC = () => {
       </div>
 
       {/* Main Footer */}
-      <div className="bg-card border-t border-border/30">
+      <div className="bg-card border-t border-border/50">
         <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
             {/* Contact Column */}
             <div className="lg:col-span-1">
-              <h4 className="font-display text-lg font-semibold text-foreground mb-5 flex items-center gap-2">
-                <span className="text-primary">♠</span> Contact
+              <h4 className="font-display text-lg font-semibold text-foreground mb-5">
+                Contact
               </h4>
               <ul className="space-y-4">
                 <li>
@@ -104,9 +93,9 @@ export const Footer: FC = () => {
                     href="https://wa.me/2347039178489" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-start gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+                    className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group"
                   >
-                    <Phone size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                    <Phone size={16} className="mt-0.5 flex-shrink-0" />
                     <span>+234 703 917 8489</span>
                   </a>
                 </li>
@@ -115,18 +104,18 @@ export const Footer: FC = () => {
                     href="https://maps.google.com/?q=6+Euphrates+Crescent+Maitama+Abuja" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-start gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+                    className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group"
                   >
-                    <MapPin size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                    <MapPin size={16} className="mt-0.5 flex-shrink-0" />
                     <span>6 Euphrates Crescent,<br />Maitama, Abuja</span>
                   </a>
                 </li>
                 <li>
                   <a 
                     href="mailto:hello@acewardrobe.com"
-                    className="flex items-start gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+                    className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group"
                   >
-                    <Mail size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                    <Mail size={16} className="mt-0.5 flex-shrink-0" />
                     <span>hello@acewardrobe.com</span>
                   </a>
                 </li>
@@ -135,8 +124,8 @@ export const Footer: FC = () => {
 
             {/* Navigate Column */}
             <div>
-              <h4 className="font-display text-lg font-semibold text-foreground mb-5 flex items-center gap-2">
-                <span className="text-primary">♠</span> Navigate
+              <h4 className="font-display text-lg font-semibold text-foreground mb-5">
+                Navigate
               </h4>
               <ul className="space-y-3">
                 <li><FooterLink href="#collections">Collections</FooterLink></li>
@@ -148,8 +137,8 @@ export const Footer: FC = () => {
 
             {/* Services Column */}
             <div>
-              <h4 className="font-display text-lg font-semibold text-foreground mb-5 flex items-center gap-2">
-                <span className="text-primary">♠</span> Services
+              <h4 className="font-display text-lg font-semibold text-foreground mb-5">
+                Services
               </h4>
               <ul className="space-y-3">
                 <li><FooterLink href="https://wa.me/2347039178489?text=Hi!%20I'd%20like%20to%20inquire%20about%20private%20shopping" external>Private Shopping</FooterLink></li>
@@ -161,8 +150,8 @@ export const Footer: FC = () => {
 
             {/* Discover Column */}
             <div>
-              <h4 className="font-display text-lg font-semibold text-foreground mb-5 flex items-center gap-2">
-                <span className="text-primary">♠</span> Discover
+              <h4 className="font-display text-lg font-semibold text-foreground mb-5">
+                Discover
               </h4>
               <ul className="space-y-3">
                 <li><FooterLink href="#rsvp">Join Waitlist</FooterLink></li>
@@ -174,8 +163,8 @@ export const Footer: FC = () => {
 
             {/* Follow Us Column */}
             <div>
-              <h4 className="font-display text-lg font-semibold text-foreground mb-5 flex items-center gap-2">
-                <span className="text-primary">♠</span> Follow Us
+              <h4 className="font-display text-lg font-semibold text-foreground mb-5">
+                Follow Us
               </h4>
               <ul className="space-y-3">
                 <li>
@@ -183,7 +172,7 @@ export const Footer: FC = () => {
                     href="https://www.instagram.com/ace_wardrobe/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group"
                   >
                     <Instagram size={18} className="group-hover:scale-110 transition-transform" />
                     <span>Instagram</span>
@@ -194,7 +183,7 @@ export const Footer: FC = () => {
                     href="https://www.tiktok.com/@mista_ace"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group"
                   >
                     <TikTokIcon size={18} className="group-hover:scale-110 transition-transform" />
                     <span>TikTok</span>
@@ -205,7 +194,7 @@ export const Footer: FC = () => {
                     href="https://wa.me/2347039178489"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors group"
                   >
                     <MessageCircle size={18} className="group-hover:scale-110 transition-transform" />
                     <span>WhatsApp</span>
@@ -219,28 +208,28 @@ export const Footer: FC = () => {
                   href="https://www.instagram.com/ace_wardrobe/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full bg-secondary/50 hover:bg-primary/20 border border-border/50 hover:border-primary/50 transition-all duration-300 group"
+                  className="p-2.5 rounded-full bg-secondary hover:bg-foreground border border-border hover:border-foreground transition-all duration-300 group"
                   aria-label="Instagram"
                 >
-                  <Instagram size={16} className="text-foreground group-hover:text-primary transition-colors" />
+                  <Instagram size={16} className="text-foreground group-hover:text-background transition-colors" />
                 </a>
                 <a
                   href="https://www.tiktok.com/@mista_ace"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full bg-secondary/50 hover:bg-primary/20 border border-border/50 hover:border-primary/50 transition-all duration-300 group"
+                  className="p-2.5 rounded-full bg-secondary hover:bg-foreground border border-border hover:border-foreground transition-all duration-300 group"
                   aria-label="TikTok"
                 >
-                  <TikTokIcon size={16} className="text-foreground group-hover:text-primary transition-colors" />
+                  <TikTokIcon size={16} className="text-foreground group-hover:text-background transition-colors" />
                 </a>
                 <a
                   href="https://wa.me/2347039178489"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full bg-secondary/50 hover:bg-primary/20 border border-border/50 hover:border-primary/50 transition-all duration-300 group"
+                  className="p-2.5 rounded-full bg-secondary hover:bg-foreground border border-border hover:border-foreground transition-all duration-300 group"
                   aria-label="WhatsApp"
                 >
-                  <MessageCircle size={16} className="text-foreground group-hover:text-primary transition-colors" />
+                  <MessageCircle size={16} className="text-foreground group-hover:text-background transition-colors" />
                 </a>
               </div>
             </div>
@@ -248,7 +237,7 @@ export const Footer: FC = () => {
         </div>
 
         {/* Collaboration Banner */}
-        <div className="border-t border-border/30 py-8">
+        <div className="border-t border-border/50 py-8">
           <div className="max-w-[1200px] mx-auto px-5 md:px-10">
             <div className="flex flex-col md:flex-row items-center justify-center gap-8">
               <p className="text-xs text-muted-foreground uppercase tracking-widest">In Collaboration With</p>
@@ -259,8 +248,8 @@ export const Footer: FC = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 group"
                 >
-                  <SpadeIcon size={24} className="group-hover:scale-110 transition-transform" />
-                  <span className="font-display text-sm text-foreground group-hover:text-primary transition-colors">Ace Wardrobe</span>
+                  <SpadeIcon size={24} className="text-foreground group-hover:scale-110 transition-transform" />
+                  <span className="font-display text-sm text-foreground group-hover:text-muted-foreground transition-colors">Ace Wardrobe</span>
                 </a>
                 <span className="text-border">×</span>
                 <a
@@ -270,7 +259,7 @@ export const Footer: FC = () => {
                   className="flex items-center gap-2 group"
                 >
                   <span className="text-lg">🍑</span>
-                  <span className="font-display text-sm text-foreground group-hover:text-rose-400 transition-colors">Peaches by Ema</span>
+                  <span className="font-display text-sm text-foreground group-hover:text-muted-foreground transition-colors">Peaches by Ema</span>
                 </a>
               </div>
             </div>
@@ -278,15 +267,15 @@ export const Footer: FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border/30 py-6 bg-background/50">
+        <div className="border-t border-border/50 py-6 bg-background/50">
           <div className="max-w-[1200px] mx-auto px-5 md:px-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-xs text-muted-foreground flex items-center gap-1">
-                © 2026 <span className="text-foreground font-medium">Ace Wardrobe</span>. All rights reserved. Made with <Heart size={12} className="text-primary fill-primary" /> by <a href="https://www.instagram.com/mista_ace/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">@Mista_ace</a>
+                © 2026 <span className="text-foreground font-medium">Ace Wardrobe</span>. All rights reserved. Made with <Heart size={12} className="text-foreground" /> by <a href="https://www.instagram.com/mista_ace/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition-colors">@Mista_ace</a>
               </p>
               <div className="flex items-center gap-6">
-                <a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
-                <a href="#" className="text-xs text-muted-foreground hover:text-primary transition-colors">Terms & Conditions</a>
+                <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
+                <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms & Conditions</a>
               </div>
             </div>
           </div>

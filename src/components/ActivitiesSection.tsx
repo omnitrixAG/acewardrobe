@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { ShoppingBag, Sparkles, CircleDot, Wine, ChevronRight } from "lucide-react";
+import { ShoppingBag, Sparkles, CircleDot, Wine, ArrowRight } from "lucide-react";
 import { Skeleton } from "./ui/skeleton";
 
 const activities = [
@@ -15,7 +15,7 @@ const activities = [
     title: "Free Tattoo",
     description: "By Kelz Tattoo — matching couple tattoos & individual designs",
     badge: "LIMITED SLOTS",
-    badgeStyle: "animate-pulse",
+    badgeStyle: "",
     image: "https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=800&h=600&fit=crop",
   },
   {
@@ -45,7 +45,7 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
 
   return (
     <div
-      className="group relative h-[320px] md:h-[380px] rounded-2xl overflow-hidden cursor-pointer"
+      className="group relative h-[320px] md:h-[380px] rounded-2xl overflow-hidden cursor-pointer border border-border/50 hover:border-border transition-all duration-500"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       {/* Background Image with Skeleton */}
@@ -68,10 +68,10 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
       </div>
 
       {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500" />
       
       {/* Subtle grid pattern overlay */}
-      <div className="absolute inset-0 opacity-30 group-hover:opacity-20 transition-opacity"
+      <div className="absolute inset-0 opacity-20 group-hover:opacity-10 transition-opacity"
         style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
           backgroundSize: '30px 30px'
@@ -80,23 +80,20 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
 
       {/* Badge */}
       {activity.badge && (
-        <span className={`absolute top-4 right-4 z-20 px-3 py-1.5 text-xs font-bold tracking-wider bg-primary text-primary-foreground rounded-full shadow-lg ${activity.badgeStyle || ''}`}>
+        <span className="absolute top-4 right-4 z-20 px-3 py-1.5 text-xs font-bold tracking-wider bg-foreground text-background rounded-full">
           {activity.badge}
         </span>
       )}
 
-      {/* Red glow border on hover */}
-      <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/50 transition-all duration-500 group-hover:shadow-[inset_0_0_30px_rgba(196,30,58,0.1)]" />
-
       {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
         {/* Icon */}
-        <div className="w-14 h-14 rounded-xl bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center mb-4 transform group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300">
-          <activity.icon size={26} className="text-primary" />
+        <div className="w-14 h-14 rounded-xl bg-secondary/80 backdrop-blur-md border border-border flex items-center justify-center mb-4 transform group-hover:scale-110 transition-all duration-300">
+          <activity.icon size={26} className="text-foreground" />
         </div>
 
         {/* Text Content */}
-        <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+        <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
           {activity.title}
         </h3>
         <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed max-w-xs">
@@ -104,9 +101,9 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
         </p>
 
         {/* Learn More indicator */}
-        <div className="flex items-center gap-2 mt-4 text-primary/70 group-hover:text-primary transition-colors">
+        <div className="flex items-center gap-2 mt-4 text-muted-foreground group-hover:text-foreground transition-colors">
           <span className="text-sm font-medium tracking-wide">Learn More</span>
-          <ChevronRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
+          <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
     </div>
@@ -115,46 +112,36 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
 
 export const ActivitiesSection: FC = () => {
   return (
-    <section id="activities" className="py-20 md:py-32 relative overflow-hidden">
-      {/* Enhanced Background */}
-      <div 
-        className="absolute inset-0 opacity-30"
-        style={{ 
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L45 15L30 30L15 15z M0 30L15 45L0 60z M60 30L45 45L60 60z' fill='%23c41e3a' fill-opacity='0.03'/%3E%3C/svg%3E")`,
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-card via-card/95 to-card" />
-      
-      {/* Ambient glow */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+    <section id="activities" className="py-20 md:py-28 relative overflow-hidden bg-card">
+      {/* Subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
       
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        {/* Enhanced Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 mb-6">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs font-medium tracking-wider text-primary uppercase">Valentine's Day 2026</span>
+        {/* Section Header - Professional */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/30 mb-6">
+            <span className="w-2 h-2 rounded-full bg-foreground" />
+            <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Event Experiences</span>
           </div>
           
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-            Experience the <span className="text-shimmer">Event</span>
+            What to Expect
           </h2>
           <p className="font-body text-muted-foreground max-w-lg mx-auto text-lg">
-            More than shopping—an immersive Valentine's celebration
+            More than shopping — an immersive celebration
           </p>
         </div>
 
         {/* Timeline connector for desktop */}
-        <div className="hidden lg:flex items-center justify-center gap-4 mb-8">
+        <div className="hidden lg:flex items-center justify-center gap-4 mb-10">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-primary" />
-            <div className="w-24 h-0.5 bg-gradient-to-r from-primary to-primary/30" />
+            <div className="w-3 h-3 rounded-full bg-foreground" />
+            <div className="w-24 h-0.5 bg-gradient-to-r from-foreground to-border" />
           </div>
           <span className="text-xs text-muted-foreground uppercase tracking-wider">Your Journey</span>
           <div className="flex items-center gap-2">
-            <div className="w-24 h-0.5 bg-gradient-to-l from-primary to-primary/30" />
-            <div className="w-3 h-3 rounded-full bg-primary" />
+            <div className="w-24 h-0.5 bg-gradient-to-l from-foreground to-border" />
+            <div className="w-3 h-3 rounded-full bg-foreground" />
           </div>
         </div>
 

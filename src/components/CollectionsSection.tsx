@@ -34,7 +34,7 @@ const collections = [
   { 
     title: "Couple's Edit", 
     subtitle: "Twin in style this Valentine's",
-    status: "VALENTINE'S SPECIAL",
+    status: "SPECIAL",
     badge: true,
     image: "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?w=800&h=1000&fit=crop",
     cta: "Shop Together",
@@ -49,7 +49,7 @@ interface CollectionCardProps {
   isLarge?: boolean;
 }
 
-const CollectionCard: FC<CollectionCardProps> = ({ collection, index, isLarge }) => {
+const CollectionCard: FC<CollectionCardProps> = ({ collection, index }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
@@ -68,7 +68,7 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection, index, isLarge })
 
   return (
     <div
-      className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[3/4]"
+      className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[3/4] border border-border/50 hover:border-border transition-all duration-500"
       style={{ animationDelay: `${index * 0.1}s` }}
       onClick={handleClick}
     >
@@ -102,9 +102,9 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection, index, isLarge })
         }}
       />
 
-      {/* Valentine's Special Badge */}
+      {/* Special Badge */}
       {collection.badge && (
-        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary text-primary-foreground text-xs font-bold tracking-wider">
+        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-foreground text-background text-xs font-bold tracking-wider">
           <Heart size={12} className="fill-current" />
           {collection.status}
         </div>
@@ -113,17 +113,14 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection, index, isLarge })
       {/* Status indicator for non-badge items */}
       {!collection.badge && (
         <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm text-white text-xs font-medium tracking-wider">
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-white" />
           {collection.status}
         </div>
       )}
 
-      {/* Hover border glow */}
-      <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/50 transition-all duration-500" />
-
       {/* Content Overlay */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-        <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+        <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">
           {collection.title}
         </h3>
         <p className="text-muted-foreground mb-4 text-sm md:text-base">
@@ -134,11 +131,11 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection, index, isLarge })
         <Button
           variant="outline"
           size="sm"
-          className="w-fit group/btn border-white/20 hover:border-primary hover:bg-primary/10"
+          className="w-fit group/btn border-white/20 hover:border-foreground hover:bg-foreground hover:text-background"
         >
           <span className="flex items-center gap-2">
             {collection.title === "New Arrivals" ? (
-              <Bell size={14} className="group-hover/btn:animate-pulse" />
+              <Bell size={14} />
             ) : collection.isExternal ? (
               <ExternalLink size={14} />
             ) : null}
@@ -154,17 +151,14 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection, index, isLarge })
 export const CollectionsSection: FC = () => {
   return (
     <section id="collections" className="py-20 md:py-28 bg-card relative overflow-hidden">
-      {/* Ambient glow */}
-      <div className="absolute top-0 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      {/* Subtle gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background opacity-50" />
 
       <div className="max-w-[1200px] mx-auto px-5 md:px-10 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-12 md:mb-14">
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/50" />
-            <span className="text-primary text-2xl">♠</span>
-            <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/50" />
+        {/* Section Header - Professional */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/30 mb-6">
+            <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Shop</span>
           </div>
           
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
