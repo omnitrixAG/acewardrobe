@@ -6,6 +6,7 @@ import { RSVPSection } from "@/components/RSVPSection";
 import { CollectionsSection } from "@/components/CollectionsSection";
 import { AboutSection } from "@/components/AboutSection";
 import { Footer } from "@/components/Footer";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <CollectionsSection />
       <AboutSection />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

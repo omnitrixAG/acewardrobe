@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from "react";
-import { MapPin, Calendar, Clock, ChevronDown } from "lucide-react";
+import { MapPin, Calendar, Clock } from "lucide-react";
 import { CountdownTimer } from "./CountdownTimer";
 import { FloatingParticles } from "./FloatingParticles";
 import { MatrixSpades } from "./MatrixSpades";
@@ -187,31 +187,21 @@ export const HeroSection: FC = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="opacity-0 animate-fade-in-up flex flex-col sm:flex-row items-center justify-center gap-4" style={{ animationDelay: "0.8s" }}>
+        <div className="opacity-0 animate-fade-in-up flex flex-col items-center gap-3" style={{ animationDelay: "0.8s" }}>
           <Button 
             variant="solid" 
             size="lg" 
             onClick={() => scrollToSection('rsvp')}
+            className="w-full max-w-[300px] sm:w-auto"
           >
             Join Waitlist
           </Button>
-          <Button 
-            variant="outline" 
-            size="lg" 
+          <button 
             onClick={() => scrollToSection('packages')}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 decoration-muted-foreground/50 hover:decoration-foreground"
           >
-            View Packages
-          </Button>
-        </div>
-      </div>
-
-      {/* Enhanced Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 animate-bounce">
-        <span className="text-xs text-muted-foreground/70 tracking-[0.2em] uppercase font-medium">
-          Scroll to explore
-        </span>
-        <div className="w-8 h-12 rounded-full border-2 border-muted-foreground/40 flex items-start justify-center p-2 backdrop-blur-sm bg-background/10">
-          <ChevronDown size={16} className="text-primary animate-pulse" />
+            or view packages ↓
+          </button>
         </div>
       </div>
     </section>
