@@ -6,59 +6,63 @@
 
 @layer base {
   :root {
-    --background: 0 0% 6%;
-    --foreground: 35 18% 94%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 35 18% 94%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 10%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 35 18% 94%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 30 45% 64%;
-    --primary-foreground: 0 0% 10%;
+    --primary: 38 45% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 45 38% 59%;
+    --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 10%;
 
-    --muted: 30 10% 20%;
-    --muted-foreground: 28 12% 60%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 30 45% 64%;
+    --accent: 38 45% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 45% 64% / 0.2;
-    --input: 30 45% 64% / 0.2;
-    --ring: 30 45% 64%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 38 45% 60%;
 
     --radius: 0.5rem;
 
     /* Custom brand tokens */
-    --gold: 30 45% 64%;
-    --gold-dark: 30 40% 45%;
-    --gold-glow: 30 70% 55%;
+    --gold: 38 45% 60%;
+    --gold-dark: 38 40% 45%;
+    --gold-glow: 38 70% 55%;
     --ace-yellow: 45 38% 59%;
-    --chrome: 30 5% 75%;
-    --chrome-light: 30 5% 85%;
-    --off-white: 35 18% 94%;
-    --deep-black: 0 0% 6%;
-    --glass-bg: 0 0% 8%;
-    --glass-border: 30 45% 64% / 0.15;
+    --chrome: 0 0% 40%;
+    --chrome-light: 0 0% 25%;
+    --off-white: 0 0% 96%;
+    --deep-black: 0 0% 10%;
+    --glass-bg: 0 0% 100%;
+    --glass-border: 0 0% 90%;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(30, 52%, 64%) 0%, hsl(30, 40%, 45%) 100%);
-    --gradient-shimmer: linear-gradient(90deg, transparent 0%, hsl(0, 0%, 100%, 0.1) 50%, transparent 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 6%) 0%, hsl(0, 0%, 4%) 100%);
-    --gradient-hero: radial-gradient(ellipse at center, hsl(0, 0%, 8%) 0%, hsl(0, 0%, 4%) 70%);
-    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 8%) 0%, hsl(0, 0%, 5%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(38, 52%, 60%) 0%, hsl(38, 40%, 45%) 100%);
+    --gradient-shimmer: linear-gradient(90deg, transparent 0%, hsl(0, 0%, 0%, 0.05) 50%, transparent 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 96%) 100%);
+    --gradient-hero: radial-gradient(ellipse at center, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 96%) 70%);
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 98%) 100%);
 
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(30, 52%, 64%, 0.2);
-    --shadow-card: 0 10px 40px hsl(0, 0%, 0%, 0.5);
-    --shadow-button: 0 4px 20px hsl(30, 52%, 64%, 0.3);
+    --shadow-glow: 0 2px 8px hsl(0, 0%, 0%, 0.08);
+    --shadow-card: 0 2px 8px hsl(0, 0%, 0%, 0.08);
+    --shadow-button: 0 4px 20px hsl(38, 52%, 60%, 0.3);
+
+    /* Footer dark theme */
+    --footer-bg: 0 0% 10%;
+    --footer-fg: 0 0% 90%;
 
     /* Typography */
     --font-display: 'Playfair Display', Georgia, serif;
