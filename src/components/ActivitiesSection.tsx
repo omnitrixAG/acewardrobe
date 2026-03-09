@@ -112,9 +112,9 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
 
 export const ActivitiesSection: FC = () => {
   return (
-    <section id="activities" className="py-20 md:py-28 relative overflow-hidden bg-card">
+    <section id="activities" className="py-20 md:py-28 relative overflow-hidden bg-secondary">
       {/* Subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary to-background" />
       
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         {/* Section Header - Professional */}
