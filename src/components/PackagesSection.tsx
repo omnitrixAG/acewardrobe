@@ -67,7 +67,7 @@ const forHimPackages = [
     image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=400&h=300&fit=crop",
   },
   {
-    title: "CRUSH EDIT",
+    title: "THE STARTER EDIT",
     price: "₦200,000",
     originalPrice: "₦250,000",
     savings: "₦50,000",
