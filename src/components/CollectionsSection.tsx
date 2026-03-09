@@ -68,7 +68,7 @@ const CollectionCard: FC<{ collection: typeof collections[0] }> = ({ collection 
 
       {/* Content — bottom left */}
       <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-        <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-1">
+        <h3 className="font-display text-xl md:text-2xl font-semibold text-white mb-1">
           {collection.title}
         </h3>
         <p className="text-xs text-muted-foreground mb-4">
