@@ -167,11 +167,12 @@
     @apply relative overflow-hidden rounded-lg transition-all duration-500;
     background: var(--gradient-card);
     border: 1px solid hsl(var(--border));
+    box-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.08);
   }
 
   .card-package:hover {
     border-color: hsl(var(--gold));
-    box-shadow: 0 0 30px hsl(30, 52%, 64%, 0.2);
+    box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.12);
     transform: translateY(-4px);
   }
 
