@@ -85,8 +85,8 @@ const CollectionCard: FC<{ collection: typeof collections[0] }> = ({ collection 
 
 export const CollectionsSection: FC = () => {
   return (
-    <section id="collections" className="py-20 md:py-28 bg-card relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background opacity-50" />
+    <section id="collections" className="py-20 md:py-28 bg-secondary relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background opacity-30" />
 
       <div className="max-w-[1200px] mx-auto px-5 md:px-10 relative z-10">
         {/* Section Header */}
