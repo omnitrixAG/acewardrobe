@@ -139,20 +139,19 @@
     animation: shimmer 3s infinite;
   }
 
-  /* Hero Badge with Pulse */
   .hero-badge {
-    background: hsla(348, 76%, 44%, 0.1);
-    border: 1px solid hsla(348, 76%, 44%, 0.3);
+    background: hsla(30, 52%, 64%, 0.1);
+    border: 1px solid hsla(30, 52%, 64%, 0.3);
     animation: pulse-badge 2s infinite;
   }
 
   @keyframes pulse-badge {
-    0%, 100% { box-shadow: 0 0 0 0 hsla(348, 76%, 44%, 0.4); }
-    50% { box-shadow: 0 0 20px 5px hsla(348, 76%, 44%, 0.2); }
+    0%, 100% { box-shadow: 0 0 0 0 hsla(30, 52%, 64%, 0.4); }
+    50% { box-shadow: 0 0 20px 5px hsla(30, 52%, 64%, 0.2); }
   }
 
-  .glow-crimson {
-    filter: drop-shadow(0 0 20px hsl(348, 76%, 44%, 0.6));
+  .glow-gold {
+    filter: drop-shadow(0 0 20px hsl(30, 52%, 64%, 0.6));
   }
 
   .glow-pulse {
