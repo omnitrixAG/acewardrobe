@@ -561,7 +561,7 @@
 
 .hover-lift:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px hsla(0, 0%, 0%, 0.3);
+  box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.12);
 }
 
 /* Noise texture overlay */

@@ -82,7 +82,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service, index }) => {
       </div>
 
       {/* Content Section - 40% */}
-      <div className="relative p-6 bg-gradient-to-b from-card to-background">
+      <div className="relative p-6 bg-background">
         <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">
           {service.title}
         </h3>

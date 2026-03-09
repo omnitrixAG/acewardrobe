@@ -98,7 +98,8 @@ const PackageCard: FC<PackageCardProps> = ({
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col h-full overflow-hidden rounded-lg bg-secondary border border-border/30 transition-all duration-500 hover:-translate-y-1 hover:border-border/60 hover:shadow-lg hover:shadow-black/20"
+      className="group flex flex-col h-full overflow-hidden rounded-lg bg-background border border-border transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-black/10"
+      style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
     >
       {/* Image Container — 3:4 aspect ratio */}
       <div className="relative aspect-[3/4] overflow-hidden flex-shrink-0">

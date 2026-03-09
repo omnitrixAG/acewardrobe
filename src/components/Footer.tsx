@@ -39,9 +39,9 @@ export const Footer: FC = () => {
       <div className="relative py-20" style={{ background: 'linear-gradient(to bottom, hsl(0,0%,10%), hsl(0,0%,8%))' }}>
         {/* Subtle grid */}
         <div 
-          className="absolute inset-0 opacity-[0.02]"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
             backgroundSize: '60px 60px'
           }}
         />

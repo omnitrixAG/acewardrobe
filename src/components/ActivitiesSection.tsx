@@ -101,7 +101,7 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
         </p>
 
         {/* Learn More indicator */}
-        <div className="flex items-center gap-2 mt-4 text-muted-foreground group-hover:text-foreground transition-colors">
+        <div className="flex items-center gap-2 mt-4 text-white/60 group-hover:text-white transition-colors">
           <span className="text-sm font-medium tracking-wide">Learn More</span>
           <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
         </div>

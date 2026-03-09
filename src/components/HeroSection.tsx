@@ -115,8 +115,8 @@ export const HeroSection: FC = () => {
               background: 'transparent'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#f5f1eb';
-              e.currentTarget.style.color = '#1a1a1a';
+              e.currentTarget.style.background = '#1a1a1a';
+              e.currentTarget.style.color = '#ffffff';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = 'transparent';
