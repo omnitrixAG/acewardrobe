@@ -39,19 +39,19 @@ export const HeroSection: FC = () => {
         />
         {!isMobile && (
           <video
-42:             autoPlay
-43:             muted
-44:             loop
-45:             playsInline
-46:             preload="metadata"
-47:             onLoadedData={() => setVideoLoaded(true)}
-48:             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-49:               videoLoaded ? 'opacity-100' : 'opacity-0'
-50:             }`}
-51:             poster={heroPoster}
-52:           >
-53:             <source src={heroVideo} type="video/mp4" />
-54:           </video>
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            onLoadedData={() => setVideoLoaded(true)}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              videoLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            poster={heroPoster}
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
         )}
       </div>
 
