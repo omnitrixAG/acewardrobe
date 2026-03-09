@@ -456,19 +456,6 @@
   }
 }
 
-/* Number flip animation for countdown */
-@keyframes number-flip {
-  0% {
-    transform: perspective(400px) rotateX(0deg);
-  }
-  50% {
-    transform: perspective(400px) rotateX(-90deg);
-    opacity: 0.5;
-  }
-  100% {
-    transform: perspective(400px) rotateX(0deg);
-  }
-}
 
 /* Card lift and glow animation */
 @keyframes card-glow {
