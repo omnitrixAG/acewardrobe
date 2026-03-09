@@ -220,7 +220,7 @@ export const PackagesSection: FC = () => {
           </h2>
           
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Premium gift sets crafted in partnership with <span className="text-foreground">Peaches by Ema</span>
+            Thoughtfully styled collections for the modern wardrobe
           </p>
         </div>
 
