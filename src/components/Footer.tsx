@@ -154,7 +154,7 @@ export const Footer: FC = () => {
                 Discover
               </h4>
               <ul className="space-y-3">
-                <li><FooterLink href="#rsvp">Newsletter</FooterLink></li>
+                <li><FooterLink href="#newsletter">Newsletter</FooterLink></li>
                 <li><FooterLink href="https://www.instagram.com/ace_wardrobe/" external>New Arrivals</FooterLink></li>
                 <li><FooterLink href="https://www.instagram.com/peachesbyema/" external>Peaches by Ema</FooterLink></li>
                 <li><FooterLink href="#about">Our Story</FooterLink></li>
