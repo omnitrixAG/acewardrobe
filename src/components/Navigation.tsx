@@ -196,8 +196,9 @@ export const Navigation: FC = () => {
             </TooltipContent>
           </Tooltip>
           <Button 
-            variant="solid" 
+            variant="outline" 
             size="sm"
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             asChild
           >
             <a
