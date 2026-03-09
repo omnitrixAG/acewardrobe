@@ -68,17 +68,17 @@ export const RSVPSection: FC = () => {
             <>
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/30 mb-8">
-                <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Waitlist</span>
+                <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Join The Club</span>
               </div>
 
               {/* Headline */}
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                <span className="text-foreground">Be First </span>
-                <span className="text-chrome-gradient">in Line</span>
+                <span className="text-foreground">Join the </span>
+                <span className="text-chrome-gradient">Inner Circle</span>
               </h2>
               
               <p className="font-body text-muted-foreground text-lg md:text-xl mb-10 max-w-lg mx-auto">
-                Join our waitlist for exclusive access to collections, events, and special offers.
+                Get early access to new drops, exclusive offers, and style inspiration.
               </p>
 
               {/* Inline Email Form */}
