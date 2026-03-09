@@ -47,7 +47,7 @@ const forHimPackages = [
     image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=300&fit=crop",
   },
   {
-    title: "KING EDIT",
+    title: "THE KING EDIT",
     price: "₦550,000",
     originalPrice: "₦700,000",
     savings: "₦150,000",
