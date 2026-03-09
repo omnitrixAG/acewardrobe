@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { ArrowRight, Bell, Heart, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
 
