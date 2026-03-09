@@ -212,7 +212,7 @@ export const PackagesSection: FC = () => {
         {/* Section Header - Professional */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/30 mb-6">
-            <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Valentine Essentials</span>
+            <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Signature Collections</span>
           </div>
           
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
