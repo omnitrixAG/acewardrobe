@@ -68,7 +68,7 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
       </div>
 
       {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500" />
       
       {/* Subtle grid pattern overlay */}
       <div className="absolute inset-0 opacity-20 group-hover:opacity-10 transition-opacity"
