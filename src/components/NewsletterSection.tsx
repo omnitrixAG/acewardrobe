@@ -4,7 +4,7 @@ import { z } from "zod";
 
 const emailSchema = z.string().trim().email("Please enter a valid email address").max(255);
 
-export const NewsletterletterSection: FC = () => {
+export const NewsletterSection: FC = () => {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
