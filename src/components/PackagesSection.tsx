@@ -4,7 +4,7 @@ import { Heart, Check, Crown, ArrowRight } from "lucide-react";
 
 const forHerPackages = [
   {
-    title: "SOULMATE EDIT",
+    title: "THE LUXE EDIT",
     price: "₦350,000",
     originalPrice: "₦450,000",
     savings: "₦100,000",
