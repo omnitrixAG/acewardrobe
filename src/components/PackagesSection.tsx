@@ -4,31 +4,31 @@ import { Heart, Check, Crown, ArrowRight } from "lucide-react";
 
 const forHerPackages = [
   {
-    title: "SOULMATE EDIT",
+    title: "THE LUXE EDIT",
     price: "₦350,000",
     originalPrice: "₦450,000",
     savings: "₦100,000",
-    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20SOULMATE%20EDIT%20package%20(₦350,000)",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20THE%20LUXE%20EDIT%20package%20(₦350,000)",
     items: ["Long Dress", "Lingerie", "Pyjama Set", "Chocolate & Card"],
     isBestseller: true,
     image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=300&fit=crop",
   },
   {
-    title: "LOVER'S EDIT",
+    title: "THE CLASSIC EDIT",
     price: "₦250,000",
     originalPrice: "₦320,000",
     savings: "₦70,000",
-    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20LOVER'S%20EDIT%20package%20(₦250,000)",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20THE%20CLASSIC%20EDIT%20package%20(₦250,000)",
     items: ["Short Dress", "Lingerie", "Pyjama Set", "Chocolate & Card"],
     isBestseller: false,
     image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=300&fit=crop",
   },
   {
-    title: "SWEETHEART EDIT",
+    title: "THE ESSENTIAL EDIT",
     price: "₦150,000",
     originalPrice: "₦200,000",
     savings: "₦50,000",
-    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20SWEETHEART%20EDIT%20package%20(₦150,000)",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20THE%20ESSENTIAL%20EDIT%20package%20(₦150,000)",
     items: ["Lingerie", "Pyjama Set", "Chocolate & Flowers"],
     isBestseller: false,
     image: "https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=400&h=300&fit=crop",
@@ -37,41 +37,41 @@ const forHerPackages = [
 
 const forHimPackages = [
   {
-    title: "ULTIMATE LOVER",
+    title: "THE EXECUTIVE EDIT",
     price: "₦750,000",
     originalPrice: "₦950,000",
     savings: "₦200,000",
-    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20ULTIMATE%20LOVER%20EDIT%20package%20(₦750,000)",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20THE%20EXECUTIVE%20EDIT%20package%20(₦750,000)",
     items: ["Two-Piece Set", "Boxers & Singlet", "Shirt/T-Shirt", "Shorts"],
     isBestseller: false,
     image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=300&fit=crop",
   },
   {
-    title: "KING EDIT",
+    title: "THE KING EDIT",
     price: "₦550,000",
     originalPrice: "₦700,000",
     savings: "₦150,000",
-    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20KING%20EDIT%20package%20(₦550,000)",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20THE%20KING%20EDIT%20package%20(₦550,000)",
     items: ["Boxers & Singlet", "Shirt/T-Shirt", "Pants/Jeans", "Card"],
     isBestseller: true,
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
   },
   {
-    title: "BAE EDIT",
+    title: "THE CASUAL EDIT",
     price: "₦350,000",
     originalPrice: "₦450,000",
     savings: "₦100,000",
-    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20BAE%20EDIT%20package%20(₦350,000)",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20THE%20CASUAL%20EDIT%20package%20(₦350,000)",
     items: ["Singlet & Boxers", "Shirt/Pants", "Miniature Spirits", "Card"],
     isBestseller: false,
     image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=400&h=300&fit=crop",
   },
   {
-    title: "CRUSH EDIT",
+    title: "THE STARTER EDIT",
     price: "₦200,000",
     originalPrice: "₦250,000",
     savings: "₦50,000",
-    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20CRUSH%20EDIT%20package%20(₦200,000)",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20THE%20STARTER%20EDIT%20package%20(₦200,000)",
     items: ["Boxers & Singlet", "Miniature Spirits", "Card"],
     isBestseller: false,
     image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400&h=300&fit=crop",
@@ -186,7 +186,7 @@ const PackageCard: FC<PackageCardProps> = ({
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2"
           >
-            <span>Select Package</span>
+            <span>Shop Now</span>
             <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
           </a>
         </Button>
@@ -212,15 +212,15 @@ export const PackagesSection: FC = () => {
         {/* Section Header - Professional */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/30 mb-6">
-            <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Valentine Essentials</span>
+            <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Signature Collections</span>
           </div>
           
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-            Curated Packages
+            Curated Edits
           </h2>
           
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Premium gift sets crafted in partnership with <span className="text-foreground">Peaches by Ema</span>
+            Thoughtfully styled collections for the modern wardrobe
           </p>
         </div>
 
@@ -275,7 +275,7 @@ export const PackagesSection: FC = () => {
         {/* Couples Banner */}
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-border bg-secondary/30">
-            <span className="text-sm tracking-wide text-muted-foreground">Mix & match any Her + Him package for the complete gift</span>
+            <span className="text-sm tracking-wide text-muted-foreground">Mix & match styles to create your signature look</span>
           </div>
         </div>
       </div>
