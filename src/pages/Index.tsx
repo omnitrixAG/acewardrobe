@@ -18,6 +18,7 @@ const Index = () => {
       <ShopByCategory />
       <PromoBanner />
       <PackagesSection />
+      <PartnershipBanner />
       <CollectionsSection />
       <AboutSection />
       <NewsletterSection />
