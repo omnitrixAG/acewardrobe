@@ -57,7 +57,7 @@ const forHimPackages = [
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
   },
   {
-    title: "BAE EDIT",
+    title: "THE CASUAL EDIT",
     price: "₦350,000",
     originalPrice: "₦450,000",
     savings: "₦100,000",
