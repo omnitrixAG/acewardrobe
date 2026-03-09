@@ -308,8 +308,8 @@
   }
 
   .fashion-tech-card:hover {
-    border-color: hsla(348, 76%, 44%, 0.3);
-    box-shadow: 0 0 30px hsla(348, 76%, 44%, 0.1);
+    border-color: hsla(30, 52%, 64%, 0.3);
+    box-shadow: 0 0 30px hsla(30, 52%, 64%, 0.1);
   }
 
   /* Hide scrollbar for color swatches */
