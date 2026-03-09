@@ -56,6 +56,9 @@ export default {
           dark: "hsl(var(--gold-dark))",
           glow: "hsl(var(--gold-glow))",
         },
+        "ace-yellow": {
+          DEFAULT: "hsl(var(--ace-yellow))",
+        },
         chrome: {
           DEFAULT: "hsl(var(--chrome))",
           light: "hsl(var(--chrome-light))",

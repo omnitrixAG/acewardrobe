@@ -7,45 +7,46 @@
 @layer base {
   :root {
     --background: 0 0% 6%;
-    --foreground: 40 20% 95%;
+    --foreground: 35 18% 94%;
 
     --card: 0 0% 10%;
-    --card-foreground: 40 20% 95%;
+    --card-foreground: 35 18% 94%;
 
     --popover: 0 0% 10%;
-    --popover-foreground: 40 20% 95%;
+    --popover-foreground: 35 18% 94%;
 
-    --primary: 32 50% 65%;
+    --primary: 30 45% 64%;
     --primary-foreground: 0 0% 10%;
 
-    --secondary: 0 0% 14%;
-    --secondary-foreground: 40 20% 95%;
+    --secondary: 45 38% 59%;
+    --secondary-foreground: 0 0% 10%;
 
     --muted: 30 10% 20%;
-    --muted-foreground: 30 10% 55%;
+    --muted-foreground: 28 12% 60%;
 
-    --accent: 32 50% 65%;
+    --accent: 30 45% 64%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 32 50% 65%;
+    --border: 30 45% 64% / 0.2;
+    --input: 30 45% 64% / 0.2;
+    --ring: 30 45% 64%;
 
     --radius: 0.5rem;
 
     /* Custom brand tokens */
-    --gold: 32 50% 65%;
-    --gold-dark: 32 40% 45%;
-    --gold-glow: 32 70% 55%;
+    --gold: 30 45% 64%;
+    --gold-dark: 30 40% 45%;
+    --gold-glow: 30 70% 55%;
+    --ace-yellow: 45 38% 59%;
     --chrome: 30 5% 75%;
     --chrome-light: 30 5% 85%;
-    --off-white: 40 20% 95%;
+    --off-white: 35 18% 94%;
     --deep-black: 0 0% 6%;
     --glass-bg: 0 0% 8%;
-    --glass-border: 0 0% 18%;
+    --glass-border: 30 45% 64% / 0.15;
 
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(30, 52%, 64%) 0%, hsl(30, 40%, 45%) 100%);
