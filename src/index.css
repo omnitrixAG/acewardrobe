@@ -458,10 +458,10 @@
 /* Card lift and glow animation */
 @keyframes card-glow {
   0%, 100% {
-    box-shadow: 0 0 20px hsla(348, 76%, 44%, 0.1);
+    box-shadow: 0 0 20px hsla(30, 52%, 64%, 0.1);
   }
   50% {
-    box-shadow: 0 0 40px hsla(348, 76%, 44%, 0.2);
+    box-shadow: 0 0 40px hsla(30, 52%, 64%, 0.2);
   }
 }
 
