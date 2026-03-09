@@ -112,6 +112,11 @@ export const RSVPSection: FC = () => {
                 )}
               </form>
 
+              {/* Privacy note */}
+              <p className="mt-4 text-xs text-muted-foreground/60">
+                No spam. Unsubscribe anytime.
+              </p>
+
               {/* Social Proof */}
               <div className="flex items-center justify-center gap-3 mt-8">
                 <div className="flex -space-x-2">
