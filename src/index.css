@@ -37,9 +37,9 @@
     --radius: 0.5rem;
 
     /* Custom brand tokens */
-    --crimson: 348 76% 44%;
-    --crimson-dark: 348 76% 27%;
-    --crimson-glow: 348 100% 50%;
+    --gold: 30 52% 64%;
+    --gold-dark: 30 40% 45%;
+    --gold-glow: 30 70% 55%;
     --chrome: 0 0% 75%;
     --chrome-light: 0 0% 85%;
     --off-white: 0 0% 96%;
@@ -48,7 +48,7 @@
     --glass-border: 0 0% 20%;
 
     /* Gradients */
-    --gradient-crimson: linear-gradient(135deg, hsl(348, 76%, 44%) 0%, hsl(348, 76%, 27%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(30, 52%, 64%) 0%, hsl(30, 40%, 45%) 100%);
     --gradient-shimmer: linear-gradient(90deg, transparent 0%, hsl(0, 0%, 100%, 0.1) 50%, transparent 100%);
     --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 6%) 0%, hsl(0, 0%, 4%) 100%);
     --gradient-hero: radial-gradient(ellipse at center, hsl(0, 0%, 8%) 0%, hsl(0, 0%, 4%) 70%);
