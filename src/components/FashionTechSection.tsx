@@ -78,11 +78,11 @@ export const FashionTechSection: FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       
       {/* Technical Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" 
+      <div className="absolute inset-0 opacity-[0.02]" 
         style={{
           backgroundImage: `
-            linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px)
+            linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
+            linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)
           `,
           backgroundSize: '50px 50px'
         }}

@@ -66,7 +66,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service, index }) => {
         )}
         
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
         
         {/* Icon overlay */}
         <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-secondary/80 backdrop-blur-md border border-border flex items-center justify-center group-hover:bg-secondary transition-colors">
@@ -82,7 +82,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service, index }) => {
       </div>
 
       {/* Content Section - 40% */}
-      <div className="relative p-6 bg-background">
+      <div className="relative p-6 bg-gradient-to-b from-card to-background">
         <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">
           {service.title}
         </h3>
@@ -126,9 +126,9 @@ export const AboutSection: FC = () => {
     <section id="about" className="py-20 md:py-28 bg-background relative overflow-hidden">
       {/* Subtle grid background */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
         }}
       />
