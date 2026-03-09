@@ -93,7 +93,7 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
         </div>
 
         {/* Text Content */}
-        <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+        <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
           {activity.title}
         </h3>
         <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed max-w-xs">
