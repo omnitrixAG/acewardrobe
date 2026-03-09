@@ -328,11 +328,11 @@
 
 @layer utilities {
   .bg-glass {
-    background: hsla(0, 0%, 8%, 0.6);
+    background: hsla(0, 0%, 100%, 0.8);
   }
 
   .border-glass-border {
-    border-color: hsla(0, 0%, 20%, 0.5);
+    border-color: hsla(0, 0%, 90%, 1);
   }
 
   .font-display {
