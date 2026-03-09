@@ -278,7 +278,7 @@
     left: 0;
     width: 0;
     height: 1px;
-    background: hsl(var(--crimson));
+    background: hsl(var(--gold));
     transition: width 0.3s ease;
   }
 
