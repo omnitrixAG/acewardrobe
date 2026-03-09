@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { ArrowRight, Bell, Heart, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
 
@@ -7,38 +7,41 @@ const collections = [
   { 
     title: "New Arrivals", 
     subtitle: "Fresh drops weekly",
-    status: "DROPPING SOON",
+    status: "NEW",
+    statusColor: "bg-emerald-500",
     image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=1000&fit=crop",
-    cta: "Get Notified",
-    href: "#rsvp",
-    isExternal: false,
+    cta: "Shop New",
+    href: "https://wa.me/2347039178489?text=Hi!%20I'd%20like%20to%20see%20your%20new%20arrivals",
+    isExternal: true,
   },
   { 
     title: "Men's Edit", 
     subtitle: "Curated pieces for the modern king",
-    status: "PREVIEW",
+    status: "SHOP NOW",
+    statusColor: "bg-foreground",
     image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800&h=1000&fit=crop",
-    cta: "Preview Collection",
-    href: "https://www.instagram.com/ace_wardrobe/",
+    cta: "Shop Men's",
+    href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20men's%20collection",
     isExternal: true,
   },
   { 
     title: "Women's Edit", 
     subtitle: "Elegance meets confidence",
-    status: "PREVIEW",
+    status: "SHOP NOW",
+    statusColor: "bg-foreground",
     image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=1000&fit=crop",
-    cta: "Preview Collection",
-    href: "https://www.instagram.com/ace_wardrobe/",
+    cta: "Shop Women's",
+    href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20women's%20collection",
     isExternal: true,
   },
   { 
     title: "Couple's Edit", 
-    subtitle: "Twin in style this Valentine's",
-    status: "SPECIAL",
-    badge: true,
+    subtitle: "Twin in style",
+    status: "POPULAR",
+    statusColor: "bg-primary",
     image: "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?w=800&h=1000&fit=crop",
     cta: "Shop Together",
-    href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20the%20Couple's%20Edit%20collection",
+    href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20couple%2Fmatching%20outfits",
     isExternal: true,
   },
 ];
@@ -102,21 +105,11 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection, index }) => {
         }}
       />
 
-      {/* Special Badge */}
-      {collection.badge && (
-        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-foreground text-background text-xs font-bold tracking-wider">
-          <Heart size={12} className="fill-current" />
-          {collection.status}
-        </div>
-      )}
-
-      {/* Status indicator for non-badge items */}
-      {!collection.badge && (
-        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm text-white text-xs font-medium tracking-wider">
-          <span className="w-2 h-2 rounded-full bg-white" />
-          {collection.status}
-        </div>
-      )}
+      {/* Status Badge */}
+      <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm text-white text-xs font-medium tracking-wider">
+        <span className={`w-2 h-2 rounded-full ${collection.statusColor}`} />
+        {collection.status}
+      </div>
 
       {/* Content Overlay */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
@@ -134,11 +127,7 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection, index }) => {
           className="w-fit group/btn border-white/20 hover:border-foreground hover:bg-foreground hover:text-background"
         >
           <span className="flex items-center gap-2">
-            {collection.title === "New Arrivals" ? (
-              <Bell size={14} />
-            ) : collection.isExternal ? (
-              <ExternalLink size={14} />
-            ) : null}
+            <ExternalLink size={14} />
             {collection.cta}
             <ArrowRight size={14} className="transform group-hover/btn:translate-x-1 transition-transform" />
           </span>
