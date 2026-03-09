@@ -40,7 +40,7 @@ const BlazerSilhouette: FC = () => (
     fill="none"
     stroke="hsl(var(--primary))"
     strokeWidth="1"
-    style={{ filter: 'drop-shadow(0 0 20px hsl(348, 76%, 44%, 0.3))' }}
+    style={{ filter: 'drop-shadow(0 0 20px hsl(30, 52%, 64%, 0.3))' }}
   >
     {/* Collar */}
     <path d="M70 40 L100 70 L130 40" strokeWidth="1.5" />
