@@ -89,7 +89,7 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
       <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
         {/* Icon */}
         <div className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-md border border-white/20 flex items-center justify-center mb-4 transform group-hover:scale-110 transition-all duration-300">
-          <activity.icon size={26} className="text-foreground" />
+          <activity.icon size={26} className="text-white" />
         </div>
 
         {/* Text Content */}
