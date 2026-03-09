@@ -93,12 +93,12 @@ export const HeroSection: FC = () => {
               background: 'transparent'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'hsl(30, 52%, 64%)';
-              e.currentTarget.style.color = '#1a1a1a';
+              e.currentTarget.style.background = 'hsl(38, 45%, 60%)';
+              e.currentTarget.style.color = '#ffffff';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = 'hsl(30, 52%, 64%)';
+              e.currentTarget.style.color = 'hsl(38, 45%, 60%)';
             }}
           >
             <span className="flex items-center justify-center gap-2">
