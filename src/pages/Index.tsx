@@ -20,6 +20,7 @@ const Index = () => {
       <PromoBanner />
       <PackagesSection />
       <PartnershipBanner />
+      <TrendingNow />
       <CollectionsSection />
       <AboutSection />
       <NewsletterSection />
