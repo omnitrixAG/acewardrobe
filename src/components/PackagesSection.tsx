@@ -173,25 +173,8 @@ export const PackagesSection: FC = () => {
           </p>
         </div>
 
-        {/* Women's Edit */}
-        <div className="mb-16">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/30" />
-            <h3 className="font-display text-sm font-semibold tracking-[0.2em] text-primary uppercase">
-              Women's Edit
-            </h3>
-            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/30" />
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-            {forHerPackages.map((pkg) => (
-              <PackageCard key={pkg.title} {...pkg} />
-            ))}
-          </div>
-        </div>
-
         {/* Men's Edit */}
-        <div>
+        <div className="mb-16">
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/30" />
             <h3 className="font-display text-sm font-semibold tracking-[0.2em] text-primary uppercase">
@@ -202,6 +185,23 @@ export const PackagesSection: FC = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {forHimPackages.map((pkg) => (
+              <PackageCard key={pkg.title} {...pkg} />
+            ))}
+          </div>
+        </div>
+
+        {/* Women's Edit */}
+        <div>
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/30" />
+            <h3 className="font-display text-sm font-semibold tracking-[0.2em] text-primary uppercase">
+              Women's Edit
+            </h3>
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/30" />
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+            {forHerPackages.map((pkg) => (
               <PackageCard key={pkg.title} {...pkg} />
             ))}
           </div>
