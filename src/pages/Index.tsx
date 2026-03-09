@@ -5,6 +5,7 @@ import { PromoBanner } from "@/components/PromoBanner";
 import { PackagesSection } from "@/components/PackagesSection";
 import { PartnershipBanner } from "@/components/PartnershipBanner";
 import { TrendingNow } from "@/components/TrendingNow";
+import { ShopNewIn } from "@/components/ShopNewIn";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { CollectionsSection } from "@/components/CollectionsSection";
 import { AboutSection } from "@/components/AboutSection";
