@@ -79,7 +79,7 @@ export const Footer: FC = () => {
       </div>
 
       {/* Main Footer */}
-      <div className="bg-card border-t border-border/50">
+      <div className="border-t border-white/10">
         <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
             {/* Contact Column */}
