@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
-import heroModel from "@/assets/ace-hero-model.png";
 
 const scrollToSection = (sectionId: string, offset: number = 80) => {
   const element = document.getElementById(sectionId);
@@ -60,7 +59,7 @@ export const HeroSection: FC = () => {
         className="absolute left-1/2 bottom-0 -translate-x-1/2 z-10 w-[320px] md:w-[480px] lg:w-[540px]"
       >
         <img
-          src={heroModel}
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
           alt="Well-dressed man in premium fashion"
           className="w-full h-auto object-contain scale-110 md:scale-125"
         />
