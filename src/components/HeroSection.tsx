@@ -43,6 +43,7 @@ export const HeroSection: FC = () => {
             muted
             loop
             playsInline
+            preload="metadata"
             onLoadedData={() => setVideoLoaded(true)}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
               videoLoaded ? 'opacity-100' : 'opacity-0'
