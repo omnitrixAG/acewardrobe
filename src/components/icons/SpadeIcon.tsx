@@ -22,9 +22,9 @@ export const SpadeIcon: FC<SpadeIconProps> = ({
     >
       <defs>
         <linearGradient id="spadeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#e0e0e0" />
-          <stop offset="50%" stopColor="#c0c0c0" />
-          <stop offset="100%" stopColor="#909090" />
+          <stop offset="0%" stopColor="#d4a574" />
+          <stop offset="50%" stopColor="#b8956a" />
+          <stop offset="100%" stopColor="#8b6b4a" />
         </linearGradient>
         <filter id="glow">
           <feGaussianBlur stdDeviation="2" result="coloredBlur" />

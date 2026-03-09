@@ -6,46 +6,46 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 96%;
+    --background: 0 0% 6%;
+    --foreground: 40 20% 95%;
 
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 96%;
+    --card: 0 0% 10%;
+    --card-foreground: 40 20% 95%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 40 20% 95%;
 
-    --primary: 30 52% 64%;
+    --primary: 32 50% 65%;
     --primary-foreground: 0 0% 10%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 96%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 40 20% 95%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 30 10% 20%;
+    --muted-foreground: 30 10% 55%;
 
-    --accent: 30 52% 50%;
+    --accent: 32 50% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 30 52% 64%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 32 50% 65%;
 
     --radius: 0.5rem;
 
     /* Custom brand tokens */
-    --gold: 30 52% 64%;
-    --gold-dark: 30 40% 45%;
-    --gold-glow: 30 70% 55%;
-    --chrome: 0 0% 75%;
-    --chrome-light: 0 0% 85%;
-    --off-white: 0 0% 96%;
-    --deep-black: 0 0% 4%;
+    --gold: 32 50% 65%;
+    --gold-dark: 32 40% 45%;
+    --gold-glow: 32 70% 55%;
+    --chrome: 30 5% 75%;
+    --chrome-light: 30 5% 85%;
+    --off-white: 40 20% 95%;
+    --deep-black: 0 0% 6%;
     --glass-bg: 0 0% 8%;
-    --glass-border: 0 0% 20%;
+    --glass-border: 0 0% 18%;
 
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(30, 52%, 64%) 0%, hsl(30, 40%, 45%) 100%);
