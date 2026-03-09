@@ -275,7 +275,7 @@ export const PackagesSection: FC = () => {
         {/* Couples Banner */}
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-border bg-secondary/30">
-            <span className="text-sm tracking-wide text-muted-foreground">Mix & match any Her + Him package for the complete gift</span>
+            <span className="text-sm tracking-wide text-muted-foreground">Mix & match styles to create your signature look</span>
           </div>
         </div>
       </div>
