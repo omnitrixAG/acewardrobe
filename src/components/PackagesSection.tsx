@@ -24,7 +24,7 @@ const forHerPackages = [
     image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=300&fit=crop",
   },
   {
-    title: "SWEETHEART EDIT",
+    title: "THE ESSENTIAL EDIT",
     price: "₦150,000",
     originalPrice: "₦200,000",
     savings: "₦50,000",
