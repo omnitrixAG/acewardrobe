@@ -259,9 +259,9 @@
   }
 
   .btn-outline:hover {
-    border-color: hsl(var(--crimson));
+    border-color: hsl(var(--gold));
     color: hsl(var(--primary));
-    box-shadow: 0 0 20px hsl(348, 76%, 44%, 0.2);
+    box-shadow: 0 0 20px hsl(30, 52%, 64%, 0.2);
   }
 
 
