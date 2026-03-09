@@ -25,7 +25,7 @@ const FooterLink: FC<{ href: string; children: React.ReactNode; external?: boole
     href={href}
     target={external ? "_blank" : undefined}
     rel={external ? "noopener noreferrer" : undefined}
-    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+    className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
   >
     <span className="w-0 h-px bg-foreground transition-all duration-300 group-hover:w-3" />
     {children}
