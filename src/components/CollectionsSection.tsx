@@ -105,21 +105,11 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection, index }) => {
         }}
       />
 
-      {/* Special Badge */}
-      {collection.badge && (
-        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-foreground text-background text-xs font-bold tracking-wider">
-          <Heart size={12} className="fill-current" />
-          {collection.status}
-        </div>
-      )}
-
-      {/* Status indicator for non-badge items */}
-      {!collection.badge && (
-        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm text-white text-xs font-medium tracking-wider">
-          <span className="w-2 h-2 rounded-full bg-white" />
-          {collection.status}
-        </div>
-      )}
+      {/* Status Badge */}
+      <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm text-white text-xs font-medium tracking-wider">
+        <span className={`w-2 h-2 rounded-full ${collection.statusColor}`} />
+        {collection.status}
+      </div>
 
       {/* Content Overlay */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
