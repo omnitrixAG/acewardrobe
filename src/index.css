@@ -227,7 +227,7 @@
   /* Legacy button styles */
   .btn-primary {
     @apply relative overflow-hidden px-8 py-3 font-semibold text-sm tracking-wider uppercase;
-    background: var(--gradient-crimson);
+    background: var(--gradient-gold);
     transition: all 0.3s ease;
   }
 
