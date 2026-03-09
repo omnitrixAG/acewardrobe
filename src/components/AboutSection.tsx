@@ -16,7 +16,7 @@ const services = [
   {
     icon: Truck,
     title: "Worldwide Delivery",
-    description: "We ship luxury to every corner of the globe. Express delivery available for Valentine's orders.",
+    description: "We ship luxury to every corner of the globe. Express delivery available on all orders.",
     image: "https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=800&h=600&fit=crop",
     badge: "EXPRESS AVAILABLE",
     cta: "Shipping Info",

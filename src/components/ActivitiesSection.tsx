@@ -6,7 +6,7 @@ const activities = [
   {
     icon: ShoppingBag,
     title: "Exclusive Shopping",
-    description: "First access to Valentine's collections from Ace Wardrobe & Peaches by Ema",
+    description: "First access to new collections from Ace Wardrobe & Peaches by Ema",
     badge: null,
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
   },
