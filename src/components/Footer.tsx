@@ -129,9 +129,9 @@ export const Footer: FC = () => {
               </h4>
               <ul className="space-y-3">
                 <li><FooterLink href="#collections">Collections</FooterLink></li>
-                <li><FooterLink href="#packages">Valentine Packages</FooterLink></li>
+                <li><FooterLink href="https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20men's%20collection" external>Men's Edit</FooterLink></li>
+                <li><FooterLink href="https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20women's%20collection" external>Women's Edit</FooterLink></li>
                 <li><FooterLink href="#about">About Us</FooterLink></li>
-                <li><FooterLink href="/valentine-event">Valentine Event</FooterLink></li>
               </ul>
             </div>
 
