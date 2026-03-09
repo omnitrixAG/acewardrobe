@@ -34,14 +34,14 @@ const FooterLink: FC<{ href: string; children: React.ReactNode; external?: boole
 
 export const Footer: FC = () => {
   return (
-    <footer className="relative overflow-hidden">
+    <footer className="relative overflow-hidden" style={{ background: 'hsl(0, 0%, 10%)', color: 'hsl(0, 0%, 90%)' }}>
       {/* CTA Section */}
-      <div className="relative py-20 bg-gradient-to-b from-background to-card">
+      <div className="relative py-20" style={{ background: 'linear-gradient(to bottom, hsl(0,0%,10%), hsl(0,0%,8%))' }}>
         {/* Subtle grid */}
         <div 
-          className="absolute inset-0 opacity-[0.02]"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
             backgroundSize: '60px 60px'
           }}
         />
@@ -79,7 +79,7 @@ export const Footer: FC = () => {
       </div>
 
       {/* Main Footer */}
-      <div className="bg-card border-t border-border/50">
+      <div className="border-t border-white/10">
         <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
             {/* Contact Column */}
@@ -237,7 +237,7 @@ export const Footer: FC = () => {
         </div>
 
         {/* Collaboration Banner */}
-        <div className="border-t border-border/50 py-8">
+        <div className="border-t border-white/10 py-8">
           <div className="max-w-[1200px] mx-auto px-5 md:px-10">
             <div className="flex flex-col md:flex-row items-center justify-center gap-8">
               <p className="text-xs text-muted-foreground uppercase tracking-widest">In Collaboration With</p>
@@ -267,7 +267,7 @@ export const Footer: FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border/50 py-6 bg-background/50">
+        <div className="border-t border-white/10 py-6">
           <div className="max-w-[1200px] mx-auto px-5 md:px-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-xs text-muted-foreground flex items-center gap-1">

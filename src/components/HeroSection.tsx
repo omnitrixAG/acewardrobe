@@ -88,17 +88,17 @@ export const HeroSection: FC = () => {
             onClick={() => scrollToSection('packages')}
             className="group w-full max-w-[220px] sm:w-auto px-8 py-3 rounded-full text-sm font-body font-medium tracking-wider uppercase transition-all duration-300 border"
             style={{
-              borderColor: 'hsl(30, 52%, 64%)',
-              color: 'hsl(30, 52%, 64%)',
+              borderColor: 'hsl(38, 45%, 60%)',
+              color: 'hsl(38, 45%, 60%)',
               background: 'transparent'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'hsl(30, 52%, 64%)';
-              e.currentTarget.style.color = '#1a1a1a';
+              e.currentTarget.style.background = 'hsl(38, 45%, 60%)';
+              e.currentTarget.style.color = '#ffffff';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = 'hsl(30, 52%, 64%)';
+              e.currentTarget.style.color = 'hsl(38, 45%, 60%)';
             }}
           >
             <span className="flex items-center justify-center gap-2">
@@ -115,8 +115,8 @@ export const HeroSection: FC = () => {
               background: 'transparent'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#f5f1eb';
-              e.currentTarget.style.color = '#1a1a1a';
+              e.currentTarget.style.background = '#1a1a1a';
+              e.currentTarget.style.color = '#ffffff';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = 'transparent';

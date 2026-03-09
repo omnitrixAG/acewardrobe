@@ -68,7 +68,7 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
       </div>
 
       {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500" />
       
       {/* Subtle grid pattern overlay */}
       <div className="absolute inset-0 opacity-20 group-hover:opacity-10 transition-opacity"
@@ -88,20 +88,20 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
       {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
         {/* Icon */}
-        <div className="w-14 h-14 rounded-xl bg-secondary/80 backdrop-blur-md border border-border flex items-center justify-center mb-4 transform group-hover:scale-110 transition-all duration-300">
-          <activity.icon size={26} className="text-foreground" />
+        <div className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-md border border-white/20 flex items-center justify-center mb-4 transform group-hover:scale-110 transition-all duration-300">
+          <activity.icon size={26} className="text-white" />
         </div>
 
         {/* Text Content */}
-        <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
+        <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
           {activity.title}
         </h3>
-        <p className="font-body text-sm md:text-base text-muted-foreground leading-relaxed max-w-xs">
+        <p className="font-body text-sm md:text-base text-white/70 leading-relaxed max-w-xs">
           {activity.description}
         </p>
 
         {/* Learn More indicator */}
-        <div className="flex items-center gap-2 mt-4 text-muted-foreground group-hover:text-foreground transition-colors">
+        <div className="flex items-center gap-2 mt-4 text-white/60 group-hover:text-white transition-colors">
           <span className="text-sm font-medium tracking-wide">Learn More</span>
           <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
         </div>
@@ -112,9 +112,9 @@ const ActivityCard: FC<ActivityCardProps> = ({ activity, index }) => {
 
 export const ActivitiesSection: FC = () => {
   return (
-    <section id="activities" className="py-20 md:py-28 relative overflow-hidden bg-card">
+    <section id="activities" className="py-20 md:py-28 relative overflow-hidden bg-secondary">
       {/* Subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary to-background" />
       
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         {/* Section Header - Professional */}

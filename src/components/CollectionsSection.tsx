@@ -68,10 +68,10 @@ const CollectionCard: FC<{ collection: typeof collections[0] }> = ({ collection 
 
       {/* Content — bottom left */}
       <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-        <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-1">
+        <h3 className="font-display text-xl md:text-2xl font-semibold text-white mb-1">
           {collection.title}
         </h3>
-        <p className="text-xs text-muted-foreground mb-4">
+        <p className="text-xs text-white/60 mb-4">
           {collection.subtitle}
         </p>
         <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:underline underline-offset-4 transition-all">
@@ -85,8 +85,8 @@ const CollectionCard: FC<{ collection: typeof collections[0] }> = ({ collection 
 
 export const CollectionsSection: FC = () => {
   return (
-    <section id="collections" className="py-20 md:py-28 bg-card relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background opacity-50" />
+    <section id="collections" className="py-20 md:py-28 bg-secondary relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background opacity-30" />
 
       <div className="max-w-[1200px] mx-auto px-5 md:px-10 relative z-10">
         {/* Section Header */}
