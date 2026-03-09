@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
-import heroModel from "@/assets/ace-hero-model.png";
 
 const scrollToSection = (sectionId: string, offset: number = 80) => {
   const element = document.getElementById(sectionId);
