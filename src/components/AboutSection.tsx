@@ -66,7 +66,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service, index }) => {
         )}
         
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         
         {/* Icon overlay */}
         <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-secondary/80 backdrop-blur-md border border-border flex items-center justify-center group-hover:bg-secondary transition-colors">
