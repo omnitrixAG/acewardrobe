@@ -127,11 +127,7 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection, index }) => {
           className="w-fit group/btn border-white/20 hover:border-foreground hover:bg-foreground hover:text-background"
         >
           <span className="flex items-center gap-2">
-            {collection.title === "New Arrivals" ? (
-              <Bell size={14} />
-            ) : collection.isExternal ? (
-              <ExternalLink size={14} />
-            ) : null}
+            <ExternalLink size={14} />
             {collection.cta}
             <ArrowRight size={14} className="transform group-hover/btn:translate-x-1 transition-transform" />
           </span>
