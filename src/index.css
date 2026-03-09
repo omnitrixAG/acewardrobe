@@ -585,7 +585,7 @@
   content: '';
   position: absolute;
   inset: -1px;
-  background: linear-gradient(135deg, hsla(348, 76%, 44%, 0.5), transparent, hsla(348, 76%, 44%, 0.3));
+  background: linear-gradient(135deg, hsla(30, 52%, 64%, 0.5), transparent, hsla(30, 52%, 64%, 0.3));
   border-radius: inherit;
   z-index: -1;
   opacity: 0;
