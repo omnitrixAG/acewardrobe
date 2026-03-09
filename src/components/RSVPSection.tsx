@@ -103,7 +103,7 @@ export const RSVPSection: FC = () => {
                     {isLoading ? (
                       <Loader2 size={18} className="animate-spin" />
                     ) : (
-                      "Join Waitlist"
+                      "Join Now"
                     )}
                   </button>
                 </div>
