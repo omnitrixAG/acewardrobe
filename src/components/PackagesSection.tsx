@@ -37,7 +37,7 @@ const forHerPackages = [
 
 const forHimPackages = [
   {
-    title: "ULTIMATE LOVER",
+    title: "THE EXECUTIVE EDIT",
     price: "₦750,000",
     originalPrice: "₦950,000",
     savings: "₦200,000",
