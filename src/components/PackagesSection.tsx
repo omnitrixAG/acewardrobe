@@ -216,7 +216,7 @@ export const PackagesSection: FC = () => {
           </div>
           
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-            Curated Packages
+            Curated Edits
           </h2>
           
           <p className="text-muted-foreground max-w-lg mx-auto">
