@@ -55,14 +55,15 @@ export const HeroSection: FC = () => {
       <div className="container mx-auto px-4 md:px-8 relative z-10 text-center pt-32 pb-32">
         {/* Spade Logo with gold glow */}
         <div className="opacity-0 animate-fade-in-up animation-delay-100 mb-10">
-          <SpadeIcon 
-            size={56} 
-            className="mx-auto"
-            style={{ 
-              color: 'hsl(30, 52%, 64%)',
-              filter: 'drop-shadow(0 0 24px hsla(30, 52%, 64%, 0.4))'
-            }} 
-          />
+          <div 
+            className="inline-block"
+            style={{ filter: 'drop-shadow(0 0 24px hsla(30, 52%, 64%, 0.4))' }}
+          >
+            <SpadeIcon 
+              size={56} 
+              className="mx-auto text-primary"
+            />
+          </div>
         </div>
 
         {/* Main Headline */}
