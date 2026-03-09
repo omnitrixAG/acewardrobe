@@ -186,7 +186,7 @@ const PackageCard: FC<PackageCardProps> = ({
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2"
           >
-            <span>Select Package</span>
+            <span>Shop Now</span>
             <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
           </a>
         </Button>
