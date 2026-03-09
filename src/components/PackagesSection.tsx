@@ -8,7 +8,7 @@ const forHerPackages = [
     price: "₦350,000",
     originalPrice: "₦450,000",
     savings: "₦100,000",
-    whatsappMessage: "Hi!%20I'm%20interested%20in%20the%20SOULMATE%20EDIT%20package%20(₦350,000)",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20THE%20LUXE%20EDIT%20package%20(₦350,000)",
     items: ["Long Dress", "Lingerie", "Pyjama Set", "Chocolate & Card"],
     isBestseller: true,
     image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=300&fit=crop",
