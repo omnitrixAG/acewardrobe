@@ -267,7 +267,7 @@ export const Footer: FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border/50 py-6 bg-background/50">
+        <div className="border-t border-white/10 py-6">
           <div className="max-w-[1200px] mx-auto px-5 md:px-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-xs text-muted-foreground flex items-center gap-1">
