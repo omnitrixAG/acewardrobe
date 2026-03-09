@@ -221,7 +221,7 @@
   .btn-outline-enhanced:hover {
     border-color: hsl(var(--primary));
     color: hsl(var(--primary));
-    box-shadow: 0 0 20px hsla(348, 76%, 44%, 0.2);
+    box-shadow: 0 0 20px hsla(30, 52%, 64%, 0.2);
   }
 
   /* Legacy button styles */
