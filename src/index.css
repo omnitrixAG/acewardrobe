@@ -392,10 +392,10 @@
 
 @keyframes glow-pulse {
   0%, 100% {
-    filter: drop-shadow(0 0 20px hsl(348, 76%, 44%, 0.4));
+    filter: drop-shadow(0 0 20px hsl(30, 52%, 64%, 0.4));
   }
   50% {
-    filter: drop-shadow(0 0 40px hsl(348, 76%, 44%, 0.8));
+    filter: drop-shadow(0 0 40px hsl(30, 52%, 64%, 0.8));
   }
 }
 
