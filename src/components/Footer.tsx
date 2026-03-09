@@ -237,7 +237,7 @@ export const Footer: FC = () => {
         </div>
 
         {/* Collaboration Banner */}
-        <div className="border-t border-border/50 py-8">
+        <div className="border-t border-white/10 py-8">
           <div className="max-w-[1200px] mx-auto px-5 md:px-10">
             <div className="flex flex-col md:flex-row items-center justify-center gap-8">
               <p className="text-xs text-muted-foreground uppercase tracking-widest">In Collaboration With</p>
