@@ -20,7 +20,7 @@ const fabricCategories = [
 const colorSwatches = [
   { category: "NEUTRALS", colors: ["#1a1a1a", "#3d3d3d", "#6b6b6b", "#9e9e9e", "#d4d4d4", "#f5f5f5"] },
   { category: "EARTH TONES", colors: ["#8b4513", "#a0522d", "#cd853f", "#d2691e", "#deb887", "#f4a460"] },
-  { category: "DEEP & RICH", colors: ["#8b0000", "#800020", "#722f37", "#4a0e0e", "#2d0a0a", "#c41e3a"] },
+  { category: "DEEP & RICH", colors: ["#2c1810", "#3d2518", "#5c3a28", "#8b6b4a", "#b8956a", "#d4a574"] },
 ];
 
 const tools = [
