@@ -88,8 +88,8 @@ export const HeroSection: FC = () => {
             onClick={() => scrollToSection('packages')}
             className="group w-full max-w-[220px] sm:w-auto px-8 py-3 rounded-full text-sm font-body font-medium tracking-wider uppercase transition-all duration-300 border"
             style={{
-              borderColor: 'hsl(30, 52%, 64%)',
-              color: 'hsl(30, 52%, 64%)',
+              borderColor: 'hsl(38, 45%, 60%)',
+              color: 'hsl(38, 45%, 60%)',
               background: 'transparent'
             }}
             onMouseEnter={(e) => {
