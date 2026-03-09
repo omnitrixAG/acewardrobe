@@ -134,8 +134,7 @@ export const Navigation: FC = () => {
 
   const navLinks = [
     { label: "Shop", href: "#collections" },
-    { label: "Collections", href: "#collections" },
-    { label: "Valentine Event", href: "/valentine-event" },
+    { label: "Edits", href: "#packages" },
     { label: "About", href: "#about" },
     { label: "Contact", href: "https://wa.me/2347039178489?text=Hi%20Ace%20Wardrobe!%20I'd%20like%20to%20inquire%20about%20your%20services" },
   ];
