@@ -14,7 +14,7 @@ const forHerPackages = [
     image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=300&fit=crop",
   },
   {
-    title: "LOVER'S EDIT",
+    title: "THE CLASSIC EDIT",
     price: "₦250,000",
     originalPrice: "₦320,000",
     savings: "₦70,000",
