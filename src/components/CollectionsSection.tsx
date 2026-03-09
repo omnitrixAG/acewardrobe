@@ -44,9 +44,8 @@ const CollectionCard: FC<{ collection: typeof collections[0] }> = ({ collection 
       href={collection.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative overflow-hidden rounded-lg aspect-[4/5] border border-border transition-all duration-500 hover:-translate-y-1 hover:border-primary/40"
+      className="group relative overflow-hidden rounded-lg aspect-[4/5] border border-border transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/10"
     >
-      {/* Image */}
       {!imageLoaded && <Skeleton className="absolute inset-0 bg-muted" />}
       <img
         src={collection.image}
@@ -56,22 +55,20 @@ const CollectionCard: FC<{ collection: typeof collections[0] }> = ({ collection 
         onLoad={() => setImageLoaded(true)}
       />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[rgba(15,15,15,0.9)] via-[rgba(15,15,15,0.3)] to-transparent" />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.2)] to-transparent" />
 
-      {/* Badge */}
       {collection.badge && (
         <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold tracking-widest uppercase z-10">
           {collection.badge}
         </div>
       )}
 
-      {/* Content — bottom left */}
       <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-        <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-1">
+        <h3 className="font-display text-xl md:text-2xl font-semibold text-white mb-1">
           {collection.title}
         </h3>
-        <p className="text-xs text-muted-foreground mb-4">
+        <p className="text-xs text-white/70 mb-4">
           {collection.subtitle}
         </p>
         <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:underline underline-offset-4 transition-all">
@@ -85,11 +82,8 @@ const CollectionCard: FC<{ collection: typeof collections[0] }> = ({ collection 
 
 export const CollectionsSection: FC = () => {
   return (
-    <section id="collections" className="py-20 md:py-28 bg-card relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background opacity-50" />
-
+    <section id="collections" className="py-20 md:py-28 bg-secondary relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10 relative z-10">
-        {/* Section Header */}
         <div className="text-center mb-14">
           <SpadeIcon size={28} showLetters={false} className="mx-auto mb-4" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-3">
@@ -100,7 +94,6 @@ export const CollectionsSection: FC = () => {
           </p>
         </div>
 
-        {/* 4-col grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {collections.map((collection) => (
             <CollectionCard key={collection.title} collection={collection} />

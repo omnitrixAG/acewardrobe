@@ -81,15 +81,7 @@ interface PackageCardProps {
   image: string;
 }
 
-const PackageCard: FC<PackageCardProps> = ({ 
-  title, 
-  collection,
-  price, 
-  items, 
-  whatsappMessage, 
-  isBestseller,
-  image,
-}) => {
+const PackageCard: FC<PackageCardProps> = ({ title, collection, price, items, whatsappMessage, isBestseller, image }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const whatsappUrl = `https://wa.me/2347039178489?text=${whatsappMessage}`;
 
@@ -98,13 +90,10 @@ const PackageCard: FC<PackageCardProps> = ({
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col h-full overflow-hidden rounded-lg bg-secondary border border-border/30 transition-all duration-500 hover:-translate-y-1 hover:border-border/60 hover:shadow-lg hover:shadow-black/20"
+      className="group flex flex-col h-full overflow-hidden rounded-lg bg-card border border-border transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/10"
     >
-      {/* Image Container — 3:4 aspect ratio */}
       <div className="relative aspect-[3/4] overflow-hidden flex-shrink-0">
-        {!imageLoaded && (
-          <Skeleton className="absolute inset-0 bg-muted" />
-        )}
+        {!imageLoaded && <Skeleton className="absolute inset-0 bg-muted" />}
         <img 
           src={image} 
           alt={title}
@@ -112,8 +101,6 @@ const PackageCard: FC<PackageCardProps> = ({
           className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03] ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
           onLoad={() => setImageLoaded(true)}
         />
-
-        {/* Bestseller Badge */}
         {isBestseller && (
           <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-primary text-primary-foreground text-[10px] font-bold tracking-widest uppercase z-10">
             Bestseller
@@ -121,29 +108,13 @@ const PackageCard: FC<PackageCardProps> = ({
         )}
       </div>
 
-      {/* Content */}
       <div className="flex flex-col flex-grow p-5">
-        {/* Collection label */}
         <span className="text-[10px] font-body font-medium tracking-[0.15em] uppercase text-muted-foreground mb-1.5">
           {collection}
         </span>
-
-        {/* Product name */}
-        <h3 className="font-display text-lg font-semibold text-foreground mb-1.5 leading-snug">
-          {title}
-        </h3>
-
-        {/* Items description */}
-        <p className="text-xs text-muted-foreground leading-relaxed mb-3 flex-grow">
-          {items}
-        </p>
-
-        {/* Price */}
-        <p className="text-base font-body font-semibold text-primary mb-4">
-          {price}
-        </p>
-
-        {/* CTA — text link */}
+        <h3 className="font-display text-lg font-semibold text-foreground mb-1.5 leading-snug">{title}</h3>
+        <p className="text-xs text-muted-foreground leading-relaxed mb-3 flex-grow">{items}</p>
+        <p className="text-base font-body font-semibold text-primary mb-4">{price}</p>
         <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary group-hover:underline underline-offset-4 transition-all">
           Shop Now
           <ArrowRight size={14} className="transform group-hover:translate-x-1 transition-transform duration-300" />
@@ -156,9 +127,7 @@ const PackageCard: FC<PackageCardProps> = ({
 export const PackagesSection: FC = () => {
   return (
     <section id="packages" className="py-20 md:py-28 relative overflow-hidden bg-background">
-      {/* Container */}
       <div className="max-w-[1200px] mx-auto px-5 md:px-10 relative z-10">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/30 mb-6">
             <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Signature Collections</span>
@@ -173,14 +142,11 @@ export const PackagesSection: FC = () => {
           </p>
         </div>
 
-        {/* Women's Edit */}
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-8">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/30" />
-            <h3 className="font-display text-sm font-semibold tracking-[0.2em] text-primary uppercase">
-              Women's Edit
-            </h3>
-            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/30" />
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-border" />
+            <h3 className="font-display text-sm font-semibold tracking-[0.2em] text-primary uppercase">Women's Edit</h3>
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-border" />
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
@@ -190,14 +156,11 @@ export const PackagesSection: FC = () => {
           </div>
         </div>
 
-        {/* Men's Edit */}
         <div>
           <div className="flex items-center gap-4 mb-8">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/30" />
-            <h3 className="font-display text-sm font-semibold tracking-[0.2em] text-primary uppercase">
-              Men's Edit
-            </h3>
-            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/30" />
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-border" />
+            <h3 className="font-display text-sm font-semibold tracking-[0.2em] text-primary uppercase">Men's Edit</h3>
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-border" />
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">

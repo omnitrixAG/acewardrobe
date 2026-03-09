@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { SpadeIcon } from "./icons/SpadeIcon";
 
 const scrollToSection = (sectionId: string, offset: number = 80) => {
@@ -20,15 +20,15 @@ export const HeroSection: FC = () => {
       <div 
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse at center, hsla(var(--gold), 0.08) 0%, transparent 70%)'
+          background: 'radial-gradient(ellipse at center, hsla(33, 40%, 59%, 0.06) 0%, transparent 70%)'
         }}
       />
 
       {/* Subtle fabric texture overlay */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0zM20 20h20v20H20z' fill='%23d4a574' fill-opacity='0.3'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0zM20 20h20v20H20z' fill='%23000000' fill-opacity='0.1'/%3E%3C/svg%3E")`,
           backgroundSize: '40px 40px'
         }}
       />
@@ -40,7 +40,7 @@ export const HeroSection: FC = () => {
         <div className="opacity-0 animate-fade-in-up animation-delay-100 mb-8">
           <div 
             className="inline-block"
-            style={{ filter: 'drop-shadow(0 0 30px hsla(var(--gold), 0.5))' }}
+            style={{ filter: 'drop-shadow(0 0 30px hsla(33, 40%, 59%, 0.4))' }}
           >
             <SpadeIcon size={64} className="mx-auto md:w-20 md:h-20" showLetters={false} />
           </div>
@@ -70,7 +70,7 @@ export const HeroSection: FC = () => {
         <div className="opacity-0 animate-fade-in-up animation-delay-500 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button 
             onClick={() => scrollToSection('packages')}
-            className="w-full sm:w-auto px-8 py-4 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 tracking-widest text-sm uppercase font-body"
+            className="w-full sm:w-auto px-8 py-4 bg-foreground text-background hover:bg-primary hover:text-primary-foreground transition-all duration-300 tracking-widest text-sm uppercase font-body"
           >
             Shop Men's
           </button>

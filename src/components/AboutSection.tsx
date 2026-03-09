@@ -44,36 +44,31 @@ const ServiceCard: FC<ServiceCardProps> = ({ service, index }) => {
 
   return (
     <div 
-      className="group relative overflow-hidden rounded-2xl border border-border/50 hover:border-border transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-foreground/5"
-      style={{ animationDelay: `${index * 0.15}s` }}
+      className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:-translate-y-2"
+      style={{ animationDelay: `${index * 0.15}s`, boxShadow: 'var(--shadow-card)' }}
     >
-      {/* Image Section - 60% height */}
       <div className="relative h-52 md:h-64 overflow-hidden">
-        {!imageLoaded && !imageError && (
-          <Skeleton className="absolute inset-0 bg-secondary" />
-        )}
+        {!imageLoaded && !imageError && <Skeleton className="absolute inset-0 bg-secondary" />}
         <img
           src={service.image}
           alt={service.title}
+          loading="lazy"
           className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
           onLoad={() => setImageLoaded(true)}
           onError={() => setImageError(true)}
         />
         {imageError && (
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary to-card flex items-center justify-center">
+          <div className="absolute inset-0 bg-secondary flex items-center justify-center">
             <service.icon size={48} className="text-muted-foreground/30" />
           </div>
         )}
         
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
         
-        {/* Icon overlay */}
-        <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-secondary/80 backdrop-blur-md border border-border flex items-center justify-center group-hover:bg-secondary transition-colors">
+        <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-background/80 backdrop-blur-md border border-border flex items-center justify-center">
           <service.icon size={22} className="text-foreground" />
         </div>
 
-        {/* Badge if exists */}
         {service.badge && (
           <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-foreground text-background text-xs font-bold tracking-wider">
             {service.badge}
@@ -81,36 +76,21 @@ const ServiceCard: FC<ServiceCardProps> = ({ service, index }) => {
         )}
       </div>
 
-      {/* Content Section - 40% */}
-      <div className="relative p-6 bg-gradient-to-b from-card to-background">
-        <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">
-          {service.title}
-        </h3>
-        <p className="font-body text-sm text-muted-foreground mb-4 leading-relaxed">
-          {service.description}
-        </p>
+      <div className="relative p-6">
+        <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-3">{service.title}</h3>
+        <p className="font-body text-sm text-muted-foreground mb-4 leading-relaxed">{service.description}</p>
 
-        {/* Address if exists */}
         {service.address && (
           <p className="text-xs text-muted-foreground mb-4 flex items-center gap-2">
-            <MapPin size={12} className="text-foreground/50" />
+            <MapPin size={12} className="text-primary" />
             {service.address}
           </p>
         )}
 
-        <Button
-          variant="outline"
-          size="sm"
-          className="w-full group/btn border-border hover:border-foreground hover:bg-foreground hover:text-background"
-          asChild
-        >
+        <Button variant="outline" size="sm" className="w-full group/btn border-border hover:border-primary hover:bg-primary hover:text-primary-foreground" asChild>
           <a href={service.href} target="_blank" rel="noopener noreferrer">
             <span className="flex items-center justify-center gap-2">
-              {service.cta === "Get Directions" ? (
-                <Navigation size={14} />
-              ) : (
-                <MessageCircle size={14} />
-              )}
+              {service.cta === "Get Directions" ? <Navigation size={14} /> : <MessageCircle size={14} />}
               {service.cta}
               <ArrowRight size={12} className="transform group-hover/btn:translate-x-1 transition-transform" />
             </span>
@@ -124,17 +104,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service, index }) => {
 export const AboutSection: FC = () => {
   return (
     <section id="about" className="py-20 md:py-28 bg-background relative overflow-hidden">
-      {/* Subtle grid background */}
-      <div 
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }}
-      />
-
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        {/* Brand Story Section */}
         <div className="max-w-4xl mx-auto text-center mb-20">
           <SpadeIcon size={60} className="mx-auto mb-8 text-foreground" />
           
@@ -152,32 +122,24 @@ export const AboutSection: FC = () => {
           </p>
         </div>
 
-        {/* Services Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/30 mb-6">
             <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">Our Services</span>
           </div>
         </div>
 
-        {/* Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
         </div>
 
-        {/* CEO Mention */}
         <div className="text-center">
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-border bg-secondary/30">
             <span className="text-muted-foreground font-body text-sm">Curated by</span>
-            <a
-              href="https://www.instagram.com/mista_ace/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground hover:text-muted-foreground font-semibold flex items-center gap-1 transition-colors"
-            >
-              @mista_ace
-              <ExternalLink size={12} />
+            <a href="https://www.instagram.com/mista_ace/" target="_blank" rel="noopener noreferrer"
+              className="text-foreground hover:text-primary font-semibold flex items-center gap-1 transition-colors">
+              @mista_ace <ExternalLink size={12} />
             </a>
           </div>
         </div>
