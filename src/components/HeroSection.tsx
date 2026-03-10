@@ -21,19 +21,18 @@ export const HeroSection: FC = () => {
 
       {/* Content layer */}
       <div className="relative h-full">
-        {/* Model image — cropped from top, centered at the yellow/white split */}
+        {/* Model image — naturally sized, centered at yellow/white split */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-          className="absolute inset-0 z-10 flex justify-center"
-          style={{ left: "-5%" }}
+          className="absolute bottom-0 z-10"
+          style={{ left: "50%", transform: "translateX(-65%)" }}
         >
           <img
             src={heroModel}
             alt="Ace Wardrobe model in dark blazer"
-            className="h-full w-auto object-cover object-top scale-[1.15]"
-            style={{ objectPosition: "top center", transformOrigin: "top center" }}
+            className="h-[95vh] max-h-[950px] w-auto object-contain"
           />
         </motion.div>
 
