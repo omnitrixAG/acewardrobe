@@ -1,78 +1,78 @@
-import { motion } from 'framer-motion';
+import { FC } from "react";
+import { motion } from "framer-motion";
 import heroModel from "@/assets/hero-model.png";
 
-export const HeroSection = () => {
+const scrollToSection = (sectionId: string, offset: number = 64) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+};
+
+export const HeroSection: FC = () => {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
-      {/* Split Background */}
+    <section id="hero" className="relative w-full h-screen min-h-[600px] overflow-hidden">
+      {/* Split background */}
       <div className="absolute inset-0 flex">
-        <div className="w-[52%] bg-[#eab308]" />
-        <div className="w-[48%] bg-white" />
+        <div className="w-[55%]" style={{ background: "#eab308" }} />
+        <div className="w-[45%] bg-white" />
       </div>
 
-      {/* Content Grid */}
-      <div className="relative z-10 min-h-screen grid grid-cols-12 items-center px-6 md:px-12 lg:px-20">
-        
-        {/* Left Column - Description Text */}
-        <div className="col-span-12 md:col-span-3 self-end pb-16 md:pb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
-          >
-            <p className="text-sm leading-relaxed text-black/80 max-w-[260px] mb-4">
-              Premium menswear for the modern gentleman. Classic tailoring meets contemporary style.
-            </p>
-            <a 
-              href="#collections" 
-              className="inline-block text-sm font-medium text-black underline underline-offset-4 decoration-black/50 hover:decoration-black transition-all"
-            >
-              Shop Now
-            </a>
-          </motion.div>
-        </div>
-
-        {/* Center Column - Model with Circle */}
-        <div className="col-span-12 md:col-span-6 flex items-center justify-center relative">
-          {/* Yellow Circle */}
-          <motion.div 
-            className="absolute w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[420px] md:h-[420px] lg:w-[500px] lg:h-[500px] rounded-full bg-[#eab308] opacity-95"
-            style={{ transform: 'translateX(10%)' }}
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.95 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          />
-          
-          {/* Model Image */}
-          <motion.img
+      {/* Content layer */}
+      <div className="relative h-full">
+        {/* Model image — naturally sized, centered at yellow/white split */}
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+          className="absolute bottom-0 z-10"
+          style={{ left: "50%", transform: "translateX(-65%)" }}
+        >
+          <img
             src={heroModel}
-            alt="Man in black suit"
-            className="relative z-10 h-[350px] sm:h-[450px] md:h-[550px] lg:h-[680px] w-auto object-contain drop-shadow-2xl"
-            style={{ transform: 'translateX(5%)' }}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+            alt="Ace Wardrobe model in dark blazer"
+            className="h-[95vh] max-h-[950px] w-auto object-contain"
           />
-        </div>
+        </motion.div>
 
-        {/* Right Column - Large Typography */}
-        <div className="col-span-12 md:col-span-3 flex items-center">
-          <motion.h1 
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-black leading-[0.85] tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
+        {/* Left content — bottom left on yellow */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
+          className="absolute left-6 md:left-16 bottom-28 md:bottom-32 z-20 max-w-[280px]"
+        >
+          <p className="text-sm leading-relaxed" style={{ color: "rgba(0,0,0,0.7)" }}>
+            Premium menswear for the modern gentleman. Classic tailoring meets contemporary style.
+          </p>
+          <button
+            onClick={() => scrollToSection("packages")}
+            className="mt-3 text-sm font-medium underline underline-offset-4"
+            style={{ color: "#1a1a1a" }}
           >
-            dress
-            <br />
-            like
+            Shop Now
+          </button>
+        </motion.div>
+
+        {/* Right content — large typography */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
+          className="absolute right-6 md:right-16 z-20 text-right"
+          style={{ top: "50%", transform: "translateY(-50%)" }}
+        >
+          <h1
+            className="font-display text-6xl md:text-8xl lg:text-9xl font-extrabold leading-[0.9] tracking-tight"
+            style={{ color: "#1a1a1a" }}
+          >
+            dress like
             <br />
             royalty.
-          </motion.h1>
-        </div>
+          </h1>
+        </motion.div>
       </div>
     </section>
   );
 };
-
-export default HeroSection;
