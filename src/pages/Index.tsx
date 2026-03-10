@@ -5,6 +5,7 @@ import { PromoBanner } from "@/components/PromoBanner";
 import { PackagesSection } from "@/components/PackagesSection";
 import { PartnershipBanner } from "@/components/PartnershipBanner";
 import { TrendingSection } from "@/components/TrendingSection";
+import { ShopNewInSection } from "@/components/ShopNewInSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { CollectionsSection } from "@/components/CollectionsSection";
 import { AboutSection } from "@/components/AboutSection";
@@ -21,6 +22,7 @@ const Index = () => {
       <PackagesSection />
       <PartnershipBanner />
       <TrendingSection />
+      <ShopNewInSection />
       <CollectionsSection />
       <AboutSection />
       <NewsletterSection />
