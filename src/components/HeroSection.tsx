@@ -1,50 +1,87 @@
 import { FC } from "react";
+import { Instagram, MessageCircle } from "lucide-react";
+import heroModel from "@/assets/hero-model.png";
 
-const scrollToSection = (sectionId: string, offset: number = 80) => {
+const TikTokIcon: FC<{ size?: number; className?: string }> = ({ size = 20, className }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+  </svg>
+);
+
+const scrollToSection = (sectionId: string, offset: number = 64) => {
   const element = document.getElementById(sectionId);
   if (element) {
     const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
+    window.scrollTo({ top, behavior: "smooth" });
   }
 };
 
 export const HeroSection: FC = () => {
   return (
-    <section id="hero" className="relative w-full pt-20 md:pt-24">
-      <div className="relative aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden">
-        <img 
-          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=820&fit=crop&crop=faces"
-          alt="Ace Wardrobe Collection"
-          className="w-full h-full object-cover"
-        />
-        
-        {/* Left gradient for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+    <section id="hero" className="relative w-full pt-16 overflow-hidden">
+      <div className="relative w-full h-[85vh] min-h-[500px] max-h-[800px] flex">
+        {/* Left yellow background */}
+        <div className="absolute top-0 left-0 w-[55%] h-full" style={{ background: "#eab308" }} />
+        {/* Right white background */}
+        <div className="absolute top-0 right-0 w-[45%] h-full bg-background" />
 
-        {/* Content Overlay */}
-        <div className="absolute inset-0 flex items-center">
-          <div className="container mx-auto px-6 md:px-12">
-            <div className="max-w-lg">
-              <p className="text-xs md:text-sm uppercase tracking-[0.2em] text-white/80 mb-2 md:mb-3 font-body">
-                New Season Collection
-              </p>
-              
-              <h1 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight">
-                Dress Like<br/>Royalty
-              </h1>
-              
-              <p className="text-sm md:text-lg text-white/90 mb-5 md:mb-6 font-body">
-                Premium styles for the modern gentleman
-              </p>
-              
-              <button
-                onClick={() => scrollToSection('packages')}
-                className="inline-block bg-white text-foreground px-6 md:px-8 py-3 md:py-4 text-xs md:text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300 w-full sm:w-auto text-center"
-              >
-                Shop Now
-              </button>
-            </div>
-          </div>
+        {/* Yellow circle behind model */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-[1]"
+          style={{
+            width: "clamp(300px, 35vw, 500px)",
+            height: "clamp(300px, 35vw, 500px)",
+            background: "#eab308",
+          }}
+        />
+
+        {/* Model image */}
+        <div className="absolute inset-0 z-[2] flex items-end justify-center">
+          <img
+            src={heroModel}
+            alt="Ace Wardrobe - Man in luxury suit"
+            className="h-[90%] w-auto object-contain object-bottom"
+          />
+        </div>
+
+        {/* Left bottom content */}
+        <div className="absolute bottom-16 left-6 md:left-12 z-[3] max-w-xs md:max-w-sm">
+          <p className="text-sm md:text-base text-foreground/80 mb-3 leading-relaxed">
+            Premium menswear for the modern gentleman. Classic tailoring meets contemporary style.
+          </p>
+          <button
+            onClick={() => scrollToSection("packages")}
+            className="text-sm font-medium text-foreground underline underline-offset-4 hover:text-primary transition-colors"
+          >
+            Shop Now
+          </button>
+        </div>
+
+        {/* Right side headline */}
+        <div className="absolute top-1/2 -translate-y-1/2 right-[5%] md:right-[8%] z-[3] text-right">
+          <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-foreground leading-[0.9] tracking-tight">
+            dress like
+            <br />
+            royalty.
+          </h1>
+        </div>
+
+        {/* Bottom left social icons */}
+        <div className="absolute bottom-6 left-6 md:left-12 z-[3] flex items-center gap-4">
+          <a href="https://www.instagram.com/ace_wardrobe/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+            <Instagram size={18} />
+          </a>
+          <a href="https://www.tiktok.com/@mista_ace" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+            <TikTokIcon size={18} />
+          </a>
+          <a href="https://wa.me/2347039178489" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+            <MessageCircle size={18} />
+          </a>
+        </div>
+
+        {/* Bottom right location */}
+        <div className="absolute bottom-6 right-6 md:right-12 z-[3]">
+          <p className="text-xs md:text-sm text-muted-foreground">Maitama, Abuja</p>
         </div>
       </div>
     </section>
