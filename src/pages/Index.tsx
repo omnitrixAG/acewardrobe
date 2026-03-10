@@ -7,8 +7,6 @@ import { PartnershipBanner } from "@/components/PartnershipBanner";
 import { TrendingSection } from "@/components/TrendingSection";
 import { ShopNewInSection } from "@/components/ShopNewInSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
-import { CollectionsSection } from "@/components/CollectionsSection";
-import { AboutSection } from "@/components/AboutSection";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
 
@@ -23,8 +21,6 @@ const Index = () => {
       <PartnershipBanner />
       <TrendingSection />
       <ShopNewInSection />
-      <CollectionsSection />
-      <AboutSection />
       <NewsletterSection />
       <Footer />
       <ScrollToTop />
