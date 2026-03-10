@@ -12,7 +12,7 @@ const scrollToSection = (sectionId: string, offset: number = 64) => {
 
 export const HeroSection: FC = () => {
   return (
-    <section id="hero" className="relative w-full h-screen min-h-[600px] overflow-hidden pt-16">
+    <section id="hero" className="relative w-full h-screen min-h-[600px] overflow-hidden">
       {/* Split background */}
       <div className="absolute inset-0 flex">
         <div className="w-[55%]" style={{ background: "#eab308" }} />
@@ -20,20 +20,20 @@ export const HeroSection: FC = () => {
       </div>
 
       {/* Content layer */}
-      <div className="relative h-full flex items-end justify-center">
-        {/* Model image — zoomed in, positioned left-center like reference */}
+      <div className="relative h-full">
+        {/* Model image — cropped from top, centered at the yellow/white split */}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-          className="absolute bottom-0 z-10"
-          style={{ left: "50%", transform: "translateX(-65%)" }}
+          className="absolute inset-0 z-10 flex justify-center"
+          style={{ left: "-5%" }}
         >
           <img
             src={heroModel}
             alt="Ace Wardrobe model in dark blazer"
-            className="h-[85vh] max-h-[900px] object-cover object-top"
-            style={{ objectPosition: "top center" }}
+            className="h-full w-auto object-cover object-top scale-[1.15]"
+            style={{ objectPosition: "top center", transformOrigin: "top center" }}
           />
         </motion.div>
 
@@ -42,7 +42,7 @@ export const HeroSection: FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-          className="absolute left-6 md:left-16 bottom-24 md:bottom-28 z-20 max-w-[280px]"
+          className="absolute left-6 md:left-16 bottom-28 md:bottom-32 z-20 max-w-[280px]"
         >
           <p className="text-sm leading-relaxed" style={{ color: "rgba(0,0,0,0.7)" }}>
             Premium menswear for the modern gentleman. Classic tailoring meets contemporary style.
@@ -62,7 +62,7 @@ export const HeroSection: FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
           className="absolute right-6 md:right-16 z-20 text-right"
-          style={{ top: "45%", transform: "translateY(-50%)" }}
+          style={{ top: "50%", transform: "translateY(-50%)" }}
         >
           <h1
             className="font-display text-6xl md:text-8xl lg:text-9xl font-extrabold leading-[0.9] tracking-tight"
