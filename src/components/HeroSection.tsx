@@ -26,14 +26,20 @@ export const HeroSection: FC = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-          className="absolute inset-0 z-10 flex justify-center"
-          style={{ left: "-5%" }}
+          className="absolute z-10 overflow-hidden"
+          style={{
+            left: "50%",
+            top: "50%",
+            transform: "translate(-65%, -45%)",
+            height: "85%",
+            width: "auto",
+          }}
         >
           <img
             src={heroModel}
             alt="Ace Wardrobe model in dark blazer"
-            className="h-full w-auto object-cover object-top scale-[1.15]"
-            style={{ objectPosition: "top center", transformOrigin: "top center" }}
+            className="h-full w-auto object-cover object-top"
+            style={{ transform: "scale(2.2)", transformOrigin: "top center" }}
           />
         </motion.div>
 
