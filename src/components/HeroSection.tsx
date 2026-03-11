@@ -60,7 +60,7 @@ export const HeroSection: FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
-        className="absolute right-8 md:right-16 z-20 text-right"
+        className="absolute right-8 md:right-16 z-20 text-right max-w-[30vw]"
         style={{ top: "50%", transform: "translateY(-50%)" }}
       >
         <h1
