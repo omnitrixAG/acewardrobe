@@ -20,19 +20,19 @@ export const HeroSection: FC = () => {
       </div>
 
       {/* Model — centered exactly at 50% page width */}
-      <motion.div
-        initial={{ y: 40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-        className="absolute bottom-0 z-10"
+      <div
+        className="absolute bottom-0 z-10 flex justify-center"
         style={{ left: "50%", transform: "translateX(-50%)" }}
       >
-        <img
+        <motion.img
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
           src={heroModel}
           alt="Ace Wardrobe model"
           className="h-[92vh] max-h-[960px] w-auto object-contain grayscale"
         />
-      </motion.div>
+      </div>
 
       {/* Left content */}
       <motion.div
