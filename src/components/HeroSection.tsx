@@ -13,11 +13,16 @@ const scrollToSection = (sectionId: string, offset: number = 64) => {
 export const HeroSection: FC = () => {
   return (
     <section id="hero" className="relative w-full h-screen min-h-[600px] overflow-hidden">
-      {/* 50/50 split background */}
-      <div className="absolute inset-0 flex">
+      {/* 50/50 split background with zoom-in */}
+      <motion.div
+        initial={{ scale: 1.15 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="absolute inset-0 flex origin-center"
+      >
         <div className="w-1/2" style={{ background: "#eab308" }} />
         <div className="w-1/2 bg-white" />
-      </div>
+      </motion.div>
 
       {/* Model — centered exactly at 50% page width */}
       <div
