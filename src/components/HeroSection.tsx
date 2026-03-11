@@ -13,66 +13,63 @@ const scrollToSection = (sectionId: string, offset: number = 64) => {
 export const HeroSection: FC = () => {
   return (
     <section id="hero" className="relative w-full h-screen min-h-[600px] overflow-hidden">
-      {/* Split background */}
+      {/* 50/50 split background */}
       <div className="absolute inset-0 flex">
-        <div className="w-[55%]" style={{ background: "#eab308" }} />
-        <div className="w-[45%] bg-white" />
+        <div className="w-1/2" style={{ background: "#eab308" }} />
+        <div className="w-1/2 bg-white" />
       </div>
 
-      {/* Content layer */}
-      <div className="relative h-full">
-        {/* Model image — naturally sized, centered at yellow/white split */}
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-          className="absolute bottom-0 z-10"
-          style={{ left: "50%", transform: "translateX(-65%)" }}
-        >
-          <img
-            src={heroModel}
-            alt="Ace Wardrobe model in dark blazer"
-            className="h-[95vh] max-h-[950px] w-auto object-contain"
-          />
-        </motion.div>
+      {/* Model — centered exactly on the vertical split */}
+      <motion.div
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+        className="absolute bottom-0 z-10"
+        style={{ left: "50%", transform: "translateX(-50%)" }}
+      >
+        <img
+          src={heroModel}
+          alt="Ace Wardrobe model"
+          className="h-[92vh] max-h-[960px] w-auto object-contain grayscale"
+        />
+      </motion.div>
 
-        {/* Left content — bottom left on yellow */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-          className="absolute left-6 md:left-16 bottom-28 md:bottom-32 z-20 max-w-[280px]"
+      {/* Left content — lower left on yellow */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
+        className="absolute left-8 md:left-16 bottom-32 z-20 max-w-[320px]"
+      >
+        <p className="text-sm leading-relaxed" style={{ color: "rgba(0,0,0,0.6)" }}>
+          Premium menswear for the modern gentleman. Classic tailoring meets contemporary style.
+        </p>
+        <button
+          onClick={() => scrollToSection("packages")}
+          className="mt-3 text-sm font-medium underline underline-offset-4"
+          style={{ color: "hsl(var(--deep-black))" }}
         >
-          <p className="text-sm leading-relaxed" style={{ color: "rgba(0,0,0,0.7)" }}>
-            Premium menswear for the modern gentleman. Classic tailoring meets contemporary style.
-          </p>
-          <button
-            onClick={() => scrollToSection("packages")}
-            className="mt-3 text-sm font-medium underline underline-offset-4"
-            style={{ color: "#1a1a1a" }}
-          >
-            Shop Now
-          </button>
-        </motion.div>
+          Shop Now
+        </button>
+      </motion.div>
 
-        {/* Right content — large typography */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
-          className="absolute right-6 md:right-16 z-20 text-right"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
+      {/* Right content — large headline */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
+        className="absolute right-8 md:right-16 z-20 text-right"
+        style={{ top: "50%", transform: "translateY(-50%)" }}
+      >
+        <h1
+          className="font-display text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tight"
+          style={{ color: "hsl(var(--deep-black))" }}
         >
-          <h1
-            className="font-display text-6xl md:text-8xl lg:text-9xl font-extrabold leading-[0.9] tracking-tight"
-            style={{ color: "#1a1a1a" }}
-          >
-            dress like
-            <br />
-            royalty.
-          </h1>
-        </motion.div>
-      </div>
+          dress like
+          <br />
+          royalty.
+        </h1>
+      </motion.div>
     </section>
   );
 };
