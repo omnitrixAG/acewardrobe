@@ -30,18 +30,14 @@ export const HeroSection = () => {
         </div>
 
         <div className="col-span-12 md:col-span-6 flex items-center justify-center relative">
-          <motion.div
-            className="relative z-10 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden"
+          <motion.img
+            src="/model-suit.png"
+            alt="Man in black suit"
+            className="relative z-10 h-[350px] sm:h-[450px] md:h-[550px] lg:h-[680px] w-auto object-contain"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
-          >
-            <img
-              src="/model-suit.png"
-              alt="Man in black suit"
-              className="w-auto h-[150%] object-cover object-top"
-            />
-          </motion.div>
+          />
         </div>
 
         <div className="col-span-12 md:col-span-3 flex items-center">
