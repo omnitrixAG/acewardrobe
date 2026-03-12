@@ -13,7 +13,7 @@ const trends = [
   },
   {
     title: "Casual",
-    image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&h=600&fit=crop",
+    image: "/images/trend-casual.png",
     href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20casual%20collection",
   },
   {
