@@ -13,7 +13,7 @@ const products = [
 
 export const ShopNewInSection: FC = () => {
   return (
-    <section className="py-12 md:py-16 bg-background">
+    <section id="new-arrivals" className="py-12 md:py-16 bg-background">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

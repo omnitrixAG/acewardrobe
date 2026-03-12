@@ -75,7 +75,7 @@ const CollectionCard: FC<{ item: typeof collections[0] }> = ({ item }) => {
 
 export const PackagesSection: FC = () => {
   return (
-    <section id="packages" className="py-16 md:py-24 bg-background">
+    <section id="collections" className="py-16 md:py-24 bg-background">
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         <div className="text-center mb-10">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
