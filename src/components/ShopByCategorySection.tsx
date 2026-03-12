@@ -13,7 +13,7 @@ const categories = [
   },
   {
     title: "Couples",
-    image: "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?w=400&h=530&fit=crop",
+    image: "/images/category-couples.png",
     href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20matching%20couple%20outfits",
   },
   {
