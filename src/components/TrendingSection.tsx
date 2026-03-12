@@ -7,9 +7,9 @@ const trends = [
     href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20suits%20collection",
   },
   {
-    title: "Agbada",
-    image: "https://images.unsplash.com/photo-1590735213920-68192a487bc2?w=600&h=600&fit=crop",
-    href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20Agbada%20collection",
+    title: "Summer",
+    image: "/images/trend-summer.png",
+    href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20summer%20collection",
   },
   {
     title: "Casual",

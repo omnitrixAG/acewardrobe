@@ -1,14 +1,14 @@
 import { FC } from "react";
 
 const products = [
-  { name: "Navy Slim Fit Suit", price: "₦185,000", image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500&h=667&fit=crop" },
-  { name: "Cream Linen Blazer", price: "₦95,000", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=667&fit=crop" },
-  { name: "White Dress Shirt", price: "₦35,000", image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=500&h=667&fit=crop" },
-  { name: "Khaki Chinos", price: "₦45,000", image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=500&h=667&fit=crop" },
-  { name: "Brown Oxford Shoes", price: "₦75,000", image: "https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=500&h=667&fit=crop" },
-  { name: "Black Agbada Set", price: "₦250,000", image: "https://images.unsplash.com/photo-1590735213920-68192a487bc2?w=500&h=667&fit=crop" },
-  { name: "Gray Waistcoat", price: "₦55,000", image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=500&h=667&fit=crop" },
-  { name: "Silk Pocket Square Set", price: "₦15,000", image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=500&h=667&fit=crop" },
+  { name: "Navy Slim Fit Suit", price: "₦185,000", image: "/images/product-1.png" },
+  { name: "Cream Linen Blazer", price: "₦95,000", image: "/images/product-2.png" },
+  { name: "White Dress Shirt", price: "₦35,000", image: "/images/product-3.png" },
+  { name: "Khaki Chinos", price: "₦45,000", image: "/images/product-4.png" },
+  { name: "Brown Oxford Shoes", price: "₦75,000", image: "/images/product-5.png" },
+  { name: "Black Agbada Set", price: "₦250,000", image: "/images/product-6.png" },
+  { name: "Gray Waistcoat", price: "₦55,000", image: "/images/product-7.png" },
+  { name: "Silk Pocket Square Set", price: "₦15,000", image: "/images/product-8.png" },
 ];
 
 export const ShopNewInSection: FC = () => {
