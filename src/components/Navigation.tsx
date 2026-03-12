@@ -12,10 +12,10 @@ const scrollToSection = (sectionId: string, offset: number = 64) => {
 };
 
 const navLinks = [
-  { label: "New In", href: "#packages" },
+  { label: "New In", href: "#new-arrivals" },
   { label: "Shop", href: "#collections" },
-  { label: "Men", href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20men's%20collection" },
-  { label: "Women", href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20women's%20collection" },
+  { label: "Men", href: "#collections" },
+  { label: "Women", href: "#collections" },
   { label: "About", href: "#about" },
 ];
 
