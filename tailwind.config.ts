@@ -59,6 +59,9 @@ export default {
         "ace-yellow": {
           DEFAULT: "hsl(var(--ace-yellow))",
         },
+        promo: {
+          DEFAULT: "hsl(var(--promo))",
+        },
         chrome: {
           DEFAULT: "hsl(var(--chrome))",
           light: "hsl(var(--chrome-light))",
