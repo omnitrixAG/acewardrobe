@@ -19,7 +19,7 @@ const categories = [
   {
     title: "New Arrivals",
     image: "/images/category-new.png",
-    href: "#collections",
+    href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20new%20arrivals",
   },
   {
     title: "Accessories",
@@ -35,27 +35,38 @@ const categories = [
 
 export const ShopByCategorySection: FC = () => {
   return (
-    <section className="py-8 md:py-12 bg-background">
+    <section className="py-8 md:py-12 bg-background border-t border-border">
       <div className="max-w-[1200px] mx-auto px-4">
         <h2 className="text-lg font-semibold text-center mb-6 uppercase tracking-wider text-foreground">
           Shop by Category
         </h2>
 
-        <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide xl:justify-center">
+        <div
+          className="flex gap-4 pb-4 xl:justify-center"
+          style={{
+            overflowX: "auto",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            WebkitOverflowScrolling: "touch",
+          }}
+        >
           {categories.map((cat) => (
             <a
               key={cat.title}
               href={cat.href}
-              target={cat.href.startsWith("http") ? "_blank" : undefined}
-              rel={cat.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex-shrink-0 group"
             >
-              <div className="w-40 md:w-48">
-                <div className="aspect-[3/4] rounded-lg overflow-hidden mb-3">
+              <div className="w-[160px] md:w-[192px]">
+                <div
+                  className="rounded-lg overflow-hidden mb-3 bg-secondary"
+                  style={{ aspectRatio: "3/4" }}
+                >
                   <img
                     src={cat.image}
                     alt={cat.title}
-                    loading="lazy"
+                    loading="eager"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
