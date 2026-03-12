@@ -3,25 +3,25 @@ import { Skeleton } from "./ui/skeleton";
 
 const collections = [
   {
-    title: "The Executive",
-    category: "Men's Edit",
+    title: "The Executive Edit",
+    category: "Men's",
     price: "From ₦550,000",
     image: "/images/edit-executive.png",
-    whatsappMessage: "Hi!%20I'm%20interested%20in%20The%20Executive%20collection%20(From%20₦550,000)",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20The%20Executive%20Edit%20(From%20₦550,000)",
   },
   {
-    title: "The King",
-    category: "Men's Edit",
+    title: "The King Edit",
+    category: "Men's",
     price: "From ₦350,000",
     image: "/images/edit-king.png",
-    whatsappMessage: "Hi!%20I'm%20interested%20in%20The%20King%20collection%20(From%20₦350,000)",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20The%20King%20Edit%20(From%20₦350,000)",
   },
   {
-    title: "The Luxe",
-    category: "Women's Edit",
+    title: "The Luxe Edit",
+    category: "Women's",
     price: "From ₦250,000",
     image: "/images/edit-luxe.png",
-    whatsappMessage: "Hi!%20I'm%20interested%20in%20The%20Luxe%20collection%20(From%20₦250,000)",
+    whatsappMessage: "Hi!%20I'm%20interested%20in%20The%20Luxe%20Edit%20(From%20₦250,000)",
   },
   {
     title: "The Couple's Edit",
