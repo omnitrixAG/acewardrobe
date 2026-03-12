@@ -8,7 +8,7 @@ const categories = [
   },
   {
     title: "Women's",
-    image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=530&fit=crop",
+    image: "/images/category-womens.png",
     href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20women's%20collection",
   },
   {
