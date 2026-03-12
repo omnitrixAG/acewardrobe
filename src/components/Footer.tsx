@@ -60,9 +60,9 @@ export const Footer: FC = () => {
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         {/* Link columns */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <FooterColumn title="Help" links={footerLinks.help} />
-          <FooterColumn title="Company" links={footerLinks.company} />
-          <FooterColumn title="Shop" links={footerLinks.shop} />
+          <FooterColumn title="Navigate" links={footerLinks.navigate} />
+          <FooterColumn title="Services" links={footerLinks.services} />
+          <FooterColumn title="Discover" links={footerLinks.discover} />
 
           {/* Visit Us */}
           <div>
