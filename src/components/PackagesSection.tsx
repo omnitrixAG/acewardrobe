@@ -13,7 +13,7 @@ const collections = [
     title: "The King",
     category: "Men's Edit",
     price: "From ₦350,000",
-    image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&h=800&fit=crop",
+    image: "/images/edit-king.png",
     whatsappMessage: "Hi!%20I'm%20interested%20in%20The%20King%20collection%20(From%20₦350,000)",
   },
   {
