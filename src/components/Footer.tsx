@@ -8,22 +8,23 @@ const TikTokIcon: FC<{ size?: number; className?: string }> = ({ size = 20, clas
 );
 
 const footerLinks = {
-  help: [
-    { label: "Track Order", href: "https://wa.me/2347039178489?text=Hi!%20I'd%20like%20to%20track%20my%20order" },
-    { label: "Shipping Info", href: "https://wa.me/2347039178489?text=Hi!%20I'd%20like%20to%20know%20about%20shipping" },
-    { label: "Returns", href: "https://wa.me/2347039178489?text=Hi!%20I'd%20like%20to%20inquire%20about%20returns" },
-    { label: "Contact Us", href: "https://wa.me/2347039178489" },
+  navigate: [
+    { label: "Collections", href: "#collections" },
+    { label: "About Us", href: "#about" },
+    { label: "Men's Edit", href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20men's%20collection" },
+    { label: "Women's Edit", href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20women's%20collection" },
   ],
-  company: [
-    { label: "About", href: "#about" },
-    { label: "Stores", href: "https://wa.me/2347039178489?text=Hi!%20Where%20are%20your%20stores%20located%3F" },
-    { label: "Careers", href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20career%20opportunities" },
+  services: [
+    { label: "Private Shopping", href: "https://wa.me/2347039178489?text=Hi!%20I'd%20like%20to%20book%20a%20private%20shopping%20session" },
+    { label: "Styling Consultation", href: "https://wa.me/2347039178489?text=Hi!%20I'd%20like%20a%20styling%20consultation" },
+    { label: "Worldwide Delivery", href: "https://wa.me/2347039178489?text=Hi!%20I'd%20like%20to%20know%20about%20international%20shipping" },
+    { label: "Custom Orders", href: "https://wa.me/2347039178489?text=Hi!%20I'd%20like%20to%20place%20a%20custom%20order" },
   ],
-  shop: [
-    { label: "Men's", href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20men's%20collection" },
-    { label: "Women's", href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20women's%20collection" },
-    { label: "Couples", href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20couple%20outfits" },
-    { label: "Accessories", href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20accessories" },
+  discover: [
+    { label: "Newsletter", href: "#newsletter" },
+    { label: "New Arrivals", href: "#new-arrivals" },
+    { label: "Peaches by Ema", href: "https://wa.me/2347039178489?text=Hi!%20I'd%20like%20to%20know%20about%20Peaches%20by%20Ema" },
+    { label: "Our Story", href: "#about" },
   ],
 };
 
@@ -59,9 +60,9 @@ export const Footer: FC = () => {
       <div className="max-w-[1200px] mx-auto px-5 md:px-10">
         {/* Link columns */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <FooterColumn title="Help" links={footerLinks.help} />
-          <FooterColumn title="Company" links={footerLinks.company} />
-          <FooterColumn title="Shop" links={footerLinks.shop} />
+          <FooterColumn title="Navigate" links={footerLinks.navigate} />
+          <FooterColumn title="Services" links={footerLinks.services} />
+          <FooterColumn title="Discover" links={footerLinks.discover} />
 
           {/* Visit Us */}
           <div>
