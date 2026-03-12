@@ -3,7 +3,7 @@ import { FC } from "react";
 const categories = [
   {
     title: "Men's",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=530&fit=crop&crop=faces",
+    image: "/images/category-mens.png",
     href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20men's%20collection",
   },
   {
