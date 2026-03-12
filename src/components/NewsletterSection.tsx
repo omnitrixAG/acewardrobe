@@ -25,7 +25,7 @@ export const NewsletterSection: FC = () => {
   };
 
   return (
-    <section id="newsletter" className="py-16 md:py-20 bg-secondary">
+    <section id="newsletter" className="py-16 md:py-20" style={{ backgroundColor: "#fafafa" }}>
       <div className="max-w-[640px] mx-auto px-5 text-center">
         {isSubmitted ? (
           <div className="py-8">
@@ -41,11 +41,14 @@ export const NewsletterSection: FC = () => {
           </div>
         ) : (
           <>
+            <span className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground border border-border rounded-full px-4 py-1 mb-4">
+              Inner Circle
+            </span>
             <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Join the Ace Family
+              Stay In The Know
             </h2>
             <p className="text-muted-foreground mb-8">
-              Subscribe for exclusive drops, style tips, and VIP offers
+              Early access to new drops, exclusive offers, and style updates.
             </p>
 
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-[448px] mx-auto">
@@ -60,7 +63,7 @@ export const NewsletterSection: FC = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="px-8 py-3 rounded-lg bg-foreground text-background text-xs font-semibold uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="px-8 py-3 rounded-lg bg-foreground text-background text-xs font-semibold uppercase tracking-wider hover:bg-promo hover:text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isLoading ? <Loader2 size={16} className="animate-spin" /> : "Subscribe"}
               </button>
@@ -71,7 +74,7 @@ export const NewsletterSection: FC = () => {
             )}
 
             <p className="mt-4 text-xs text-muted-foreground">
-              No spam, unsubscribe anytime. <a href="#" className="underline underline-offset-2 hover:text-primary transition-colors">Privacy Policy</a>
+              No spam. Unsubscribe anytime.
             </p>
           </>
         )}
