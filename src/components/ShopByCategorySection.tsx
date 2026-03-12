@@ -18,7 +18,7 @@ const categories = [
   },
   {
     title: "New Arrivals",
-    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=530&fit=crop",
+    image: "/images/category-new.png",
     href: "#collections",
   },
   {
