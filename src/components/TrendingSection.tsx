@@ -18,7 +18,7 @@ const trends = [
   },
   {
     title: "Accessories",
-    image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&h=600&fit=crop",
+    image: "/images/trend-accessories.png",
     href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20accessories",
   },
 ];

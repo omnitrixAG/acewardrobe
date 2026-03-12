@@ -28,7 +28,7 @@ const categories = [
   },
   {
     title: "Sale",
-    image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&h=530&fit=crop",
+    image: "/images/category-sale.png",
     href: "https://wa.me/2347039178489?text=Hi!%20Do%20you%20have%20any%20items%20on%20sale%3F",
   },
 ];

@@ -27,7 +27,7 @@ const collections = [
     title: "The Couple's Edit",
     category: "His & Hers",
     price: "From ₦400,000",
-    image: "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?w=600&h=800&fit=crop",
+    image: "/images/edit-couples.png",
     whatsappMessage: "Hi!%20I'm%20interested%20in%20The%20Couple's%20Edit%20(From%20₦400,000)",
   },
 ];
