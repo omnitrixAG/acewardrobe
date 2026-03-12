@@ -20,7 +20,7 @@ const collections = [
     title: "The Luxe",
     category: "Women's Edit",
     price: "From ₦250,000",
-    image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop",
+    image: "/images/edit-luxe.png",
     whatsappMessage: "Hi!%20I'm%20interested%20in%20The%20Luxe%20collection%20(From%20₦250,000)",
   },
   {
