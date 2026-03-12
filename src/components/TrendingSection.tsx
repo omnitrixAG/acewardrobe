@@ -3,7 +3,7 @@ import { FC } from "react";
 const trends = [
   {
     title: "Suits",
-    image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=600&fit=crop",
+    image: "/images/trend-suits.png",
     href: "https://wa.me/2347039178489?text=Hi!%20I'm%20interested%20in%20your%20suits%20collection",
   },
   {
