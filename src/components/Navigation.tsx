@@ -1,7 +1,8 @@
 import { FC, useState, useEffect } from "react";
-import { MessageCircle, Menu, X } from "lucide-react";
+import { MessageCircle, Menu, X, ShoppingBag } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SpadeIcon } from "./icons/SpadeIcon";
+import { useCart } from "@/context/CartContext";
 
 const scrollToSection = (sectionId: string, offset: number = 64) => {
   const element = document.getElementById(sectionId);
