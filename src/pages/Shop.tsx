@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -14,8 +14,27 @@ const formatPrice = (price: number) =>
 const Shop: FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [searchParams] = useSearchParams();
   const { addToCart } = useCart();
+
+  const categoryParam = searchParams.get("category");
+  const filterParam = searchParams.get("filter");
+
+  const initialCategory = categoryParam
+    ? categories.find((c) => c.toLowerCase() === categoryParam.toLowerCase()) || "All"
+    : "All";
+
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
+
+  // Sync category from URL params
+  useEffect(() => {
+    if (categoryParam) {
+      const match = categories.find((c) => c.toLowerCase() === categoryParam.toLowerCase());
+      if (match) setActiveCategory(match);
+    } else if (!filterParam) {
+      setActiveCategory("All");
+    }
+  }, [categoryParam, filterParam]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -27,12 +46,14 @@ const Shop: FC = () => {
     fetchProducts();
   }, []);
 
-  const filtered = activeCategory === "All"
-    ? products
-    : products.filter((p) =>
-        p.name.toLowerCase().includes(activeCategory.toLowerCase()) ||
-        (p.description?.toLowerCase().includes(activeCategory.toLowerCase()))
-      );
+  const filtered = filterParam === "new"
+    ? products.filter((p) => p.is_new)
+    : activeCategory === "All"
+      ? products
+      : products.filter((p) =>
+          p.name.toLowerCase().includes(activeCategory.toLowerCase()) ||
+          (p.description?.toLowerCase().includes(activeCategory.toLowerCase()))
+        );
 
   return (
     <div className="min-h-screen bg-background">
