@@ -96,7 +96,12 @@ const ProductDetail: FC = () => {
         ? "text-orange-500"
         : "text-green-500";
 
-  const whatsappMessage = `Hi! I'd like to order ${product.name} (${formatPrice(product.price)})${selectedSize ? `, Size: ${selectedSize}` : ""}${selectedColor ? `, Color: ${selectedColor}` : ""}, Qty: ${quantity}`;
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    if (product.stock === 0) return;
+    addToCart({ product, quantity, selectedSize, selectedColor });
+  };
 
   return (
     <div className="min-h-screen bg-background">
