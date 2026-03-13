@@ -1,6 +1,6 @@
 import { FC, useState, useEffect } from "react";
 import { MessageCircle, Menu, X, ShoppingBag } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { SpadeIcon } from "./icons/SpadeIcon";
 import { useCart } from "@/context/CartContext";
 
@@ -13,10 +13,10 @@ const scrollToSection = (sectionId: string, offset: number = 64) => {
 };
 
 const navLinks = [
-  { label: "New In", href: "#new-arrivals" },
-  { label: "Shop", href: "#collections" },
-  { label: "Men", href: "#collections" },
-  { label: "Women", href: "#collections" },
+  { label: "New In", href: "/shop?filter=new" },
+  { label: "Shop", href: "/shop" },
+  { label: "Men", href: "/shop?category=men" },
+  { label: "Women", href: "/shop?category=women" },
   { label: "About", href: "#about" },
 ];
 
@@ -33,7 +33,6 @@ export const Navigation: FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -58,6 +57,8 @@ export const Navigation: FC = () => {
       } else {
         scrollToSection(sectionId);
       }
+    } else {
+      navigate(href);
     }
     setIsOpen(false);
   };
@@ -78,27 +79,15 @@ export const Navigation: FC = () => {
 
           {/* Center nav - desktop */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) =>
-              link.href.startsWith("http") ? (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <button
-                  key={link.label}
-                  onClick={() => handleNavClick(link.href)}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </button>
-              )
-            )}
+            {navLinks.map((link) => (
+              <button
+                key={link.label}
+                onClick={() => handleNavClick(link.href)}
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                {link.label}
+              </button>
+            ))}
           </nav>
 
           {/* Right side */}
@@ -156,28 +145,15 @@ export const Navigation: FC = () => {
           </div>
 
           <nav className="flex flex-col items-center justify-center flex-1 gap-8">
-            {navLinks.map((link) =>
-              link.href.startsWith("http") ? (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="text-2xl font-semibold text-foreground hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <button
-                  key={link.label}
-                  onClick={() => handleNavClick(link.href)}
-                  className="text-2xl font-semibold text-foreground hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </button>
-              )
-            )}
+            {navLinks.map((link) => (
+              <button
+                key={link.label}
+                onClick={() => handleNavClick(link.href)}
+                className="text-2xl font-semibold text-foreground hover:text-primary transition-colors"
+              >
+                {link.label}
+              </button>
+            ))}
           </nav>
 
           <div className="pb-10 px-5">
