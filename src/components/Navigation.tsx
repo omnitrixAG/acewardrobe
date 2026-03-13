@@ -1,7 +1,8 @@
 import { FC, useState, useEffect } from "react";
-import { MessageCircle, Menu, X } from "lucide-react";
+import { MessageCircle, Menu, X, ShoppingBag } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SpadeIcon } from "./icons/SpadeIcon";
+import { useCart } from "@/context/CartContext";
 
 const scrollToSection = (sectionId: string, offset: number = 64) => {
   const element = document.getElementById(sectionId);
@@ -21,6 +22,7 @@ const navLinks = [
 
 export const Navigation: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { itemCount, setIsOpen: setCartOpen } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -111,6 +113,20 @@ export const Navigation: FC = () => {
               <MessageCircle size={18} />
               Chat
             </a>
+
+            {/* Cart icon */}
+            <button
+              onClick={() => setCartOpen(true)}
+              className="relative text-foreground hover:text-primary transition-colors"
+              aria-label="Open cart"
+            >
+              <ShoppingBag size={22} />
+              {itemCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center">
+                  {itemCount > 99 ? "99+" : itemCount}
+                </span>
+              )}
+            </button>
 
             {/* Hamburger - mobile */}
             <button

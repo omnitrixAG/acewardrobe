@@ -5,6 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import type { Product } from "@/types/database";
 import { Minus, Plus, ArrowLeft } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 const formatPrice = (price: number) =>
   "₦" + price.toLocaleString("en-NG");
@@ -95,7 +96,12 @@ const ProductDetail: FC = () => {
         ? "text-orange-500"
         : "text-green-500";
 
-  const whatsappMessage = `Hi! I'd like to order ${product.name} (${formatPrice(product.price)})${selectedSize ? `, Size: ${selectedSize}` : ""}${selectedColor ? `, Color: ${selectedColor}` : ""}, Qty: ${quantity}`;
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    if (product.stock === 0) return;
+    addToCart({ product, quantity, selectedSize, selectedColor });
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -216,19 +222,18 @@ const ProductDetail: FC = () => {
               </div>
 
               {/* Add to Cart */}
-              <a
-                href={`https://wa.me/2347039178489?text=${encodeURIComponent(whatsappMessage)}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={handleAddToCart}
+                disabled={product.stock === 0}
                 className={`w-full text-center py-3.5 rounded-lg text-base font-semibold transition-colors ${
                   product.stock === 0
-                    ? "bg-muted text-muted-foreground pointer-events-none"
+                    ? "bg-muted text-muted-foreground cursor-not-allowed"
                     : ""
                 }`}
                 style={product.stock > 0 ? { backgroundColor: "#eab308", color: "#000" } : {}}
               >
                 {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
-              </a>
+              </button>
             </div>
           </div>
         </div>

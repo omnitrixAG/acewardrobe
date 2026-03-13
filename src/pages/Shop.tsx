@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { useCart } from "@/context/CartContext";
 import type { Product } from "@/types/database";
 
 const categories = ["All", "Men", "Women", "Couples", "Accessories"];
@@ -14,6 +15,7 @@ const Shop: FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("All");
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -96,15 +98,20 @@ const Shop: FC = () => {
                     <p className="text-base font-bold text-foreground mt-1">
                       {formatPrice(product.price)}
                     </p>
-                    <a
-                      href={`https://wa.me/2347039178489?text=Hi!%20I'd%20like%20to%20order%20${encodeURIComponent(product.name)}%20(${encodeURIComponent(formatPrice(product.price))})`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={() =>
+                        addToCart({
+                          product,
+                          quantity: 1,
+                          selectedSize: product.sizes?.[0] || "",
+                          selectedColor: product.colors?.[0] || "",
+                        })
+                      }
                       className="mt-3 block w-full text-center py-2.5 rounded-lg text-sm font-semibold transition-colors"
                       style={{ backgroundColor: "#eab308", color: "#000" }}
                     >
                       Add to Cart
-                    </a>
+                    </button>
                   </div>
                 </div>
               ))}
