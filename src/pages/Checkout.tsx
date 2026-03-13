@@ -78,21 +78,21 @@ const Checkout: FC = () => {
         color: i.selectedColor || undefined,
       }));
 
-      const { data: order, error } = await supabase.from("orders").insert({
+      const { data: order, error } = await supabase.from("orders").insert([{
         customer_name: result.data.fullName,
         customer_email: result.data.email,
         customer_phone: result.data.phone,
         shipping_address: result.data.address,
         city: result.data.city,
         state: result.data.state,
-        items: orderItems,
+        items: orderItems as unknown as OrderItem[],
         subtotal,
         shipping_fee: shippingFee,
         total,
         payment_status: "pending" as const,
         order_status: "pending" as const,
         payment_reference: null,
-      }).select().maybeSingle();
+      }]).select().maybeSingle();
 
       if (error) throw error;
 
