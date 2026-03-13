@@ -107,6 +107,7 @@ const Shop: FC = () => {
                         alt={product.name}
                         loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        style={{ fontSize: 0, color: "transparent" }}
                       />
                     </div>
                   </Link>
