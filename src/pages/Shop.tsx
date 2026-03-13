@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { useCart } from "@/context/CartContext";
 import type { Product } from "@/types/database";
 
 const categories = ["All", "Men", "Women", "Couples", "Accessories"];
