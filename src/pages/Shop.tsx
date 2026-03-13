@@ -4,15 +4,14 @@ import { supabase } from "@/lib/supabase";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { useCart } from "@/context/CartContext";
-import type { Product } from "@/types/database";
-
-const categories = ["All", "Men", "Women", "Couples", "Accessories"];
+import type { Product, Category } from "@/types/database";
 
 const formatPrice = (price: number) =>
   "₦" + price.toLocaleString("en-NG");
 
 const Shop: FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchParams] = useSearchParams();
   const { addToCart } = useCart();
@@ -20,40 +19,47 @@ const Shop: FC = () => {
   const categoryParam = searchParams.get("category");
   const filterParam = searchParams.get("filter");
 
-  const initialCategory = categoryParam
-    ? categories.find((c) => c.toLowerCase() === categoryParam.toLowerCase()) || "All"
-    : "All";
+  const [activeSlug, setActiveSlug] = useState(categoryParam?.toLowerCase() || "all");
 
-  const [activeCategory, setActiveCategory] = useState(initialCategory);
-
-  // Sync category from URL params
+  // Sync from URL params
   useEffect(() => {
     if (categoryParam) {
-      const match = categories.find((c) => c.toLowerCase() === categoryParam.toLowerCase());
-      if (match) setActiveCategory(match);
-    } else if (!filterParam) {
-      setActiveCategory("All");
+      setActiveSlug(categoryParam.toLowerCase());
+    } else if (filterParam) {
+      setActiveSlug("all");
+    } else {
+      setActiveSlug("all");
     }
   }, [categoryParam, filterParam]);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchData = async () => {
       setLoading(true);
-      const { data } = await supabase.from("products").select("*");
-      setProducts(data ?? []);
+      const [prodRes, catRes] = await Promise.all([
+        supabase.from("products").select("*"),
+        supabase.from("categories").select("*"),
+      ]);
+      setProducts(prodRes.data ?? []);
+      setCategories(catRes.data ?? []);
       setLoading(false);
     };
-    fetchProducts();
+    fetchData();
   }, []);
+
+  // Build filter tabs from DB categories
+  const filterTabs = [
+    { label: "All", slug: "all" },
+    ...categories.map((c) => ({ label: c.name, slug: c.slug })),
+  ];
+
+  // Build a slug → id map for filtering
+  const categoryIdBySlug = Object.fromEntries(categories.map((c) => [c.slug, c.id]));
 
   const filtered = filterParam === "new"
     ? products.filter((p) => p.is_new)
-    : activeCategory === "All"
+    : activeSlug === "all"
       ? products
-      : products.filter((p) =>
-          p.name.toLowerCase().includes(activeCategory.toLowerCase()) ||
-          (p.description?.toLowerCase().includes(activeCategory.toLowerCase()))
-        );
+      : products.filter((p) => p.category_id === categoryIdBySlug[activeSlug]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -66,17 +72,17 @@ const Shop: FC = () => {
 
           {/* Category filters */}
           <div className="flex gap-3 mb-10 overflow-x-auto pb-2" style={{ scrollbarWidth: "none" }}>
-            {categories.map((cat) => (
+            {filterTabs.map((tab) => (
               <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
+                key={tab.slug}
+                onClick={() => setActiveSlug(tab.slug)}
                 className={`flex-shrink-0 px-6 py-2 rounded-full text-sm font-medium border transition-colors ${
-                  activeCategory === cat
+                  activeSlug === tab.slug
                     ? "bg-foreground text-background border-foreground"
                     : "bg-transparent text-foreground border-border hover:border-foreground"
                 }`}
               >
-                {cat}
+                {tab.label}
               </button>
             ))}
           </div>
