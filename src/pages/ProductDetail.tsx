@@ -5,6 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import type { Product } from "@/types/database";
 import { Minus, Plus, ArrowLeft } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 const formatPrice = (price: number) =>
   "₦" + price.toLocaleString("en-NG");
