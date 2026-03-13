@@ -31,13 +31,13 @@ export interface Order {
   shipping_address: string;
   city: string;
   state: string;
-  items: OrderItem[];
+  items: OrderItem[] | Record<string, unknown>[];
   subtotal: number;
   shipping_fee: number;
   total: number;
   payment_reference: string | null;
-  payment_status: "pending" | "paid" | "failed";
-  order_status: "pending" | "confirmed" | "shipped" | "delivered" | "cancelled";
+  payment_status: string;
+  order_status: string;
   created_at: string;
 }
 
@@ -72,5 +72,6 @@ export interface Database {
     Views: Record<string, never>;
     Functions: Record<string, never>;
     Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
   };
 }

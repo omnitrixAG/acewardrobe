@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import { X, Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
@@ -6,21 +7,11 @@ const formatPrice = (price: number) => "₦" + price.toLocaleString("en-NG");
 
 export const CartDrawer: FC = () => {
   const { items, isOpen, setIsOpen, removeFromCart, updateQuantity, clearCart, getCartTotal, itemCount } = useCart();
+  const navigate = useNavigate();
 
   if (!isOpen) return null;
 
   const subtotal = getCartTotal();
-
-  // Build WhatsApp checkout message
-  const checkoutMessage = items
-    .map(
-      (i) =>
-        `• ${i.product.name}${i.selectedSize ? ` (${i.selectedSize})` : ""}${i.selectedColor ? ` [${i.selectedColor}]` : ""} x${i.quantity} — ${formatPrice(i.product.price * i.quantity)}`
-    )
-    .join("\n");
-  const whatsappUrl = `https://wa.me/2347039178489?text=${encodeURIComponent(
-    `Hi! I'd like to place an order:\n\n${checkoutMessage}\n\nSubtotal: ${formatPrice(subtotal)}`
-  )}`;
 
   return (
     <>
@@ -123,15 +114,16 @@ export const CartDrawer: FC = () => {
               <span className="text-sm text-muted-foreground">Subtotal</span>
               <span className="text-lg font-bold text-foreground">{formatPrice(subtotal)}</span>
             </div>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                navigate("/checkout");
+              }}
               className="block w-full text-center py-3.5 rounded-lg text-base font-semibold"
               style={{ backgroundColor: "#eab308", color: "#000" }}
             >
-              Checkout via WhatsApp
-            </a>
+              Checkout
+            </button>
             <button
               onClick={clearCart}
               className="w-full text-center text-sm text-muted-foreground hover:text-destructive transition-colors"
