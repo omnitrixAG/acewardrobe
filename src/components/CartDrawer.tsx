@@ -7,6 +7,7 @@ const formatPrice = (price: number) => "₦" + price.toLocaleString("en-NG");
 
 export const CartDrawer: FC = () => {
   const { items, isOpen, setIsOpen, removeFromCart, updateQuantity, clearCart, getCartTotal, itemCount } = useCart();
+  const navigate = useNavigate();
 
   if (!isOpen) return null;
 
