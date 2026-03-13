@@ -72,17 +72,17 @@ const Shop: FC = () => {
 
           {/* Category filters */}
           <div className="flex gap-3 mb-10 overflow-x-auto pb-2" style={{ scrollbarWidth: "none" }}>
-            {categories.map((cat) => (
+            {filterTabs.map((tab) => (
               <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
+                key={tab.slug}
+                onClick={() => setActiveSlug(tab.slug)}
                 className={`flex-shrink-0 px-6 py-2 rounded-full text-sm font-medium border transition-colors ${
-                  activeCategory === cat
+                  activeSlug === tab.slug
                     ? "bg-foreground text-background border-foreground"
                     : "bg-transparent text-foreground border-border hover:border-foreground"
                 }`}
               >
-                {cat}
+                {tab.label}
               </button>
             ))}
           </div>
