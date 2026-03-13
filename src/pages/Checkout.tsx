@@ -1,17 +1,23 @@
-import { FC, useState } from "react";
+import { FC, useState, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { z } from "zod";
+import { usePaystackPayment } from "react-paystack";
 import { supabase } from "@/lib/supabase";
 import { useCart } from "@/context/CartContext";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ArrowLeft } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 import type { OrderItem } from "@/types/database";
 
 const SHIPPING_FEE = 5000;
 const FREE_SHIPPING_THRESHOLD = 100000;
+const PAYSTACK_PUBLIC_KEY = "pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"; // TODO: Replace with your Paystack public key
 
 const formatPrice = (price: number) => "₦" + price.toLocaleString("en-NG");
+
+const generateReference = () =>
+  `ACE-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
 
 const nigerianStates = [
   "Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno",
@@ -31,6 +37,30 @@ const checkoutSchema = z.object({
 
 type FormData = z.infer<typeof checkoutSchema>;
 
+// Wrapper that renders the Paystack button once config is ready
+const PaystackButton: FC<{
+  config: { reference: string; email: string; amount: number; publicKey: string; currency: string };
+  onSuccess: (ref: { reference: string }) => void;
+  onClose: () => void;
+  submitting: boolean;
+}> = ({ config, onSuccess, onClose, submitting }) => {
+  const initPayment = usePaystackPayment(config);
+
+  return (
+    <button
+      type="button"
+      disabled={submitting}
+      onClick={() => {
+        initPayment({ onSuccess, onClose } as any);
+      }}
+      className="mt-6 w-full py-3.5 rounded-lg text-base font-semibold transition-colors disabled:opacity-60"
+      style={{ backgroundColor: "#eab308", color: "#000" }}
+    >
+      {submitting ? "Processing..." : "Pay Now"}
+    </button>
+  );
+};
+
 const Checkout: FC = () => {
   const { items, getCartTotal, clearCart } = useCart();
   const navigate = useNavigate();
@@ -40,6 +70,9 @@ const Checkout: FC = () => {
   });
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [validated, setValidated] = useState(false);
+  const [payRef, setPayRef] = useState("");
+  const validatedDataRef = useRef<FormData | null>(null);
 
   const subtotal = getCartTotal();
   const shippingFee = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE;
@@ -48,9 +81,10 @@ const Checkout: FC = () => {
   const handleChange = (field: keyof FormData, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }));
+    if (validated) setValidated(false);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleValidate = (e: React.FormEvent) => {
     e.preventDefault();
 
     const result = checkoutSchema.safeParse(form);
@@ -66,7 +100,15 @@ const Checkout: FC = () => {
 
     if (items.length === 0) return;
 
+    validatedDataRef.current = result.data;
+    setPayRef(generateReference());
+    setValidated(true);
+  };
+
+  const handlePaymentSuccess = async (ref: { reference: string }) => {
     setSubmitting(true);
+    const data = validatedDataRef.current;
+    if (!data) return;
 
     try {
       const orderItems: OrderItem[] = items.map((i) => ({
@@ -78,25 +120,23 @@ const Checkout: FC = () => {
         color: i.selectedColor || undefined,
       }));
 
-      const orderPayload = {
-        customer_name: result.data.fullName,
-        customer_email: result.data.email,
-        customer_phone: result.data.phone,
-        shipping_address: result.data.address,
-        city: result.data.city,
-        state: result.data.state,
-        items: orderItems,
-        subtotal,
-        shipping_fee: shippingFee,
-        total,
-        payment_status: "pending",
-        order_status: "pending",
-        payment_reference: null,
-      };
-
       const { data: order, error } = await supabase
         .from("orders")
-        .insert(orderPayload as any)
+        .insert({
+          customer_name: data.fullName,
+          customer_email: data.email,
+          customer_phone: data.phone,
+          shipping_address: data.address,
+          city: data.city,
+          state: data.state,
+          items: orderItems,
+          subtotal,
+          shipping_fee: shippingFee,
+          total,
+          payment_status: "paid",
+          order_status: "confirmed",
+          payment_reference: ref.reference,
+        } as any)
         .select()
         .maybeSingle();
 
@@ -105,11 +145,22 @@ const Checkout: FC = () => {
       clearCart();
       navigate("/order-confirmation", { state: { order } });
     } catch (err) {
-      console.error("Order submission failed:", err);
-      alert("Something went wrong. Please try again.");
+      console.error("Order save failed:", err);
+      toast({
+        title: "Payment received",
+        description: `Your payment was successful (ref: ${ref.reference}), but we had trouble saving your order. Please contact support.`,
+        variant: "destructive",
+      });
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const handlePaymentClose = () => {
+    toast({
+      title: "Payment cancelled",
+      description: "Your payment was not completed. You can try again.",
+    });
   };
 
   if (items.length === 0) {
@@ -135,6 +186,14 @@ const Checkout: FC = () => {
       errors[field] ? "border-destructive" : "border-border"
     }`;
 
+  const paystackConfig = {
+    reference: payRef,
+    email: form.email,
+    amount: total * 100, // kobo
+    publicKey: PAYSTACK_PUBLIC_KEY,
+    currency: "NGN",
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -146,7 +205,7 @@ const Checkout: FC = () => {
 
           <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-10">Checkout</h1>
 
-          <form onSubmit={handleSubmit} className="grid md:grid-cols-[1fr_400px] gap-10 md:gap-14">
+          <form onSubmit={handleValidate} className="grid md:grid-cols-[1fr_400px] gap-10 md:gap-14">
             {/* Shipping Form */}
             <div className="space-y-6">
               <h2 className="text-lg font-semibold text-foreground">Shipping Information</h2>
@@ -285,17 +344,25 @@ const Checkout: FC = () => {
                   </div>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="mt-6 w-full py-3.5 rounded-lg text-base font-semibold transition-colors disabled:opacity-60"
-                  style={{ backgroundColor: "#eab308", color: "#000" }}
-                >
-                  {submitting ? "Processing..." : "Place Order"}
-                </button>
+                {validated ? (
+                  <PaystackButton
+                    config={paystackConfig}
+                    onSuccess={handlePaymentSuccess}
+                    onClose={handlePaymentClose}
+                    submitting={submitting}
+                  />
+                ) : (
+                  <button
+                    type="submit"
+                    className="mt-6 w-full py-3.5 rounded-lg text-base font-semibold transition-colors"
+                    style={{ backgroundColor: "#eab308", color: "#000" }}
+                  >
+                    Continue to Payment
+                  </button>
+                )}
 
                 <p className="text-xs text-muted-foreground text-center mt-3">
-                  Paystack payment will be integrated soon.
+                  Secured by Paystack 🔒
                 </p>
               </div>
             </div>
