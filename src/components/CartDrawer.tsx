@@ -125,15 +125,16 @@ export const CartDrawer: FC = () => {
               <span className="text-sm text-muted-foreground">Subtotal</span>
               <span className="text-lg font-bold text-foreground">{formatPrice(subtotal)}</span>
             </div>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                navigate("/checkout");
+              }}
               className="block w-full text-center py-3.5 rounded-lg text-base font-semibold"
               style={{ backgroundColor: "#eab308", color: "#000" }}
             >
-              Checkout via WhatsApp
-            </a>
+              Checkout
+            </button>
             <button
               onClick={clearCart}
               className="w-full text-center text-sm text-muted-foreground hover:text-destructive transition-colors"
