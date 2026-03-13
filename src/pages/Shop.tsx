@@ -15,6 +15,7 @@ const Shop: FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("All");
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProducts = async () => {
