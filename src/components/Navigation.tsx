@@ -114,6 +114,20 @@ export const Navigation: FC = () => {
               Chat
             </a>
 
+            {/* Cart icon */}
+            <button
+              onClick={() => setCartOpen(true)}
+              className="relative text-foreground hover:text-primary transition-colors"
+              aria-label="Open cart"
+            >
+              <ShoppingBag size={22} />
+              {itemCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center">
+                  {itemCount > 99 ? "99+" : itemCount}
+                </span>
+              )}
+            </button>
+
             {/* Hamburger - mobile */}
             <button
               className="md:hidden text-foreground"
