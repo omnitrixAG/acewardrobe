@@ -143,7 +143,8 @@ const Checkout: FC = () => {
       if (error) throw error;
 
       clearCart();
-      navigate("/order-confirmation", { state: { order } });
+      const orderId = order ? (order as any).id : "";
+      navigate(`/order-confirmation/${orderId}`);
     } catch (err) {
       console.error("Order save failed:", err);
       toast({
