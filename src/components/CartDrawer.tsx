@@ -13,17 +13,6 @@ export const CartDrawer: FC = () => {
 
   const subtotal = getCartTotal();
 
-  // Build WhatsApp checkout message
-  const checkoutMessage = items
-    .map(
-      (i) =>
-        `• ${i.product.name}${i.selectedSize ? ` (${i.selectedSize})` : ""}${i.selectedColor ? ` [${i.selectedColor}]` : ""} x${i.quantity} — ${formatPrice(i.product.price * i.quantity)}`
-    )
-    .join("\n");
-  const whatsappUrl = `https://wa.me/2347039178489?text=${encodeURIComponent(
-    `Hi! I'd like to place an order:\n\n${checkoutMessage}\n\nSubtotal: ${formatPrice(subtotal)}`
-  )}`;
-
   return (
     <>
       {/* Backdrop */}
