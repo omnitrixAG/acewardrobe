@@ -46,12 +46,14 @@ const Shop: FC = () => {
     fetchProducts();
   }, []);
 
-  const filtered = activeCategory === "All"
-    ? products
-    : products.filter((p) =>
-        p.name.toLowerCase().includes(activeCategory.toLowerCase()) ||
-        (p.description?.toLowerCase().includes(activeCategory.toLowerCase()))
-      );
+  const filtered = filterParam === "new"
+    ? products.filter((p) => p.is_new)
+    : activeCategory === "All"
+      ? products
+      : products.filter((p) =>
+          p.name.toLowerCase().includes(activeCategory.toLowerCase()) ||
+          (p.description?.toLowerCase().includes(activeCategory.toLowerCase()))
+        );
 
   return (
     <div className="min-h-screen bg-background">
