@@ -123,6 +123,8 @@ const ProductDetail: FC = () => {
                 src={product.images?.[0] || "/placeholder.svg"}
                 alt={product.name}
                 className="w-full h-full object-cover"
+                style={{ fontSize: 0, color: "transparent" }}
+                onError={(e) => { (e.target as HTMLImageElement).src = "/placeholder.svg"; }}
               />
             </div>
 
