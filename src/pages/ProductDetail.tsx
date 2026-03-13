@@ -25,10 +25,11 @@ const ProductDetail: FC = () => {
         .select("*")
         .eq("slug", slug ?? "")
         .maybeSingle();
-      setProduct(data);
-      if (data) {
-        if (data.sizes?.length) setSelectedSize(data.sizes[0]);
-        if (data.colors?.length) setSelectedColor(data.colors[0]);
+      const typedData = data as Product | null;
+      setProduct(typedData);
+      if (typedData) {
+        if (typedData.sizes?.length) setSelectedSize(typedData.sizes[0]);
+        if (typedData.colors?.length) setSelectedColor(typedData.colors[0]);
       }
       setLoading(false);
     };
