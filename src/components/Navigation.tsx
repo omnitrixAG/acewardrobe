@@ -22,6 +22,7 @@ const navLinks = [
 
 export const Navigation: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { itemCount, setIsOpen: setCartOpen } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
