@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 import heroModel from "@/assets/hero-model.png";
-import aceLogo from "@/assets/ace-wardrobe-logo.png";
+import spadeLogo from "@/assets/red-spade-transparent.png";
 
 const scrollToSection = (sectionId: string, offset: number = 64) => {
   const element = document.getElementById(sectionId);
