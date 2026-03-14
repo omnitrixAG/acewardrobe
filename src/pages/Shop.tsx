@@ -226,7 +226,7 @@ const Shop: FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchParams] = useSearchParams();
-  const { addToCart } = useCart();
+  
   const isMobile = useIsMobile();
 
   const categoryParam = searchParams.get("category");
