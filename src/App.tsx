@@ -22,10 +22,12 @@ const App = () => (
     <TooltipProvider>
       <BrowserRouter>
         <CurrencyProvider>
+        <AuthProvider>
         <CartProvider>
           <Toaster />
           <Sonner />
           <CartDrawer />
+          <AuthModal />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/shop" element={<Shop />} />
