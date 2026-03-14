@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { useCart } from "@/context/CartContext";
+
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Input } from "@/components/ui/input";
 import {
