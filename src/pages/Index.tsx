@@ -14,6 +14,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <div className="pt-[104px]" />
       <HeroSection />
       <ShopByCategorySection />
       <PromoBanner />
