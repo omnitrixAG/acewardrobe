@@ -46,7 +46,7 @@ const OrderConfirmation: FC = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navigation />
-        <main className="pt-16">
+        <main className="pt-[104px]">
           <div className="max-w-[600px] mx-auto px-5 md:px-10 py-20 text-center">
             <h1 className="font-display text-2xl font-bold text-foreground mb-4">Order not found</h1>
             <p className="text-muted-foreground mb-6">We couldn't find this order. Please check your order ID.</p>
