@@ -42,30 +42,43 @@ export const HeroSection: FC = () => {
           />
         </div>
 
-        {/* Left content — Ace logo + tagline, contained within yellow half */}
+        {/* Logo — centered in yellow half */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-          className="absolute left-0 z-20 flex flex-col items-start justify-end px-12 lg:px-16 pb-16 overflow-hidden"
-          style={{ top: 0, bottom: 0, width: "50%" }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          className="absolute z-20 flex items-center justify-center overflow-hidden"
+          style={{ top: 0, bottom: 0, left: 0, width: "50%" }}
         >
           <img
             src={aceLogo}
             alt="Ace Wardrobe"
-            className="w-[80%] max-w-[500px] object-contain mb-6"
+            className="w-[60%] max-w-[360px] object-contain"
           />
-          <p className="text-sm leading-relaxed text-foreground/70 font-body">
-            Premium menswear for the modern gentleman.
-            <br />
-            Classic tailoring meets contemporary style.
-          </p>
-          <button
-            onClick={() => scrollToSection("packages")}
-            className="mt-5 text-sm font-semibold uppercase tracking-wider underline underline-offset-4 text-foreground hover:text-foreground/80 transition-colors"
-          >
-            Shop Now
-          </button>
+        </motion.div>
+
+        {/* Text block — bottom-left of yellow area */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
+          className="absolute left-0 bottom-0 z-20 flex flex-col"
+          style={{ width: "50%", paddingLeft: "48px", paddingBottom: "64px" }}
+        >
+          <div className="max-w-[320px]">
+            <p className="text-base leading-relaxed text-foreground/70 font-body">
+              Premium menswear for the modern gentleman.
+            </p>
+            <p className="text-base leading-relaxed text-foreground/70 font-body">
+              Classic tailoring meets contemporary style.
+            </p>
+            <button
+              onClick={() => scrollToSection("packages")}
+              className="mt-6 text-sm font-medium uppercase tracking-wider underline underline-offset-4 text-foreground hover:text-foreground/80 transition-colors"
+            >
+              Shop Now
+            </button>
+          </div>
         </motion.div>
 
         {/* Right headline — capitalized, professional */}

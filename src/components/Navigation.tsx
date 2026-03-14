@@ -11,7 +11,7 @@ import {
   Camera,
 } from "lucide-react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-import { SpadeIcon } from "./icons/SpadeIcon";
+import aceLogo from "@/assets/ace-wardrobe-logo.png";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import { useCurrency } from "@/context/CurrencyContext";
@@ -209,7 +209,7 @@ export const Navigation: FC = () => {
               onClick={handleLogoClick}
               className="flex items-center gap-2 flex-shrink-0"
             >
-              <SpadeIcon size={28} showLetters={false} />
+              <img src={aceLogo} alt="Ace Wardrobe" className="h-7 w-auto object-contain" />
               <span className="font-display text-lg font-bold tracking-tight text-foreground hidden sm:inline">
                 ACE WARDROBE
               </span>
@@ -433,7 +433,7 @@ export const Navigation: FC = () => {
         <div className="fixed inset-0 z-[60] bg-background flex flex-col overflow-y-auto">
           <div className="h-16 flex items-center justify-between px-5 flex-shrink-0 border-b border-border">
             <a href="/" onClick={handleLogoClick} className="flex items-center gap-2">
-              <SpadeIcon size={28} showLetters={false} />
+              <img src={aceLogo} alt="Ace Wardrobe" className="h-7 w-auto object-contain" />
               <span className="font-display text-lg font-bold tracking-tight text-foreground">
                 ACE WARDROBE
               </span>
