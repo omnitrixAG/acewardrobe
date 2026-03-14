@@ -47,14 +47,14 @@ export const HeroSection: FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-          className="absolute left-12 lg:left-16 bottom-24 lg:bottom-32 z-20 max-w-[calc(50vw-120px)]"
+          className="absolute left-0 top-0 bottom-0 w-1/2 z-20 flex flex-col items-center justify-end pb-24 lg:pb-32"
         >
           <img
             src={aceLogo}
             alt="Ace Wardrobe"
-            className="h-20 lg:h-24 w-auto object-contain mb-6"
+            className="w-48 lg:w-64 xl:w-72 object-contain mb-8"
           />
-          <p className="text-sm leading-relaxed text-foreground/70 font-body">
+          <p className="text-sm leading-relaxed text-foreground/70 font-body text-center max-w-[280px]">
             Premium menswear for the modern gentleman.
             <br />
             Classic tailoring meets contemporary style.
