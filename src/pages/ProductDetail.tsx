@@ -166,7 +166,7 @@ const ProductDetail: FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-16">
+      <main className="pt-[104px]">
         <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-8 md:py-14">
           {/* Back link */}
           <Link

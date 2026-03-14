@@ -198,7 +198,7 @@ const Checkout: FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-16">
+      <main className="pt-[104px]">
         <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-10 md:py-16">
           <Link to="/shop" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 text-sm transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Shop
