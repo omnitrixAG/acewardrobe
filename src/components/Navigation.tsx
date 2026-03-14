@@ -13,6 +13,7 @@ import {
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { SpadeIcon } from "./icons/SpadeIcon";
 import { useCart } from "@/context/CartContext";
+import { useWishlist } from "@/context/WishlistContext";
 import { useCurrency } from "@/context/CurrencyContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { CurrencyModal } from "./CurrencyModal";
@@ -84,6 +85,7 @@ export const Navigation: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { itemCount, setIsOpen: setCartOpen } = useCart();
   const { selected: currency } = useCurrency();
+  const { itemCount: wishlistCount } = useWishlist();
   const isMobile = useIsMobile();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMega, setActiveMega] = useState<"men" | "women" | null>(null);
@@ -330,6 +332,11 @@ export const Navigation: FC = () => {
                 aria-label="Wishlist"
               >
                 <Heart size={20} />
+                {wishlistCount > 0 && (
+                  <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center">
+                    {wishlistCount > 99 ? "99+" : wishlistCount}
+                  </span>
+                )}
               </Link>
 
               {/* Cart */}
