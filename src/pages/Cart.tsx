@@ -194,7 +194,7 @@ const Cart: FC = () => {
                       <span className="text-muted-foreground">Shipping</span>
                       <span className="font-medium text-foreground">
                         {shipping === 0 ? (
-                          <span className="text-green-600">FREE</span>
+                          <span className="text-primary font-semibold">FREE</span>
                         ) : (
                           formatPrice(shipping)
                         )}
