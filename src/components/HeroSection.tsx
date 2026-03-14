@@ -52,7 +52,7 @@ export const HeroSection: FC = () => {
           <img
             src={aceLogo}
             alt="Ace Wardrobe"
-            className="h-20 lg:h-24 w-auto object-contain mb-6"
+            className="h-44 lg:h-56 w-auto object-contain mb-6"
           />
           <p className="text-sm leading-relaxed text-foreground/70 font-body">
             Premium menswear for the modern gentleman.
@@ -102,7 +102,7 @@ export const HeroSection: FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             src={aceLogo}
             alt="Ace Wardrobe"
-            className="h-16 w-auto object-contain mb-4"
+            className="h-36 w-auto object-contain mb-4"
           />
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
