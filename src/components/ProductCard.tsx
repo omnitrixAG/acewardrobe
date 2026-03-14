@@ -77,7 +77,7 @@ const ProductCard: FC<{ product: Product }> = ({ product }) => {
         {/* Wishlist heart */}
         <button
           onClick={handleWishlist}
-          className="absolute top-2 right-2 w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-background"
+          className={`absolute top-2 right-2 w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center transition-opacity duration-200 hover:bg-background ${wishlisted ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
         >
           <Heart
             className={`h-4 w-4 transition-colors ${wishlisted ? "fill-destructive text-destructive" : "text-foreground"}`}
