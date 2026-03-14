@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 import heroModel from "@/assets/hero-model.png";
-import { SpadeIcon } from "@/components/icons/SpadeIcon";
+import aceLogo from "@/assets/ace-wardrobe-logo.png";
 
 const scrollToSection = (sectionId: string, offset: number = 64) => {
   const element = document.getElementById(sectionId);
@@ -42,41 +42,30 @@ export const HeroSection: FC = () => {
           />
         </div>
 
-        {/* Centered logo inside yellow half only */}
+        {/* Left content — Ace logo + tagline, contained within yellow half */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-          className="absolute left-0 top-0 z-20 h-full w-1/2 overflow-hidden flex items-center justify-center px-10 lg:px-14"
+          className="absolute left-0 z-20 flex flex-col items-start justify-end px-12 lg:px-16 pb-16 overflow-hidden"
+          style={{ top: 0, bottom: 0, width: "50%" }}
         >
-          <SpadeIcon
-            showLetters
-            size={420}
-            className="max-h-[52vh] max-w-[72%]"
+          <img
+            src={aceLogo}
+            alt="Ace Wardrobe"
+            className="w-[80%] max-w-[500px] object-contain mb-6"
           />
-        </motion.div>
-
-        {/* Bottom-left text block inside yellow half */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
-          className="absolute left-0 bottom-0 z-20 w-1/2 pl-12 pb-16"
-        >
-          <div className="max-w-80">
-            <p className="text-[16px] font-normal leading-6 text-foreground">
-              Premium menswear for the modern gentleman.
-            </p>
-            <p className="text-[16px] font-normal leading-6 text-foreground">
-              Classic tailoring meets contemporary style.
-            </p>
-            <button
-              onClick={() => scrollToSection("packages")}
-              className="mt-6 text-[14px] font-medium uppercase underline underline-offset-4 tracking-[0.08em] text-foreground hover:text-foreground/80 transition-colors"
-            >
-              Shop Now
-            </button>
-          </div>
+          <p className="text-sm leading-relaxed text-foreground/70 font-body">
+            Premium menswear for the modern gentleman.
+            <br />
+            Classic tailoring meets contemporary style.
+          </p>
+          <button
+            onClick={() => scrollToSection("packages")}
+            className="mt-5 text-sm font-semibold uppercase tracking-wider underline underline-offset-4 text-foreground hover:text-foreground/80 transition-colors"
+          >
+            Shop Now
+          </button>
         </motion.div>
 
         {/* Right headline — capitalized, professional */}
@@ -108,14 +97,14 @@ export const HeroSection: FC = () => {
           className="relative flex flex-col items-center justify-end pt-20 pb-0 px-6 origin-center"
           style={{ background: "#eab308" }}
         >
-          <motion.div
+          <motion.img
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mb-4"
-          >
-            <SpadeIcon showLetters size={120} />
-          </motion.div>
+            src={aceLogo}
+            alt="Ace Wardrobe"
+            className="h-16 w-auto object-contain mb-4"
+          />
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
