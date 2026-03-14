@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 import heroModel from "@/assets/hero-model.png";
-import aceLogo from "@/assets/ace-wardrobe-logo.png";
+import spadeLogo from "@/assets/ace-spade-transparent.png";
 
 const scrollToSection = (sectionId: string, offset: number = 64) => {
   const element = document.getElementById(sectionId);
@@ -51,9 +51,9 @@ export const HeroSection: FC = () => {
           style={{ top: 0, bottom: 0, left: 0, width: "50%" }}
         >
           <img
-            src={aceLogo}
+            src={spadeLogo}
             alt="Ace Wardrobe"
-            className="w-[60%] max-w-[360px] object-contain"
+            className="w-[200px] lg:w-[240px] xl:w-[280px] object-contain drop-shadow-lg"
           />
         </motion.div>
 
@@ -114,7 +114,7 @@ export const HeroSection: FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            src={aceLogo}
+            src={spadeLogo}
             alt="Ace Wardrobe"
             className="h-16 w-auto object-contain mb-4"
           />
