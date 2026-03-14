@@ -12,7 +12,7 @@ const scrollToSection = (sectionId: string, offset: number = 64) => {
 
 export const HeroSection: FC = () => {
   return (
-    <section id="hero" className="relative w-full min-h-screen overflow-hidden">
+    <section id="hero" className="relative w-full min-h-screen overflow-hidden pt-[104px]">
       {/* ── DESKTOP (md+): side-by-side split ── */}
       <div className="hidden md:block h-screen min-h-[600px] relative">
         {/* 50/50 split background with zoom-in */}

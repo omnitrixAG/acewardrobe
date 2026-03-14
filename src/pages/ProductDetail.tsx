@@ -99,7 +99,7 @@ const ProductDetail: FC = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navigation />
-        <main className="pt-16">
+          <main className="pt-[104px]">
           <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-10 md:py-16">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12">
               <div className="aspect-[3/4] rounded-lg bg-muted animate-pulse" />
@@ -119,7 +119,7 @@ const ProductDetail: FC = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navigation />
-        <main className="pt-16">
+          <main className="pt-[104px]">
           <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-20 text-center">
             <h1 className="font-display text-2xl font-bold text-foreground mb-4">Product not found</h1>
             <p className="text-muted-foreground mb-6">The product you're looking for doesn't exist or has been removed.</p>
@@ -138,7 +138,7 @@ const ProductDetail: FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-16">
+      <main className="pt-[104px]">
         <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-8 md:py-14">
           {/* Back */}
           <Link to="/shop" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-6 text-sm transition-colors">
