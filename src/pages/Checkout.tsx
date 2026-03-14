@@ -168,7 +168,7 @@ const Checkout: FC = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navigation />
-        <main className="pt-16">
+        <main className="pt-[104px]">
           <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-20 text-center">
             <h1 className="font-display text-2xl font-bold text-foreground mb-4">Your cart is empty</h1>
             <p className="text-muted-foreground mb-6">Add some items before checking out.</p>
