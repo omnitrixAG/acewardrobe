@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
 import { ShopByCategorySection } from "@/components/ShopByCategorySection";
-
+import { PromoBanner } from "@/components/PromoBanner";
 import { PackagesSection } from "@/components/PackagesSection";
 import { PartnershipBanner } from "@/components/PartnershipBanner";
 import { TrendingSection } from "@/components/TrendingSection";
