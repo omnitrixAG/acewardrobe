@@ -214,12 +214,17 @@ const ProductDetail: FC = () => {
                       <button
                         key={color}
                         onClick={() => setSelectedColor(color)}
-                        className={`w-9 h-9 rounded-full border-2 transition-all ${
+                        className={`w-9 h-9 rounded-full transition-all ${
                           selectedColor === color
-                            ? "border-foreground scale-110"
-                            : "border-border hover:border-foreground/50"
+                            ? "ring-2 ring-offset-2 ring-foreground scale-110"
+                            : "hover:scale-105"
                         }`}
-                        style={{ backgroundColor: color }}
+                        style={{
+                          backgroundColor: getColorHex(color),
+                          border: getColorHex(color).toLowerCase() === "#ffffff" || getColorHex(color).toLowerCase() === "#fffdd0"
+                            ? "1px solid hsl(var(--border))"
+                            : "none",
+                        }}
                         title={color}
                       />
                     ))}
