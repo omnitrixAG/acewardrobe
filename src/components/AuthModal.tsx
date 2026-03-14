@@ -80,7 +80,7 @@ export const AuthModal: FC = () => {
       const result = signInSchema.safeParse({ email, password });
       if (!result.success) {
         const errs: Record<string, string> = {};
-        result.error.errors.forEach((err) => {
+        result.error.issues.forEach((err) => {
           const key = err.path[0] as string;
           if (!errs[key]) errs[key] = err.message;
         });
