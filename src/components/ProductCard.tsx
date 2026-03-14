@@ -29,7 +29,8 @@ const QUICK_SIZES = ["S", "M", "L", "XL"];
 
 const ProductCard: FC<{ product: Product }> = ({ product }) => {
   const { addToCart } = useCart();
-  const [wishlisted, setWishlisted] = useState(false);
+  const { isInWishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const wishlisted = isInWishlist(product.id);
 
   const hasSale = product.compare_at_price != null && product.compare_at_price > product.price;
   const visibleColors = product.colors?.slice(0, 4) || [];
