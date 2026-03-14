@@ -13,6 +13,7 @@ import {
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { SpadeIcon } from "./icons/SpadeIcon";
 import { useCart } from "@/context/CartContext";
+import { useWishlist } from "@/context/WishlistContext";
 import { useCurrency } from "@/context/CurrencyContext";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { CurrencyModal } from "./CurrencyModal";
