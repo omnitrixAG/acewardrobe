@@ -1,6 +1,7 @@
 import { FC, useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
+import { addRecentlyViewed } from "@/lib/recently-viewed";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
@@ -81,6 +82,7 @@ const ProductDetail: FC = () => {
       const typedData = data as Product | null;
       setProduct(typedData);
       if (typedData) {
+        addRecentlyViewed(typedData.id);
         if (typedData.sizes?.length) setSelectedSize(typedData.sizes[0]);
         if (typedData.colors?.length) setSelectedColor(typedData.colors[0]);
         // Fetch related
