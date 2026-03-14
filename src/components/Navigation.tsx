@@ -85,6 +85,7 @@ export const Navigation: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { itemCount, setIsOpen: setCartOpen } = useCart();
   const { selected: currency } = useCurrency();
+  const { itemCount: wishlistCount } = useWishlist();
   const isMobile = useIsMobile();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMega, setActiveMega] = useState<"men" | "women" | null>(null);
