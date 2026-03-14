@@ -31,7 +31,7 @@ const OrderConfirmation: FC = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navigation />
-        <main className="pt-16">
+        <main className="pt-[104px]">
           <div className="max-w-[600px] mx-auto px-5 md:px-10 py-20 text-center">
             <div className="w-16 h-16 rounded-full bg-muted animate-pulse mx-auto mb-6" />
             <div className="h-8 bg-muted rounded w-3/4 mx-auto animate-pulse mb-4" />
