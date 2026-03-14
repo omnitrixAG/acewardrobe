@@ -82,6 +82,7 @@ const ProductDetail: FC = () => {
       const typedData = data as Product | null;
       setProduct(typedData);
       if (typedData) {
+        addRecentlyViewed(typedData.id);
         if (typedData.sizes?.length) setSelectedSize(typedData.sizes[0]);
         if (typedData.colors?.length) setSelectedColor(typedData.colors[0]);
         // Fetch related
