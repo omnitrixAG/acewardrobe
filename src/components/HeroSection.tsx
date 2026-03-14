@@ -114,7 +114,7 @@ export const HeroSection: FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            src={aceLogo}
+            src={spadeLogo}
             alt="Ace Wardrobe"
             className="h-16 w-auto object-contain mb-4"
           />
