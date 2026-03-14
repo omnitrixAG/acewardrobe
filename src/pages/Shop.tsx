@@ -525,38 +525,7 @@ const Shop: FC = () => {
               ) : (
                 <div className={`grid gap-4 ${isMobile ? "grid-cols-2" : gridCols === 3 ? "grid-cols-3" : "grid-cols-4"}`}>
                   {filtered.map((product) => (
-                    <div key={product.id} className="group">
-                      <Link to={`/product/${product.slug}`}>
-                        <div className="aspect-[3/4] rounded-lg overflow-hidden bg-secondary">
-                          <img
-                            src={product.images?.[0] || "/placeholder.svg"}
-                            alt={product.name}
-                            loading="lazy"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            style={{ fontSize: 0, color: "transparent" }}
-                          />
-                        </div>
-                      </Link>
-                      <div className="pt-3">
-                        <Link to={`/product/${product.slug}`}>
-                          <p className="text-sm font-medium text-foreground line-clamp-2">{product.name}</p>
-                        </Link>
-                        <p className="text-base font-bold text-foreground mt-1">{formatPrice(product.price)}</p>
-                        <button
-                          onClick={() =>
-                            addToCart({
-                              product,
-                              quantity: 1,
-                              selectedSize: product.sizes?.[0] || "",
-                              selectedColor: product.colors?.[0] || "",
-                            })
-                          }
-                          className="mt-3 block w-full text-center py-2 rounded-lg text-xs font-semibold transition-colors bg-primary text-primary-foreground hover:opacity-90"
-                        >
-                          Add to Cart
-                        </button>
-                      </div>
-                    </div>
+                    <ProductCard key={product.id} product={product} />
                   ))}
                 </div>
               )}
