@@ -7,6 +7,32 @@ import type { Product } from "@/types/database";
 import { Minus, Plus, ArrowLeft } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
+const colorMap: Record<string, string> = {
+  navy: "#1e3a5f",
+  black: "#000000",
+  cream: "#fffdd0",
+  beige: "#f5f5dc",
+  white: "#ffffff",
+  brown: "#8b4513",
+  gray: "#808080",
+  grey: "#808080",
+  gold: "#ffd700",
+  khaki: "#c3b091",
+  red: "#dc2626",
+  blue: "#2563eb",
+  green: "#16a34a",
+  pink: "#ec4899",
+  orange: "#f97316",
+  purple: "#7c3aed",
+  yellow: "#eab308",
+  maroon: "#800000",
+  tan: "#d2b48c",
+  charcoal: "#36454f",
+};
+
+const getColorHex = (name: string) =>
+  colorMap[name.toLowerCase()] || name;
+
 const formatPrice = (price: number) =>
   "₦" + price.toLocaleString("en-NG");
 
