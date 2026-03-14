@@ -66,7 +66,7 @@ const OrderConfirmation: FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-16">
+      <main className="pt-[104px]">
         <div className="max-w-[600px] mx-auto px-5 md:px-10 py-16 md:py-24">
           {/* Success header */}
           <div className="text-center mb-10">
