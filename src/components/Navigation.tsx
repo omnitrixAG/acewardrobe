@@ -11,7 +11,7 @@ import {
   Camera,
 } from "lucide-react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-import { SpadeIcon } from "./icons/SpadeIcon";
+import aceLogo from "@/assets/ace-wardrobe-logo.png";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import { useCurrency } from "@/context/CurrencyContext";
