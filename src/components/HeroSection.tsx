@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 import heroModel from "@/assets/hero-model.png";
-import aceLogo from "@/assets/ace-logo.jpg";
+import aceLogo from "@/assets/ace-wardrobe-logo.png";
 
 const scrollToSection = (sectionId: string, offset: number = 64) => {
   const element = document.getElementById(sectionId);
@@ -47,12 +47,14 @@ export const HeroSection: FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-          className="absolute left-12 lg:left-16 bottom-24 lg:bottom-32 z-20 max-w-[calc(50vw-120px)]"
+          className="absolute left-12 lg:left-16 z-20 flex flex-col justify-end"
+          style={{ top: "40%", bottom: "6rem" }}
         >
           <img
             src={aceLogo}
             alt="Ace Wardrobe"
-            className="h-20 lg:h-24 w-auto object-contain mb-6"
+            className="w-auto object-contain mb-6 max-w-[calc(50vw-160px)]"
+            style={{ flex: "1 1 0%", minHeight: 0 }}
           />
           <p className="text-sm leading-relaxed text-foreground/70 font-body">
             Premium menswear for the modern gentleman.
