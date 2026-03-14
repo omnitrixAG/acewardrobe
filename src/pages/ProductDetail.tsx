@@ -99,7 +99,7 @@ const ProductDetail: FC = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navigation />
-        <main className="pt-16">
+          <main className="pt-[104px]">
           <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-10 md:py-16">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12">
               <div className="aspect-[3/4] rounded-lg bg-muted animate-pulse" />
