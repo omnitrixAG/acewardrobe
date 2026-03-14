@@ -1,6 +1,7 @@
 import { FC, useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
+import { addRecentlyViewed } from "@/lib/recently-viewed";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
