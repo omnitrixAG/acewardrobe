@@ -51,9 +51,9 @@ export const HeroSection: FC = () => {
           style={{ top: 0, bottom: 0, left: 0, width: "50%" }}
         >
           <img
-            src={aceLogo}
+            src={spadeLogo}
             alt="Ace Wardrobe"
-            className="w-[60%] max-w-[360px] object-contain"
+            className="w-[45%] max-w-[280px] object-contain"
           />
         </motion.div>
 
