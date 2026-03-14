@@ -168,7 +168,7 @@ const Checkout: FC = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navigation />
-        <main className="pt-[104px]">
+        <main className="pt-16">
           <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-20 text-center">
             <h1 className="font-display text-2xl font-bold text-foreground mb-4">Your cart is empty</h1>
             <p className="text-muted-foreground mb-6">Add some items before checking out.</p>
@@ -198,7 +198,7 @@ const Checkout: FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-[104px]">
+      <main className="pt-16">
         <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-10 md:py-16">
           <Link to="/shop" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 text-sm transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Shop

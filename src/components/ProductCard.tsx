@@ -1,8 +1,7 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import { Heart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import { useWishlist } from "@/context/WishlistContext";
 import type { Product } from "@/types/database";
 
 const formatPrice = (price: number) => "₦" + price.toLocaleString("en-NG");
@@ -29,8 +28,7 @@ const QUICK_SIZES = ["S", "M", "L", "XL"];
 
 const ProductCard: FC<{ product: Product }> = ({ product }) => {
   const { addToCart } = useCart();
-  const { isInWishlist, addToWishlist, removeFromWishlist } = useWishlist();
-  const wishlisted = isInWishlist(product.id);
+  const [wishlisted, setWishlisted] = useState(false);
 
   const hasSale = product.compare_at_price != null && product.compare_at_price > product.price;
   const visibleColors = product.colors?.slice(0, 4) || [];
@@ -50,7 +48,7 @@ const ProductCard: FC<{ product: Product }> = ({ product }) => {
   const handleWishlist = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    wishlisted ? removeFromWishlist(product.id) : addToWishlist(product.id);
+    setWishlisted((prev) => !prev);
   };
 
   return (
@@ -77,7 +75,7 @@ const ProductCard: FC<{ product: Product }> = ({ product }) => {
         {/* Wishlist heart */}
         <button
           onClick={handleWishlist}
-          className={`absolute top-2 right-2 w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center transition-opacity duration-200 hover:bg-background ${wishlisted ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+          className="absolute top-2 right-2 w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-background"
         >
           <Heart
             className={`h-4 w-4 transition-colors ${wishlisted ? "fill-destructive text-destructive" : "text-foreground"}`}
