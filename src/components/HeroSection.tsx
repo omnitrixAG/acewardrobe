@@ -72,10 +72,10 @@ export const HeroSection: FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
-          className="absolute right-12 lg:right-16 z-20 text-right max-w-[calc(50vw-120px)]"
+          className="absolute right-12 lg:right-16 z-20 text-right max-w-[calc(50vw-180px)]"
           style={{ top: "50%", transform: "translateY(-50%)" }}
         >
-          <h1 className="font-display text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.9] tracking-tight text-foreground">
+          <h1 className="font-display text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] tracking-tight text-foreground">
             Dress Like
             <br />
             Royalty.
