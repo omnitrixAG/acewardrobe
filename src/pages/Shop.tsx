@@ -35,6 +35,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Search, SlidersHorizontal, Grid3X3, LayoutGrid, X } from "lucide-react";
+import ProductCard from "@/components/ProductCard";
 import type { Product, Category } from "@/types/database";
 
 const formatPrice = (price: number) => "₦" + price.toLocaleString("en-NG");
