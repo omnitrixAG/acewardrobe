@@ -52,7 +52,7 @@ export const HeroSection: FC = () => {
           <img
             src={aceLogo}
             alt="Ace Wardrobe"
-            className="h-12 lg:h-14 w-auto object-contain mb-6"
+            className="h-20 lg:h-24 w-auto object-contain mb-6"
           />
           <p className="text-sm leading-relaxed text-foreground/70 font-body">
             Premium menswear for the modern gentleman.
