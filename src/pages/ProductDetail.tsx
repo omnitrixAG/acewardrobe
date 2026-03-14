@@ -7,6 +7,32 @@ import type { Product } from "@/types/database";
 import { Minus, Plus, ArrowLeft } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
+const colorMap: Record<string, string> = {
+  navy: "#1e3a5f",
+  black: "#000000",
+  cream: "#fffdd0",
+  beige: "#f5f5dc",
+  white: "#ffffff",
+  brown: "#8b4513",
+  gray: "#808080",
+  grey: "#808080",
+  gold: "#ffd700",
+  khaki: "#c3b091",
+  red: "#dc2626",
+  blue: "#2563eb",
+  green: "#16a34a",
+  pink: "#ec4899",
+  orange: "#f97316",
+  purple: "#7c3aed",
+  yellow: "#eab308",
+  maroon: "#800000",
+  tan: "#d2b48c",
+  charcoal: "#36454f",
+};
+
+const getColorHex = (name: string) =>
+  colorMap[name.toLowerCase()] || name;
+
 const formatPrice = (price: number) =>
   "₦" + price.toLocaleString("en-NG");
 
@@ -188,12 +214,17 @@ const ProductDetail: FC = () => {
                       <button
                         key={color}
                         onClick={() => setSelectedColor(color)}
-                        className={`w-9 h-9 rounded-full border-2 transition-all ${
+                        className={`w-9 h-9 rounded-full transition-all ${
                           selectedColor === color
-                            ? "border-foreground scale-110"
-                            : "border-border hover:border-foreground/50"
+                            ? "ring-2 ring-offset-2 ring-foreground scale-110"
+                            : "hover:scale-105"
                         }`}
-                        style={{ backgroundColor: color }}
+                        style={{
+                          backgroundColor: getColorHex(color),
+                          border: getColorHex(color).toLowerCase() === "#ffffff" || getColorHex(color).toLowerCase() === "#fffdd0"
+                            ? "1px solid hsl(var(--border))"
+                            : "none",
+                        }}
                         title={color}
                       />
                     ))}
