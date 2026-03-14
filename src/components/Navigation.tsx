@@ -433,7 +433,7 @@ export const Navigation: FC = () => {
         <div className="fixed inset-0 z-[60] bg-background flex flex-col overflow-y-auto">
           <div className="h-16 flex items-center justify-between px-5 flex-shrink-0 border-b border-border">
             <a href="/" onClick={handleLogoClick} className="flex items-center gap-2">
-              <SpadeIcon size={28} showLetters={false} />
+              <img src={aceLogo} alt="Ace Wardrobe" className="h-7 w-auto object-contain" />
               <span className="font-display text-lg font-bold tracking-tight text-foreground">
                 ACE WARDROBE
               </span>
