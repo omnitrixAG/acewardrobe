@@ -53,7 +53,7 @@ export const HeroSection: FC = () => {
           <img
             src={spadeLogo}
             alt="Ace Wardrobe"
-            className="w-[45%] max-w-[280px] object-contain"
+            className="w-[200px] lg:w-[240px] xl:w-[280px] object-contain drop-shadow-lg"
           />
         </motion.div>
 
