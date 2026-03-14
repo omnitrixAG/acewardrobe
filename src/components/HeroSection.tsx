@@ -47,13 +47,13 @@ export const HeroSection: FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
-          className="absolute left-0 z-20 flex flex-col items-start justify-end px-12 lg:px-16 pb-16"
-          style={{ top: "0", bottom: "0", right: "50%" }}
+          className="absolute left-0 z-20 flex flex-col items-start justify-end px-12 lg:px-16 pb-16 overflow-hidden"
+          style={{ top: 0, bottom: 0, width: "50%" }}
         >
           <img
             src={aceLogo}
             alt="Ace Wardrobe"
-            className="w-[280px] lg:w-[340px] xl:w-[400px] object-contain mb-6"
+            className="w-[80%] max-w-[500px] object-contain mb-6"
           />
           <p className="text-sm leading-relaxed text-foreground/70 font-body">
             Premium menswear for the modern gentleman.
