@@ -352,7 +352,7 @@ const Shop: FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="pt-16">
+      <main className="pt-[104px]">
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-6 md:py-10">
           {/* Breadcrumbs */}
           <Breadcrumb className="mb-4">
