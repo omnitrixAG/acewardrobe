@@ -50,7 +50,7 @@ const ProductCard: FC<{ product: Product }> = ({ product }) => {
   const handleWishlist = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setWishlisted((prev) => !prev);
+    wishlisted ? removeFromWishlist(product.id) : addToWishlist(product.id);
   };
 
   return (
